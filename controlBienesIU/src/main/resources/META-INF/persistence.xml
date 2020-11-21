@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="th_controlBienesIU_war_thPU" transaction-type="RESOURCE_LOCAL">
+    <class>entidades.Tecnico</class>
+    <class>entidades.Tipomantenimiento</class>
+    <class>entidades.Mantenimiento</class>
+    <class>entidades.Nivelmantenimsw</class>
+    <class>entidades.Mantenimhardware</class>
+    <class>entidades.Nivelmantenimhw</class>
+    <class>entgfd.Mantenimhardware</class>
+    <class>entgfd.Tecnico</class>
+    <class>entgfd.Tipomantenimiento</class>
+    <class>entgfd.Mantenimiento</class>
+    <class>hhhh.Mantenimhardware</class>
+    <class>hhhh.Mantenimiento</class>
+    <class>hhhh.Tipomantenimiento</class>
+    <class>hhhh.Tecnico</class>
+    <class>entidades.Motivoinforme_1</class>
+    <class>entidades.Catalogo</class>
+    <class>fffwfwe.Ubicacion</class>
+    <class>fffwfwe.Tipoingreso</class>
+    <class>fffwfwe.Dependencia</class>
+    <class>fffwfwe.Catalogo</class>
+    <class>entidades.Tecnodisco</class>
+    <class>entidades.Temp</class>
+    <class>entidades.Csv</class>
+    <class>entidades.Baja_1</class>
+    <class>entidades.Tecnodisco_1</class>
+    <class>entidades.Bien</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/bienesdtic"/>
+      <property name="javax.persistence.jdbc.user" value="postgres"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="postgres"/>
+    </properties>
+  </persistence-unit>
+</persistence>

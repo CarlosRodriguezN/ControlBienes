@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1230629d-8e5f-4c22-ab35-5b96ed10863d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ubicacion" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="depend" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select b.bn_cod_bien, b.bn_nombre, b.bn_serie, b.bn_modelo, b.bn_marca, b.bn_color, b.bn_precio, b.bn_estado_bien, b.bn_fecha_compra, b.bn_tiempo_garantia, b.bn_fecha_garantia, b.bn_proveedor  from controlbien.bien b inner join controlbien.baja ba on b.ba_id = ba.ba_id inner join controlbien.dependencia d on b.dp_id = d.dp_id inner join controlbien.ubicacion u on b.ub_id = u.ub_id inner join controlbien.traspaso tra on tra.bn_cod_bien = b.bn_cod_bien where (u.ub_descripcion = $P{ubicacion} and d.dp_descripcion = $P{depend})]]>
+	</queryString>
+	<field name="bn_cod_bien" class="java.lang.String"/>
+	<field name="bn_nombre" class="java.lang.String"/>
+	<field name="bn_serie" class="java.lang.String"/>
+	<field name="bn_modelo" class="java.lang.String"/>
+	<field name="bn_marca" class="java.lang.String"/>
+	<field name="bn_color" class="java.lang.String"/>
+	<field name="bn_precio" class="java.lang.Float"/>
+	<field name="bn_estado_bien" class="java.lang.String"/>
+	<field name="bn_fecha_compra" class="java.sql.Date"/>
+	<field name="bn_tiempo_garantia" class="java.lang.Integer"/>
+	<field name="bn_fecha_garantia" class="java.sql.Date"/>
+	<field name="bn_proveedor" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="119" splitType="Stretch">
+			<staticText>
+				<reportElement x="259" y="24" width="323" height="20" uuid="819681be-5685-42c9-8758-5e05e2096bb2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESCUELA SUPERIOR POLITECNICA DE CHIMBORAZO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="44" width="300" height="20" uuid="8ac26a3e-7d5b-4dc9-bbf7-20abcca63ca3"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIDAD DE GESTION DE SOPORTE Y MANTENIMIENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="78" width="277" height="20" uuid="633a3011-548f-49f2-a26c-1b1d4164c229"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Bienes por Ubicacion y Dependencia]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="656" y="98" width="136" height="20" uuid="2ad129ea-fe63-4bc1-8ad8-c9120c709ded"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="24" y="24" width="118" height="64" uuid="23773034-414a-4e0f-8aa4-001a0a5a0e83"/>
+				<imageExpression><![CDATA["C:\\Users\\Alex\\Desktop\\proyecto6\\PracticasControlBienesAD_IU\\controlBienesIU\\src\\main\\webapp\\assets\\img\\espoch.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="656" y="34" width="120" height="54" uuid="e67ba388-82c0-4f6f-97f2-f6eb9c016770"/>
+				<imageExpression><![CDATA["C:\\Users\\Alex\\Desktop\\proyecto6\\PracticasControlBienesAD_IU\\controlBienesIU\\src\\main\\webapp\\assets\\img\\dtic.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="142" y="98" width="77" height="20" uuid="736639b3-4766-49e5-ac57-b388f5d08cde"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ubicacion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="98" width="89" height="20" uuid="36490d81-df3f-4fbc-8999-9bb6c0285fee"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dependencia:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="499" y="98" width="100" height="20" uuid="322e9dca-5ce8-4c53-abb8-860baae2e6d8"/>
+				<textFieldExpression><![CDATA[$P{depend}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="99" width="100" height="20" uuid="068e3491-82cf-4ec3-8299-27bc38753551"/>
+				<textFieldExpression><![CDATA[$P{ubicacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="14" y="2" width="50" height="20" uuid="c44f78a3-2869-45be-800f-d5c6272a43d3"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cod. Bien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="64" y="2" width="183" height="20" uuid="74a8a2d0-1bff-4231-a921-fe833738bc39"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="247" y="2" width="48" height="20" uuid="98663f3b-291b-435a-a7a2-0e88af5f9303"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Serie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="2" width="60" height="20" uuid="2b80978e-baa7-4475-b34c-1da00567e181"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="2" width="45" height="20" uuid="041a3e15-db19-48ef-93ac-e5e5d4f76685"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Color]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="2" width="36" height="20" uuid="b5c48023-d8e7-48e8-9cf4-4e94f72bb0ef"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="498" y="2" width="50" height="20" uuid="2fb98b2a-e5ba-48f7-8b40-80d41ff70038"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[F. Compra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="548" y="2" width="58" height="20" uuid="db38a83f-6f69-4f65-9b82-3982e86aaada"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[T. Grarantia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="606" y="2" width="54" height="20" uuid="ac250a6e-fb7b-43be-a960-e83c3f562bf7"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[F. Garantia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="660" y="2" width="55" height="20" uuid="33e6e4cd-b0a0-4d93-aa19-98c0c2599cd2"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="436" y="2" width="62" height="20" uuid="6222329a-b82f-4374-a567-ba895253af23"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Marca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="715" y="2" width="61" height="20" uuid="00ad02d9-c04a-46c6-8726-92b4cc3c4b85"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="14" y="0" width="50" height="20" uuid="6f30751e-8841-404a-9c33-1b76ca9a6e35"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bn_cod_bien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="247" y="0" width="48" height="20" uuid="5a6e2e11-55c8-4a10-a13e-1983b521bd21"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bn_serie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="64" y="0" width="183" height="20" uuid="d3ea920a-9ec7-48d9-925b-5ed899b64031"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bn_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="0" width="45" height="20" uuid="3ad802c2-1670-4fd8-869f-86bed020fd2d"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bn_color}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="499" y="0" width="50" height="20" uuid="1e63bb6a-c2da-4276-b60a-3bfd78e69b9c"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bn_fecha_compra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="548" y="0" width="58" height="20" uuid="02729043-23e8-46e5-8fb4-969707f41c11"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bn_tiempo_garantia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="605" y="0" width="55" height="20" uuid="39882d1d-1a8b-4403-a674-0069d9bf7809"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bn_fecha_garantia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="660" y="0" width="55" height="20" uuid="8aa7a7ef-7a43-46f3-9cab-1cea76ad421d"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bn_proveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="295" y="0" width="60" height="20" uuid="8a4e45dc-bba4-4539-8922-3eb709710c99"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bn_modelo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="36" height="20" uuid="4156cd74-f443-407b-ab21-bbd903aa2ad6"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bn_precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="0" width="64" height="20" uuid="ae441c76-67bc-41d0-bfbb-4f6c24cadc29"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bn_marca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="715" y="0" width="61" height="20" uuid="d6efccf8-8ceb-4229-b9aa-6f08d2348710"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bn_estado_bien}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="40" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="672" y="14" width="80" height="20" uuid="c6b42d30-fe53-4e69-9002-a426abbf5824"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="752" y="14" width="40" height="20" uuid="a58ec094-631e-44b7-87d3-8f4123d9101b"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="27" splitType="Stretch"/>
+	</summary>
+</jasperReport>

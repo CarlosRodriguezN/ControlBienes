@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="36586e6a-a437-444c-8485-4c6c2baf4a04">
+	<property name="ireport.zoom" value="1.4641000000000028"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="92"/>
+	<parameter name="fechai" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaf" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="trevisado" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="trevisadocargo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tgenerado" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tgeneradocargo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     mantenimientos."mant_id" AS mantenimientos_mant_id,
+     mantenimientos."mant_num_orden" AS mantenimientos_mant_num_orden,
+     mantenimientos."mant_estado" AS mantenimientos_mant_estado,
+     mantenimientos."mant_fecha_ingreso" AS mantenimientos_mant_fecha_ingreso,
+     mantenimientos."mant_fecha_revision" AS mantenimientos_mant_fecha_revision,
+     mantenimientos."mant_fecha_entrega" AS mantenimientos_mant_fecha_entrega,
+     mantenimientos."mant_desc_problema" AS mantenimientos_mant_desc_problema,
+     mantenimientos."mant_desc_solucion" AS mantenimientos_mant_desc_solucion,
+     mantenimientos."mant_tecn_ingreso" AS mantenimientos_mant_tecn_ingreso,
+     mantenimientos."mant_tecn_revision" AS mantenimientos_mant_tecn_revision,
+     mantenimientos."mant_tecn_entrega" AS mantenimientos_mant_tecn_entrega,
+     mantenimientos."bien_id" AS mantenimientos_bien_id,
+     mantenimientos."nivelm_id" AS mantenimientos_nivelm_id,
+     mantenimientos."tipom_id" AS mantenimientos_tipom_id,
+     mantenimientos."mant_responsable_recibo" AS mantenimientos_mant_responsable_recibo,
+     bien."bn_cod_bien" AS bien_bn_cod_bien,
+     bien."bn_nombre" AS bien_bn_nombre,
+     bien."bn_serie" AS bien_bn_serie,
+     ubicacion."ub_id" AS ubicacion_ub_id,
+     ubicacion."ub_descripcion" AS ubicacion_ub_descripcion,
+     ubicacion."ub_estado" AS ubicacion_ub_estado,
+     nivelmantenimiento."nivel_id" AS nivelmantenimiento_nivel_id,
+     nivelmantenimiento."nivel_descripcion" AS nivelmantenimiento_nivel_descripcion
+FROM
+     "controlbien"."bien" bien INNER JOIN "controlbien"."mantenimientos" mantenimientos ON bien."bn_cod_bien" = mantenimientos."bien_id"
+     INNER JOIN "controlbien"."ubicacion" ubicacion ON bien."ub_id" = ubicacion."ub_id"
+     INNER JOIN "controlbien"."nivelmantenimiento" nivelmantenimiento ON mantenimientos."nivelm_id" = nivelmantenimiento."nivel_id"
+WHERE
+     mantenimientos."mant_fecha_revision" BETWEEN $P{fechai} and $P{fechaf}]]>
+	</queryString>
+	<field name="mantenimientos_mant_id" class="java.lang.Integer"/>
+	<field name="mantenimientos_mant_num_orden" class="java.lang.String"/>
+	<field name="mantenimientos_mant_estado" class="java.lang.Integer"/>
+	<field name="mantenimientos_mant_fecha_ingreso" class="java.sql.Date"/>
+	<field name="mantenimientos_mant_fecha_revision" class="java.sql.Date"/>
+	<field name="mantenimientos_mant_fecha_entrega" class="java.sql.Date"/>
+	<field name="mantenimientos_mant_desc_problema" class="java.lang.String"/>
+	<field name="mantenimientos_mant_desc_solucion" class="java.lang.String"/>
+	<field name="mantenimientos_mant_tecn_ingreso" class="java.lang.String"/>
+	<field name="mantenimientos_mant_tecn_revision" class="java.lang.String"/>
+	<field name="mantenimientos_mant_tecn_entrega" class="java.lang.String"/>
+	<field name="mantenimientos_bien_id" class="java.lang.String"/>
+	<field name="mantenimientos_nivelm_id" class="java.lang.Integer"/>
+	<field name="mantenimientos_tipom_id" class="java.lang.Integer"/>
+	<field name="mantenimientos_mant_responsable_recibo" class="java.lang.String"/>
+	<field name="bien_bn_cod_bien" class="java.lang.String"/>
+	<field name="bien_bn_nombre" class="java.lang.String"/>
+	<field name="bien_bn_serie" class="java.lang.String"/>
+	<field name="ubicacion_ub_id" class="java.lang.Integer"/>
+	<field name="ubicacion_ub_descripcion" class="java.lang.String"/>
+	<field name="ubicacion_ub_estado" class="java.lang.Integer"/>
+	<field name="nivelmantenimiento_nivel_id" class="java.lang.Integer"/>
+	<field name="nivelmantenimiento_nivel_descripcion" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="111" splitType="Stretch">
+			<staticText>
+				<reportElement x="125" y="60" width="323" height="20" uuid="2aadfbcd-9997-405e-8bb6-c680c2477d0a"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[UNIDAD DE GESTION DE SOPORTE Y MANTENIMIENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="115" y="35" width="335" height="25" uuid="08e81c75-d612-4396-aae0-27b64c678b73"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESCUELA SUPERIOR POLITECNICA DE CHIMBORAZO]]></text>
+			</staticText>
+			<image>
+				<reportElement x="30" y="35" width="60" height="57" uuid="b14ffcab-3a87-490b-a1b0-5c41514b74ba"/>
+				<imageExpression><![CDATA["../assets/img/espoch.png"]]></imageExpression>
+			</image>
+			<image scaleImage="RetainShape">
+				<reportElement x="463" y="52" width="89" height="59" uuid="428e75ea-a022-4e55-95b5-2ec141571417"/>
+				<imageExpression><![CDATA["../assets/img/dtic.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="125" y="80" width="311" height="20" uuid="f0ffa7c4-e0b2-4881-bcbe-bfad634d3cf7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[HISTORIAL DE MANTENIMIENTO GENERAL]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="18" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="8" y="0" width="32" height="20" backcolor="#FFFFFF" uuid="4aec2503-3495-4576-be50-026aabb87230"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Orden]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="0" width="55" height="29" backcolor="#FFFFFF" uuid="7ea34c3a-7320-49ce-bed3-be987514863b"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Nombre Bien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="0" width="40" height="29" backcolor="#FFFFFF" uuid="20d923f3-08fc-4e78-9658-c86dd9170b77"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Código Bien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="2" width="53" height="27" backcolor="#FFFFFF" uuid="9a43ed17-c0be-4e8d-be9d-c190e674688f"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Nivel Mant.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="373" y="2" width="47" height="27" backcolor="#FFFFFF" uuid="9471ae66-3af8-469d-8d17-9effc819ad3c"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Fecha Revision]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="2" width="83" height="27" backcolor="#FFFFFF" uuid="6a1b49cd-be07-474e-90a8-6b847ef2db46"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Entregado A]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="509" y="2" width="46" height="28" uuid="1516aeab-6cf2-4f8e-adb0-cc79954a5520"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="9" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Fecha de Entrega]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="148" y="0" width="51" height="29" backcolor="#FFFFFF" uuid="3b3fba99-39db-4c10-93f2-1537e14dcfbb"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Ubicación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="206" y="0" width="106" height="29" backcolor="#FFFFFF" uuid="6a3586cd-32a9-4efc-a944-073bbdb7b1c4"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Problema]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement mode="Transparent" x="8" y="0" width="32" height="35" backcolor="#FFFFFF" uuid="8ace6409-8a92-4bc9-91f6-4031d7422f2b"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenimientos_mant_num_orden}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="90" y="1" width="55" height="34" backcolor="#FFFFFF" uuid="b9d4519f-b096-4400-9c26-fe54c5e1d4d7"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bien_bn_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="40" y="0" width="50" height="35" backcolor="#FFFFFF" uuid="08403622-fcd3-44bc-ae15-a6f23518087d"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenimientos_bien_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="420" y="1" width="83" height="34" backcolor="#FFFFFF" uuid="3e61aafd-1889-4d45-bd06-21a2e5b61d1d"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenimientos_mant_responsable_recibo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="509" y="11" width="33" height="14" uuid="36ae84b4-572d-4e6c-821f-d6fb4822f04b"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenimientos_mant_fecha_entrega}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="11" width="33" height="14" uuid="e52d7d90-87ba-4d0c-8ff5-5f00a486674a"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenimientos_mant_fecha_revision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="148" y="0" width="52" height="34" backcolor="#FFFFFF" uuid="8dd5f573-c54f-488e-afee-3cab3a22693b"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ubicacion_ub_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="202" y="1" width="110" height="34" backcolor="#FFFFFF" uuid="94128784-e433-4a8d-b3a7-a9c945334e18"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mantenimientos_mant_desc_problema}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="315" y="0" width="58" height="35" backcolor="#FFFFFF" uuid="4c99484a-8a94-41e6-8243-fb38ef687c3e"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nivelmantenimiento_nivel_descripcion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="97" splitType="Stretch">
+			<textField evaluationTime="Report" pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="516" y="83" width="36" height="12" forecolor="#000000" backcolor="#FFFFFF" uuid="a92a9abb-c4ec-433b-a27f-9ac55e0316cd"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["" + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="342" y="83" width="170" height="12" forecolor="#000000" backcolor="#FFFFFF" uuid="0a8930d6-219e-4865-a552-451607f40d78"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="8" y="83" width="209" height="12" forecolor="#000000" backcolor="#FFFFFF" uuid="94c890f0-93f3-4b8d-a11b-d8d307d80e28"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="182" y="8" width="60" height="13" backcolor="#FFFFFF" uuid="3eec1f18-2406-4752-929a-9c3d3f7a7152"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
+					<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Generado por:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="115" y="43" width="205" height="23" uuid="02dac58f-756b-4702-8ffb-5e9499e632e4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tgenerado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="66" width="95" height="13" uuid="0a3d8dc6-d3d7-44d3-b973-f2b96bc3a530"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tgeneradocargo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="43" width="197" height="23" uuid="3bbaa3cb-2dc3-4fd3-8903-f733ecb93a9d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{trevisado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="420" y="8" width="60" height="13" backcolor="#FFFFFF" uuid="8cb4b7cd-1863-4b43-adbc-93238c12a18b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
+					<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Revisado por:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="406" y="66" width="95" height="13" uuid="7ffa7c64-1741-40e2-9f93-268cfd83e752"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{trevisadocargo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

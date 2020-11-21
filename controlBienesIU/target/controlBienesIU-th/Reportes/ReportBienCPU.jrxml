@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b4ca7f75-6136-4710-97cd-afbd13dbf092">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#6495ED">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFD6FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF4FF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="cpu" uuid="d2ba394f-bad9-4888-a7d4-ea0d0a5a5d78">
+		<queryString>
+			<![CDATA[select b.bn_cod_bien, b.bn_nombre, b.bn_serie, ba.ba_detalle, d.dp_descripcion, u.ub_descripcion from controlbien.bien b inner join controlbien.baja ba on b.ba_id = ba.ba_id inner join controlbien.dependencia d on b.dp_id = d.dp_id inner join controlbien.ubicacion u on b.ub_id = u.ub_id ]]>
+		</queryString>
+		<field name="bn_cod_bien" class="java.lang.String"/>
+		<field name="bn_nombre" class="java.lang.String"/>
+		<field name="bn_serie" class="java.lang.String"/>
+		<field name="ba_detalle" class="java.lang.String"/>
+		<field name="dp_descripcion" class="java.lang.String"/>
+		<field name="ub_descripcion" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[select 1]]>
+	</queryString>
+	<field name="?column?" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="156" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="0" y="0" width="555" height="140" uuid="c62e3f87-a742-4d5e-a84e-ac2c8ad4ca83"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="cpu" uuid="6928f60a-bd7b-499b-9148-b9cc865ecce4">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="48" uuid="4c282485-d99c-4836-8448-2b311d3b0d89">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="48" height="30" uuid="4390afbd-734e-4485-bacb-feada3283218"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Cod. Bien]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="48" height="20" uuid="9a843574-a8be-48c0-82af-313cd77e9259"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{bn_cod_bien}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="140" uuid="acd3f246-9bbf-40ca-b0df-a5e5058bc1f1">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="140" height="30" uuid="d714e3a6-f6e0-4cf6-9c85-2e1108429116"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Nombre]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="140" height="20" uuid="ce6a1dd1-6f0a-4f9e-82d7-d330e7fa6d90"/>
+								<textFieldExpression><![CDATA[$F{bn_nombre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="9467a4b4-8b3f-40d0-9e3c-6788493314a4">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="40" height="30" uuid="e8abb27d-187f-4a59-b2f8-c234300b2f88"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Serie]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="40" height="20" uuid="e74a466a-b494-4038-ae29-d2a3ad4e6248"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{bn_serie}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="46" uuid="63a42d6f-c981-4aa8-8df2-8c9b5c5ab748">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="46" height="30" uuid="5b6991de-15cd-4c54-bb63-3b9e79dc35db"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Baja]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="46" height="20" uuid="06fec1bc-b8a2-4291-9a4c-3c8c17f1d7da"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{ba_detalle}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="158" uuid="fe8924ad-ff8f-4dc0-9c50-73a299cdc799">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="158" height="30" uuid="f36e8708-29ee-4ac5-82be-fdc383e8e796"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Dependencia]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="158" height="20" uuid="7af9d79a-0e4b-48c8-a70f-2f54f9d3b889"/>
+								<textElement>
+									<font size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{dp_descripcion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="98" uuid="488e4e0a-fa53-4896-b0bd-465e41fc9211">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="98" height="30" uuid="ca1fa6a4-4c1c-459e-85ce-242c61f9a238"/>
+								<textElement textAlignment="Center"/>
+								<text><![CDATA[Ubicacion]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="98" height="20" uuid="0b290c86-a4b6-45ce-9db6-9c94c455d034"/>
+								<textFieldExpression><![CDATA[$F{ub_descripcion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

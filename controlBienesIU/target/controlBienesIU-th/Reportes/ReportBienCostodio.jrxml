@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportBienCostodio" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c236ea87-d040-4ef8-8eb4-7918df66c623">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select b.bn_cod_bien, b.bn_nombre, b.bn_serie, b.bn_nombre, b.bn_cod_bien, ba.ba_detalle, d.dp_descripcion, u.ub_descripcion, p.per_cedula, CONCAT(p.per_nombres,' ',p.per_apellido1,' ',p.per_apellido2) custodio from controlbien.bien b inner join controlbien.baja ba on b.ba_id = ba.ba_id inner join controlbien.dependencia d on b.dp_id = d.dp_id inner join controlbien.ubicacion u on b.ub_id = u.ub_id inner join controlbien.traspaso t on b.bn_cod_bien = t.bn_cod_bien inner join controlbien.persona p on t.per_id = p.per_id]]>
+	</queryString>
+	<field name="bn_cod_bien" class="java.lang.String"/>
+	<field name="bn_nombre" class="java.lang.String"/>
+	<field name="bn_serie" class="java.lang.String"/>
+	<field name="ba_detalle" class="java.lang.String"/>
+	<field name="dp_descripcion" class="java.lang.String"/>
+	<field name="ub_descripcion" class="java.lang.String"/>
+	<field name="per_cedula" class="java.lang.String"/>
+	<field name="custodio" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120" splitType="Stretch">
+			<image>
+				<reportElement x="621" y="21" width="89" height="59" uuid="81b81777-4bb0-4ccc-bf95-ae3118f89a3c"/>
+				<imageExpression><![CDATA["C:\\Users\\Alex\\Desktop\\proyecto6\\PracticasControlBienesAD_IU\\controlBienesIU\\src\\main\\webapp\\assets\\img\\dtic.png"]]></imageExpression>
+			</image>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="603" y="100" width="131" height="20" uuid="3f9454ef-27a9-4d08-9bc8-66bad13db485"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="232" y="55" width="299" height="20" uuid="2aadfbcd-9997-405e-8bb6-c680c2477d0a"/>
+				<textElement>
+					<font size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[UNIDAD DE GESTION DE SOPORTE Y MANTENIMIENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="100" width="105" height="16" uuid="06c36c52-2210-4fbf-ac3c-795f4b84f317"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Bienes ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="30" width="335" height="25" uuid="08e81c75-d612-4396-aae0-27b64c678b73"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESCUELA SUPERIOR POLITECNICA DE CHIMBORAZO]]></text>
+			</staticText>
+			<image>
+				<reportElement x="49" y="30" width="60" height="57" uuid="e5eb34ce-4623-45de-a655-f7b1c45229ef"/>
+				<imageExpression><![CDATA["C:\\Users\\Alex\\Desktop\\proyecto6\\PracticasControlBienesAD_IU\\controlBienesIU\\src\\main\\webapp\\assets\\img\\espoch.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="11" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="17" y="3" width="51" height="20" uuid="a309f01c-77df-4852-b448-1703a2156c5c"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cod. Bien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="3" width="146" height="20" uuid="45f34606-54b1-4c4c-9b01-6e2f7a5caedb"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="68" y="3" width="51" height="20" uuid="7fd910f2-6bbb-4b68-9d31-f5631f7c7e4f"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Serie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="265" y="3" width="109" height="20" uuid="a3da1dae-b7cc-455e-9f1f-7bb581520115"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dependencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="374" y="3" width="100" height="20" uuid="b4226640-ce06-46d5-9b0c-250cbb17a1d4"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ubicacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="694" y="3" width="40" height="20" uuid="0068781a-fa3e-49f0-bb1d-ad31a1463c16"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="472" y="3" width="57" height="20" uuid="1482b3d2-8f5e-47d8-b1a4-bcde01a6771c"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cedula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="529" y="3" width="165" height="20" uuid="158f152c-a05b-49ff-91bc-f1f6d8392089"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Custodio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="17" y="0" width="51" height="20" uuid="360d50e6-5615-4e65-8694-cebf52a1b9dc"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bn_cod_bien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="0" width="146" height="20" uuid="5da0edf8-d7cf-46be-8206-33c61100631c"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bn_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="68" y="0" width="51" height="20" uuid="66e40b7e-750b-4f3d-afdd-9c696cf844e7"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bn_serie}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="265" y="0" width="109" height="20" uuid="c6708df5-c6a7-40dc-8db4-1302c6c15dbf"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dp_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="0" width="100" height="20" uuid="7ebe5fac-576f-4717-9d8e-a66c408cf3d8"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ub_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="694" y="0" width="40" height="20" uuid="1016c01a-682b-40e5-989d-a91606a28b2e"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ba_detalle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="0" width="57" height="20" uuid="374137a6-22b6-4c8b-a228-d924c7fd0efc"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{per_cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="531" y="0" width="165" height="20" uuid="4432edbb-06de-4e0f-bd59-6e4a9520a820"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{custodio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="18" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="614" y="14" width="80" height="20" uuid="df9767ed-8bf4-4db6-ad34-9197b289ecf3"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="694" y="14" width="40" height="20" uuid="795f6c5a-6de8-4247-b834-aa43ed695f9a"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="27" splitType="Stretch"/>
+	</summary>
+</jasperReport>

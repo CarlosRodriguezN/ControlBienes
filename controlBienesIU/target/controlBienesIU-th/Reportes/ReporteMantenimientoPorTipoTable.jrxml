@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d49fbca5-776e-4e31-bff9-732717cc9051">
+	<property name="ireport.zoom" value="1.1000000000000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="MantxTipo" uuid="0670f5f5-44df-4a96-94ae-6881a606351a">
+		<parameter name="tipoMt" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="fechait" class="java.util.Date">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="fechaft" class="java.util.Date">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+     mantenimientos."mant_num_orden" AS mantenimientos_mant_num_orden,
+     mantenimientos."mant_estado" AS mantenimientos_mant_estado,
+     mantenimientos."mant_fecha_ingreso" AS mantenimientos_mant_fecha_ingreso,
+     mantenimientos."mant_fecha_revision" AS mantenimientos_mant_fecha_revision,
+     mantenimientos."mant_fecha_entrega" AS mantenimientos_mant_fecha_entrega,
+     mantenimientos."mant_desc_problema" AS mantenimientos_mant_desc_problema,
+     mantenimientos."mant_desc_solucion" AS mantenimientos_mant_desc_solucion,
+     mantenimientos."mant_tecn_ingreso" AS mantenimientos_mant_tecn_ingreso,
+     mantenimientos."mant_tecn_revision" AS mantenimientos_mant_tecn_revision,
+     mantenimientos."mant_tecn_entrega" AS mantenimientos_mant_tecn_entrega,
+     mantenimientos."bien_id" AS mantenimientos_bien_id,
+     mantenimientos."nivelm_id" AS mantenimientos_nivelm_id,
+     mantenimientos."tipom_id" AS mantenimientos_tipom_id,
+     mantenimientos."mant_responsable_recibo" AS mantenimientos_mant_responsable_recibo,
+     bien."bn_cod_bien" AS bien_bn_cod_bien,
+     bien."bn_nombre" AS bien_bn_nombre,
+     bien."bn_serie" AS bien_bn_serie,
+     bien."bn_modelo" AS bien_bn_modelo,
+     bien."bn_marca" AS bien_bn_marca,
+     tipomantenimiento."tip_id" AS tipomantenimiento_tip_id,
+     tipomantenimiento."tip_detalle" AS tipomantenimiento_tip_detalle,
+     tipomantenimiento."tip_estado" AS tipomantenimiento_tip_estado,
+     ubicacion."ub_id" AS ubicacion_ub_id,
+     ubicacion."ub_descripcion" AS ubicacion_ub_descripcion,
+     ubicacion."ub_estado" AS ubicacion_ub_estado,
+     nivelmantenimiento."nivel_id" AS nivelmantenimiento_nivel_id,
+     nivelmantenimiento."nivel_descripcion" AS nivelmantenimiento_nivel_descripcion,
+     mantenimientos."mant_id" AS mantenimientos_mant_id,
+     traspaso."tra_id" AS traspaso_tra_id,
+     traspaso."bn_cod_bien" AS traspaso_bn_cod_bien,
+     traspaso."per_id" AS traspaso_per_id,
+     persona."per_id" AS persona_per_id,
+     persona."per_cedula" AS persona_per_cedula,
+     persona."per_apellido1" AS persona_per_apellido1,
+     persona."per_apellido2" AS persona_per_apellido2,
+     persona."per_nombres" AS persona_per_nombres
+FROM
+     "controlbien"."bien" bien INNER JOIN "controlbien"."mantenimientos" mantenimientos ON bien."bn_cod_bien" = mantenimientos."bien_id"
+     INNER JOIN "controlbien"."tipomantenimiento" tipomantenimiento ON mantenimientos."tipom_id" = tipomantenimiento."tip_id"
+     INNER JOIN "controlbien"."nivelmantenimiento" nivelmantenimiento ON mantenimientos."nivelm_id" = nivelmantenimiento."nivel_id"
+     INNER JOIN "controlbien"."ubicacion" ubicacion ON bien."ub_id" = ubicacion."ub_id"
+     INNER JOIN "controlbien"."traspaso" traspaso ON bien."bn_cod_bien" = traspaso."bn_cod_bien"
+     INNER JOIN "controlbien"."persona" persona ON traspaso."per_id" = persona."per_id"
+WHERE
+     mantenimientos."tipom_id" = $P{tipoMt}
+     and mantenimientos."mant_fecha_revision" BETWEEN $P{fechait} and $P{fechaft}]]>
+		</queryString>
+		<field name="mantenimientos_mant_num_orden" class="java.lang.String"/>
+		<field name="mantenimientos_mant_estado" class="java.lang.Integer"/>
+		<field name="mantenimientos_mant_fecha_ingreso" class="java.sql.Date"/>
+		<field name="mantenimientos_mant_fecha_revision" class="java.sql.Date"/>
+		<field name="mantenimientos_mant_fecha_entrega" class="java.sql.Date"/>
+		<field name="mantenimientos_mant_desc_problema" class="java.lang.String"/>
+		<field name="mantenimientos_mant_desc_solucion" class="java.lang.String"/>
+		<field name="mantenimientos_mant_tecn_ingreso" class="java.lang.String"/>
+		<field name="mantenimientos_mant_tecn_revision" class="java.lang.String"/>
+		<field name="mantenimientos_mant_tecn_entrega" class="java.lang.String"/>
+		<field name="mantenimientos_bien_id" class="java.lang.String"/>
+		<field name="mantenimientos_nivelm_id" class="java.lang.Integer"/>
+		<field name="mantenimientos_tipom_id" class="java.lang.Integer"/>
+		<field name="mantenimientos_mant_responsable_recibo" class="java.lang.String"/>
+		<field name="bien_bn_cod_bien" class="java.lang.String"/>
+		<field name="bien_bn_nombre" class="java.lang.String"/>
+		<field name="bien_bn_serie" class="java.lang.String"/>
+		<field name="bien_bn_modelo" class="java.lang.String"/>
+		<field name="bien_bn_marca" class="java.lang.String"/>
+		<field name="tipomantenimiento_tip_id" class="java.lang.Integer"/>
+		<field name="tipomantenimiento_tip_detalle" class="java.lang.String"/>
+		<field name="tipomantenimiento_tip_estado" class="java.lang.Integer"/>
+		<field name="ubicacion_ub_id" class="java.lang.Integer"/>
+		<field name="ubicacion_ub_descripcion" class="java.lang.String"/>
+		<field name="ubicacion_ub_estado" class="java.lang.Integer"/>
+		<field name="nivelmantenimiento_nivel_id" class="java.lang.Integer"/>
+		<field name="nivelmantenimiento_nivel_descripcion" class="java.lang.String"/>
+		<field name="mantenimientos_mant_id" class="java.lang.Integer"/>
+		<field name="traspaso_tra_id" class="java.lang.Integer"/>
+		<field name="traspaso_bn_cod_bien" class="java.lang.String"/>
+		<field name="traspaso_per_id" class="java.lang.Integer"/>
+		<field name="persona_per_id" class="java.lang.Integer"/>
+		<field name="persona_per_cedula" class="java.lang.String"/>
+		<field name="persona_per_apellido1" class="java.lang.String"/>
+		<field name="persona_per_apellido2" class="java.lang.String"/>
+		<field name="persona_per_nombres" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="tgenerado" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tgeneradocargo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="trevisado" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="trevisadocargo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechai" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaf" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tipoM" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tipomantenimiento."tip_detalle" AS tipomantenimiento_tip_detalle,
+     tipomantenimiento."tip_id" AS tipomantenimiento_tip_id
+FROM
+     "controlbien"."tipomantenimiento" tipomantenimiento
+where tipomantenimiento."tip_id" = $P{tipoM}]]>
+	</queryString>
+	<field name="tipomantenimiento_tip_detalle" class="java.lang.String"/>
+	<field name="tipomantenimiento_tip_id" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="130" splitType="Stretch">
+			<textField>
+				<reportElement mode="Transparent" x="345" y="92" width="149" height="22" backcolor="#FFFFFF" uuid="59f002b2-8b23-4402-9e0f-b13aa0a205f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="11" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipomantenimiento_tip_detalle}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="251" y="72" width="311" height="20" uuid="213c9b50-5ce4-4846-b146-c815eecbae6b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true" isItalic="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[HISTORIAL DE MANTENIMIENTO]]></text>
+			</staticText>
+			<image scaleImage="RetainShape">
+				<reportElement x="704" y="41" width="89" height="59" uuid="d63c50bb-ce85-42b1-9c0a-099d821e975f"/>
+				<imageExpression><![CDATA["../assets/img/dtic.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="239" y="29" width="336" height="25" uuid="823cc3a2-8daa-4a7f-8729-72e24c1fe33c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ESCUELA SUPERIOR POLITÉCNICA DE CHIMBORAZO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="251" y="53" width="311" height="20" uuid="074215ce-a6fd-4c96-ab93-fdca55597023"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true" isItalic="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[UNIDAD DE GESTION DE SOPORTE Y MANTENIMIENTO]]></text>
+			</staticText>
+			<image>
+				<reportElement x="30" y="35" width="60" height="57" uuid="ca588e2c-016a-4473-b9d5-cbce2e2d1251"/>
+				<imageExpression><![CDATA["../assets/img/espoch.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="52" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 2" style="table 2" x="0" y="0" width="802" height="50" uuid="f30fc57b-487d-4b4e-bd28-f8961f3e1a89"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="MantxTipo" uuid="2dbdded5-9f19-4653-9013-ba34da5bb3ed">
+						<datasetParameter name="fechait">
+							<datasetParameterExpression><![CDATA[$P{fechai}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="fechaft">
+							<datasetParameterExpression><![CDATA[$P{fechaf}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="tipoMt">
+							<datasetParameterExpression><![CDATA[$P{tipoM}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="47" uuid="dd5761b0-507c-48bc-8fc8-c5895d2dbd5e">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="2" y="0" width="45" height="30" backcolor="#FFFFFF" uuid="29e40f03-a86f-4ba9-85d9-dde4c77af888"/>
+								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+									<font isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Proportional"/>
+								</textElement>
+								<text><![CDATA[Orden]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="45" height="45" uuid="2e32fabd-484c-494f-a9e7-49ff831a07e2"/>
+								<textFieldExpression><![CDATA[$F{mantenimientos_mant_num_orden}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="56" uuid="84886eed-8fb1-493d-92c6-b3ea5b655070">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="2" y="0" width="54" height="30" backcolor="#FFFFFF" uuid="87f61117-48d2-4aa4-894f-fd11d65d6f9d"/>
+								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+									<font isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Proportional"/>
+								</textElement>
+								<text><![CDATA[Código Bien]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="54" height="45" uuid="b2965632-7e79-49e8-bd39-16854c11b9fe"/>
+								<textFieldExpression><![CDATA[$F{bien_bn_cod_bien}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="106" uuid="19057907-462c-4c87-b235-571b48b68ae7">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="2" y="0" width="104" height="30" backcolor="#FFFFFF" uuid="ec1bf319-a2b1-4af9-b9ae-4d95abcf5325"/>
+								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+									<font isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Proportional"/>
+								</textElement>
+								<text><![CDATA[Nombre Bien]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="104" height="45" uuid="6903626c-25f3-4830-b75a-50ae74085156"/>
+								<textFieldExpression><![CDATA[$F{bien_bn_nombre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="97" uuid="85da5fd0-80dc-40b8-9a5c-426eaca6f432">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="2" y="0" width="95" height="30" backcolor="#FFFFFF" uuid="2622c525-a431-422d-81d3-5f5a54370598"/>
+								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+									<font isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Proportional"/>
+								</textElement>
+								<text><![CDATA[Ubicación]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="95" height="45" uuid="b08fcf28-dc69-411f-b911-5ff926b10825"/>
+								<textFieldExpression><![CDATA[$F{ubicacion_ub_descripcion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="157" uuid="855be259-b78d-4210-84b0-4afd1dcf9b58">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="2" y="0" width="155" height="30" backcolor="#FFFFFF" uuid="67bf44a6-bfca-44ca-aab0-242fc74155cc"/>
+								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+									<font isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Proportional"/>
+								</textElement>
+								<text><![CDATA[Problema]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="155" height="45" uuid="b9ddc7dd-33d0-4742-b197-f8698710dda0"/>
+								<textFieldExpression><![CDATA[$F{mantenimientos_mant_desc_problema}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="f3553cb6-0a2c-459b-b3e6-0d7d632e7b62">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="2" y="0" width="88" height="30" backcolor="#FFFFFF" uuid="23b5f063-a1fa-4e27-af2f-c9d10e2410a9"/>
+								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+									<font isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Proportional"/>
+								</textElement>
+								<text><![CDATA[Técnico Ingreso]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="88" height="45" uuid="13a4b5cf-dbb4-4ac6-8086-2943d741eeea"/>
+								<textFieldExpression><![CDATA[$F{mantenimientos_mant_tecn_ingreso}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="9a0bdd97-1484-4402-9a32-6ddcedb23169">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="2" y="0" width="88" height="30" backcolor="#FFFFFF" uuid="438301a3-f363-42f8-ae89-a923fdc7e806"/>
+								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+									<font isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Proportional"/>
+								</textElement>
+								<text><![CDATA[Técnico Asignado]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="88" height="45" uuid="f0356cba-b061-450b-b614-e16ed41edd81"/>
+								<textFieldExpression><![CDATA[$F{mantenimientos_mant_tecn_revision}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d03b0ae1-2be6-4931-883b-b448bcd64eaa">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="2" y="0" width="88" height="30" backcolor="#FFFFFF" uuid="91d6a645-1f35-4cd6-95f3-aa3624b1d826"/>
+								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+									<font isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Proportional"/>
+								</textElement>
+								<text><![CDATA[Custodio]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="88" height="45" uuid="930a4bed-eabc-4383-98d2-32f347e6970a"/>
+								<textFieldExpression><![CDATA[$F{persona_per_nombres}+" "+$F{persona_per_apellido1}+" "+$F{persona_per_apellido2}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="76" uuid="f48d4646-4ef2-431d-a8ad-0332cc80be43">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="2" y="0" width="65" height="30" uuid="c7deb3ce-6845-48ba-b578-b0495b08d5ba"/>
+								<textElement textAlignment="Left" verticalAlignment="Top">
+									<font isBold="true" isItalic="false"/>
+								</textElement>
+								<text><![CDATA[Fecha Mant.]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+							<textField>
+								<reportElement x="2" y="0" width="65" height="45" uuid="40534833-9c2e-4e04-9075-65a0b5f07cf3"/>
+								<textFieldExpression><![CDATA[$F{mantenimientos_mant_fecha_revision}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="97" splitType="Stretch">
+			<textField evaluationTime="Report" pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="757" y="83" width="36" height="12" forecolor="#000000" backcolor="#FFFFFF" uuid="a92a9abb-c4ec-433b-a27f-9ac55e0316cd"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["" + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="583" y="83" width="170" height="12" forecolor="#000000" backcolor="#FFFFFF" uuid="0a8930d6-219e-4865-a552-451607f40d78"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="8" y="83" width="209" height="12" forecolor="#000000" backcolor="#FFFFFF" uuid="94c890f0-93f3-4b8d-a11b-d8d307d80e28"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="434" y="8" width="60" height="13" backcolor="#FFFFFF" uuid="3eec1f18-2406-4752-929a-9c3d3f7a7152"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
+					<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Generado por:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="367" y="43" width="205" height="23" uuid="02dac58f-756b-4702-8ffb-5e9499e632e4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tgenerado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="66" width="95" height="13" uuid="0a3d8dc6-d3d7-44d3-b973-f2b96bc3a530"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tgeneradocargo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="596" y="43" width="197" height="23" uuid="3bbaa3cb-2dc3-4fd3-8903-f733ecb93a9d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{trevisado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="661" y="8" width="60" height="13" backcolor="#FFFFFF" uuid="8cb4b7cd-1863-4b43-adbc-93238c12a18b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
+					<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Revisado por:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="630" y="66" width="95" height="13" uuid="7ffa7c64-1741-40e2-9f93-268cfd83e752"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{trevisadocargo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

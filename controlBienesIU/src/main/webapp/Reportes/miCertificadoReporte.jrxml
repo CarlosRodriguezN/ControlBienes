@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="BlankPage" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d06e8f44-fa0c-4c44-b6c6-eb6f43f1a4d5">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="5"/>
+	<parameter name="pPeriodo" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+     certificado."cer_fecha" AS certificado_cer_fecha,
+     certificado."per_id" AS certificado_per_id,
+     certificado."ticer_id" AS certificado_ticer_id,
+     certificado."cer_estado" AS certificado_cer_estado,
+     certificado."perso_id" AS certificado_perso_id,
+     certificado."auditoria" AS certificado_auditoria,
+     certificado."cont" AS certificado_cont,
+     periodo."per_id" AS periodo_per_id,
+     periodo."per_descipcion" AS periodo_per_descipcion,
+     periodo."per_estado" AS periodo_per_estado,
+     persona."perso_id" AS persona_perso_id,
+     persona."perso_cedula" AS persona_perso_cedula,
+     persona."perso_nombres" AS persona_perso_nombres,
+     persona."perso_apellido1" AS persona_perso_apellido1,
+     persona."perso_apellido2" AS persona_perso_apellido2,
+     tipocertificado."ticer_id" AS tipocertificado_ticer_id,
+     tipocertificado."ticer_descripcion" AS tipocertificado_ticer_descripcion,
+     tipocertificado."ticer_estado" AS tipocertificado_ticer_estado
+FROM
+     "cerdocente"."periodo" periodo INNER JOIN "cerdocente"."certificado" certificado ON periodo."per_id" = certificado."per_id"
+     INNER JOIN "cerdocente"."persona" persona ON certificado."perso_id" = persona."perso_id"
+     INNER JOIN "cerdocente"."tipocertificado" tipocertificado ON certificado."ticer_id" = tipocertificado."ticer_id"
+
+WHERE periodo."per_id" = $P{pPeriodo} AND certificado."cont">0]]>
+	</queryString>
+	<field name="certificado_cer_fecha" class="java.sql.Date"/>
+	<field name="certificado_per_id" class="java.lang.Integer"/>
+	<field name="certificado_ticer_id" class="java.lang.Integer"/>
+	<field name="certificado_cer_estado" class="java.lang.Integer"/>
+	<field name="certificado_perso_id" class="java.lang.Integer"/>
+	<field name="certificado_auditoria" class="java.lang.Integer"/>
+	<field name="certificado_cont" class="java.lang.Integer"/>
+	<field name="periodo_per_id" class="java.lang.Integer"/>
+	<field name="periodo_per_descipcion" class="java.lang.String"/>
+	<field name="periodo_per_estado" class="java.lang.Integer"/>
+	<field name="persona_perso_id" class="java.lang.Integer"/>
+	<field name="persona_perso_cedula" class="java.lang.String"/>
+	<field name="persona_perso_nombres" class="java.lang.String"/>
+	<field name="persona_perso_apellido1" class="java.lang.String"/>
+	<field name="persona_perso_apellido2" class="java.lang.String"/>
+	<field name="tipocertificado_ticer_id" class="java.lang.Integer"/>
+	<field name="tipocertificado_ticer_descripcion" class="java.lang.String"/>
+	<field name="tipocertificado_ticer_estado" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="21" y="12" width="100" height="20" uuid="4d86226a-9bb1-4c6d-8593-5c1870bc8ca7"/>
+				<text><![CDATA[persona_perso_cedula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="12" width="100" height="20" uuid="c1698705-b0b5-4b8a-90bc-6d4ffc83a4d0"/>
+				<text><![CDATA[persona_perso_nombres]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="12" width="100" height="20" uuid="fcabde87-454c-472e-9e0a-28d4539d160c"/>
+				<text><![CDATA[persona_perso_apellido1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="12" width="100" height="20" uuid="b97eaed8-be1b-45f2-9fc4-13e7a3c41303"/>
+				<text><![CDATA[persona_perso_apellido2]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement x="21" y="22" width="100" height="20" uuid="9951e66f-71d7-494c-b71f-52bd6dcced05"/>
+				<textFieldExpression><![CDATA[$F{persona_perso_cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="22" width="100" height="20" uuid="8f26ffbc-6eff-4c41-868e-8b746ab50fa3"/>
+				<textFieldExpression><![CDATA[$F{persona_perso_nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="22" width="100" height="20" uuid="eb69f5f8-9813-4779-9ad1-7731baa2b098"/>
+				<textFieldExpression><![CDATA[$F{persona_perso_apellido1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="258" y="22" width="100" height="20" uuid="cae9f4b4-de5f-43ee-82ff-3fbfd982a116"/>
+				<textFieldExpression><![CDATA[$F{persona_perso_apellido2}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="13" y="43" width="519" height="1" uuid="a407888d-e6a3-4b34-9a33-22324ce7419c"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

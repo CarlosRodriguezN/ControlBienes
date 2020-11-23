@@ -181,7 +181,7 @@ public class MantenimientosFacade extends AbstractFacade<Mantenimientos> impleme
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             Date di = formatter.parse(fechainicial);
             Date df = formatter.parse(fechafinal);
-            consulta = "SELECT m FROM Mantenimientos m WHERE m.mantFechaRevision BETWEEN :fi AND :ff";
+            consulta = "SELECT m FROM Mantenimientos m WHERE m.mantFechaIngreso BETWEEN :fi AND :ff";
             Query query = em.createQuery(consulta);
             query.setParameter("fi", di);
             query.setParameter("ff", df);

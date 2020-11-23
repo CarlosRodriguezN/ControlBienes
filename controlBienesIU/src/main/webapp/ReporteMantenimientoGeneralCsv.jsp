@@ -139,12 +139,19 @@
                                         <th>Numero Orden</th>
                                         <th>Cod. Bien</th>
                                         <th>Nombre Bien</th>
+                                        <th>Estado</th>
                                         <th>Ubicación</th>
                                         <th>Problema</th>
+                                        <th>Solución</th>
                                         <th>Tipo de Servicio</th>
+                                        <th>Tipo de Mantenimiento</th>
+                                        <th>Fecha Ingreso</th>
                                         <th>Fecha Revision</th>
+                                        <th>Fecha Entrega</th>
+                                        <th>Técnico Ingreso</th>
+                                        <th>Técnico Revisión</th>
+                                        <th>Técnico Entrega</th>
                                         <th>Entregado a</th>
-                                        <th>Fecha de Entrega</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -153,12 +160,33 @@
                                             out.println("<td>" + oPet.getMantNumOrden() + "</td>");
                                             out.println("<td>" + oPet.getBienId().getBnCodBien() + "</td>");
                                             out.println("<td>" + oPet.getBienId().getBnNombre() + "</td>");
+                                            if (oPet.getMantEstado() == 1 && oPet.getMantTecnRevision() != null) {
+                                                out.println("<td>Asignado</td>");
+                                            }
+                                            if (oPet.getMantEstado() == 1 && oPet.getMantTecnRevision() == null) {
+                                                out.println("<td>Sin Asignar</td>");
+                                            }
+                                            if (oPet.getMantEstado() == 2) {
+                                                out.println("<td>Realizado</td>");
+                                            }
+                                            if (oPet.getMantEstado() == 3) {
+                                                out.println("<td>Entregado</td>");
+                                            }
+                                            if (oPet.getMantEstado() == 0) {
+                                                out.println("<td>Desactivado</td>");
+                                            }
                                             out.println("<td>" + oPet.getBienId().getUbId().getUbDescripcion() + "</td>");
                                             out.println("<td>" + oPet.getMantDescProblema() + "</td>");
+                                            out.println("<td>" + oPet.getMantDescSolucion() + "</td>");
                                             out.println("<td>" + oPet.getNivelmId().getNivelDescripcion() + "</td>");
+                                            out.println("<td>" + oPet.getTipId().getTipDetalle() + "</td>");
+                                            out.println("<td>" + oPet.getMantFechaIngreso() + "</td>");
                                             out.println("<td>" + oPet.getMantFechaRevision() + "</td>");
-                                            out.println("<td>" + oPet.getMantResponsableRecibo() + "</td>");
                                             out.println("<td>" + oPet.getMantFechaEntrega() + "</td>");
+                                            out.println("<td>" + oPet.getMantTecnIngreso() + "</td>");
+                                            out.println("<td>" + oPet.getMantTecnRevision() + "</td>");
+                                            out.println("<td>" + oPet.getMantTecnEntrega() + "</td>");
+                                            out.println("<td>" + oPet.getMantResponsableRecibo() + "</td>");
                                         }%>
                                     </tr>
                                 </tbody>

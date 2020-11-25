@@ -102,6 +102,13 @@
         </dependency>
         
         <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-fonts</artifactId>
+            <version>6.8.0</version>
+        </dependency>
+
+        
+        <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
             <version>2.4.5</version>
@@ -121,13 +128,13 @@
             <version>2.3.0</version>
         </dependency>
        
-       <!--Prueba de Dependencia-->
-<!--        <dependency> 
+        <!--Prueba de Dependencia-->
+        <!--        <dependency> 
             <groupId>org.postgresql</groupId> 
             <artifactId>postgresql</artifactId> 
             <version>42.1.4</version> 
         </dependency>-->
-       <!--Fin prueba-->
+        <!--Fin prueba-->
     </dependencies>
 
 

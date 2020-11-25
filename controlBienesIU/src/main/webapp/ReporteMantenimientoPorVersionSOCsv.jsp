@@ -65,7 +65,7 @@
     <script>
         $(document).ready(function () {
             $('#tablacsv').DataTable({
-                "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]]
+                "lengthMenu": [[-1, 5, 10, 20], ["All", 5, 10, 20]]
             });
         });
 

@@ -53,7 +53,7 @@
     <script>
         $(document).ready(function () {
             $('#tablacsv').DataTable({
-                "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]]
+                "lengthMenu": [[-1, 5, 10, 20], ["All", 5, 10, 20]]
             });
         });
 
@@ -136,7 +136,7 @@
                             <table id="tablacsv" class="table table-sorting table-hover table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Numero Orden</th>
+                                        <th>Número Orden</th>
                                         <th>Cod. Bien</th>
                                         <th>Nombre Bien</th>
                                         <th>Estado</th>
@@ -146,7 +146,7 @@
                                         <th>Tipo de Servicio</th>
                                         <th>Tipo de Mantenimiento</th>
                                         <th>Fecha Ingreso</th>
-                                        <th>Fecha Revision</th>
+                                        <th>Fecha Revisión</th>
                                         <th>Fecha Entrega</th>
                                         <th>Técnico Ingreso</th>
                                         <th>Técnico Revisión</th>

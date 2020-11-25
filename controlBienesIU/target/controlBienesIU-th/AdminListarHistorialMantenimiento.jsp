@@ -84,7 +84,7 @@
                 <li><a href="#blkHistorialMant" data-toggle="tab">Por Técnico</a></li>
                 <li><a href="#rprtBienesMantenimiento" data-toggle="tab">Por Bien</a></li>
                 <li><a href="#rprtBienesMantenimientoPreventivo" data-toggle="tab">Por Tipo</a></li>
-                <li><a href="#rprtBienesVersionSO" data-toggle="tab">Version SO</a></li>
+                <li><a href="#rprtBienesVersionSO" data-toggle="tab">Versión SO</a></li>
             </ul>
             <div class="tab-content">
                 <!--Buscar----->
@@ -128,11 +128,11 @@
                                         }
                                     %>
                                     <div class="form-group col-sm-5">
-                                        <label for="responsableReciboA">Responsable Revisión</label>
+                                        <label for="responsableReciboA">Responsable Revisión Informe</label>
                                         <select class='form-control Persona' id='responsableReciboA' name='responsableReciboA'>
                                             <%
                                                 for (Persona oPet : listPersona) {
-                                                    if (oPet.getCarId().getCarId() == 3) {
+                                                    if (oPet.getCarId().getCarId() == 3 || oPet.getCarId().getCarId() == 8) {
                                                         out.println("<option value='" + oPet.getPerNombres() + " " + oPet.getPerApellido1() + " " + oPet.getPerApellido2() + "_" + oPet.getCarId().getCarDescripcion() + "'>" + oPet.getPerNombres() + " " + oPet.getPerApellido1() + " " + oPet.getPerApellido2() + "</option>");
                                                     }
                                                 }
@@ -178,11 +178,11 @@
                                         }
                                     %>
                                     <div class="form-group col-sm-5">
-                                        <label for="responsableRecibo">Responsable Revisión</label>
+                                        <label for="responsableRecibo">Responsable Revisión Informe</label>
                                         <select class='form-control Persona' id='responsableRecibo' name='responsableRecibo'>
                                             <%
                                                 for (Persona oPet : listPersona) {
-                                                    if (oPet.getCarId().getCarId() == 3) {
+                                                    if (oPet.getCarId().getCarId() == 3|| oPet.getCarId().getCarId() == 8) {
                                                         out.println("<option value='" + oPet.getPerNombres() + " " + oPet.getPerApellido1() + " " + oPet.getPerApellido2() + "_" + oPet.getCarId().getCarDescripcion() + "'>" + oPet.getPerNombres() + " " + oPet.getPerApellido1() + " " + oPet.getPerApellido2() + "</option>");
                                                     }
                                                 }
@@ -236,11 +236,11 @@
                                         }
                                     %>
                                     <div class="form-group col-sm-5">
-                                        <label for="responsableRecibo">Responsable Revisión</label>
+                                        <label for="responsableRecibo">Responsable Revisión Informe</label>
                                         <select class='form-control Persona' id='responsableRecibo' name='responsableRecibo'>
                                             <%
                                                 for (Persona oPet : listPersona) {
-                                                    if (oPet.getCarId().getCarId() == 3) {
+                                                    if (oPet.getCarId().getCarId() == 3|| oPet.getCarId().getCarId() == 8) {
                                                         out.println("<option value='" + oPet.getPerNombres() + " " + oPet.getPerApellido1() + " " + oPet.getPerApellido2() + "_" + oPet.getCarId().getCarDescripcion() + "'>" + oPet.getPerNombres() + " " + oPet.getPerApellido1() + " " + oPet.getPerApellido2() + "</option>");
                                                     }
                                                 }
@@ -284,11 +284,11 @@
                                         }
                                     %>
                                     <div class="form-group col-sm-5">
-                                        <label for="responsableReciboA">Responsable Revisión</label>
+                                        <label for="responsableReciboA">Responsable Revisión Informe</label>
                                         <select class='form-control Persona' id='responsableReciboA' name='responsableReciboA'>
                                             <%
                                                 for (Persona oPet : listPersona) {
-                                                    if (oPet.getCarId().getCarId() == 3) {
+                                                    if (oPet.getCarId().getCarId() == 3|| oPet.getCarId().getCarId() == 8) {
                                                         out.println("<option value='" + oPet.getPerNombres() + " " + oPet.getPerApellido1() + " " + oPet.getPerApellido2() + "_" + oPet.getCarId().getCarDescripcion() + "'>" + oPet.getPerNombres() + " " + oPet.getPerApellido1() + " " + oPet.getPerApellido2() + "</option>");
                                                     }
                                                 }
@@ -311,7 +311,7 @@
                             <div class="row">
                                 <form role="form" id="buscarMantenimientoSO" >
                                     <div class="form-group col-sm-5">
-                                        <label for="sobienSO">Version SO</label>
+                                        <label for="sobienSO">Versión SO</label>
                                         <select class='form-control sobienSO' id='sobienSO' name='bienSO'>
                                             <%
                                                 for (String oPet : versionSO) {
@@ -343,11 +343,11 @@
                                         }
                                     %>
                                     <div class="form-group col-sm-5">
-                                        <label for="responsableReciboA">Responsable Revisión</label>
+                                        <label for="responsableReciboA">Responsable Revisión Informe</label>
                                         <select class='form-control Persona' id='responsableReciboA' name='responsableReciboA'>
                                             <%
                                                 for (Persona oPet : listPersona) {
-                                                    if (oPet.getCarId().getCarId() == 3) {
+                                                    if (oPet.getCarId().getCarId() == 3 || oPet.getCarId().getCarId() == 8) {
                                                         out.println("<option value='" + oPet.getPerNombres() + " " + oPet.getPerApellido1() + " " + oPet.getPerApellido2() + "_" + oPet.getCarId().getCarDescripcion() + "'>" + oPet.getPerNombres() + " " + oPet.getPerApellido1() + " " + oPet.getPerApellido2() + "</option>");
                                                     }
                                                 }

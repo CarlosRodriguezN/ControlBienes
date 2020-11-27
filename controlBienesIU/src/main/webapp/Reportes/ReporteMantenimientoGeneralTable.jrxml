@@ -1,86 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="36586e6a-a437-444c-8485-4c6c2baf4a04">
-	<property name="ireport.zoom" value="1.464100000000009"/>
+	<property name="ireport.zoom" value="1.1000000000000083"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="133"/>
+	<property name="ireport.y" value="11"/>
 	<style name="table">
 		<box>
-			<pen lineWidth="1.0" lineColor="#000000"/>
+			<pen lineWidth="1.0" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 1">
 		<box>
-			<pen lineWidth="1.0" lineColor="#000000"/>
+			<pen lineWidth="1.0" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 2">
 		<box>
-			<pen lineWidth="1.0" lineColor="#000000"/>
+			<pen lineWidth="1.0" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 2_TH" mode="Opaque" backcolor="#FFFFFF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 2_CH" mode="Opaque" backcolor="#FFBFBF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 3">
 		<box>
-			<pen lineWidth="1.0" lineColor="#000000"/>
+			<pen lineWidth="1.0" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
 		</box>
 	</style>
 	<subDataset name="Mant" uuid="198ec869-5f18-4a4b-8edf-3630c55a28e0">
@@ -146,6 +166,7 @@ WHERE
 		<field name="nivelmantenimiento_nivel_id" class="java.lang.Integer"/>
 		<field name="nivelmantenimiento_nivel_descripcion" class="java.lang.String"/>
 	</subDataset>
+	<subDataset name="Table Dataset 1" uuid="46475670-9387-43c9-927b-64291b3aeb47"/>
 	<parameter name="trevisado" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -171,12 +192,12 @@ WHERE
 	<background>
 		<band splitType="Stretch"/>
 	</background>
-	<title>
+	<pageHeader>
 		<band height="97" splitType="Stretch">
 			<staticText>
 				<reportElement x="229" y="20" width="336" height="25" uuid="7642eec6-267e-411e-be77-7761e460bd15"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12" isBold="true" isItalic="false" isStrikeThrough="false"/>
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[ESCUELA SUPERIOR POLITÉCNICA DE CHIMBORAZO]]></text>
 			</staticText>
@@ -189,23 +210,23 @@ WHERE
 				<imageExpression><![CDATA["../assets/img/espoch.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="241" y="63" width="311" height="20" uuid="2d37ed31-0ce7-4404-bc16-49c89a2ef901"/>
+				<reportElement x="241" y="58" width="311" height="15" uuid="2d37ed31-0ce7-4404-bc16-49c89a2ef901"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="11" isBold="true" isItalic="false" isStrikeThrough="false"/>
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[HISTORIAL DE MANTENIMIENTO GENERAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="241" y="44" width="311" height="20" uuid="a6ec3092-a82e-4986-8d83-480e3814dc3e"/>
+				<reportElement x="241" y="44" width="311" height="15" uuid="a6ec3092-a82e-4986-8d83-480e3814dc3e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="11" isBold="true" isItalic="false" isStrikeThrough="false"/>
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[UNIDAD DE GESTIÓN DE SOPORTE Y MANTENIMIENTO]]></text>
 			</staticText>
 		</band>
-	</title>
+	</pageHeader>
 	<detail>
-		<band height="62" splitType="Stretch">
+		<band height="56" splitType="Stretch">
 			<componentElement>
 				<reportElement key="table 2" style="table 2" mode="Opaque" x="20" y="3" width="802" height="50" uuid="a98ad92f-63ea-4078-9169-1469232bed80"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
@@ -219,16 +240,16 @@ WHERE
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
 					<jr:column width="47" uuid="4c546142-e54a-48ea-9c7f-0d257a3e4124">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="21" rowSpan="1">
 							<box>
-								<pen lineColor="#FF3300"/>
-								<topPen lineColor="#FF3300"/>
-								<leftPen lineColor="#FF3300"/>
-								<bottomPen lineColor="#FF3300"/>
-								<rightPen lineColor="#FF3300"/>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
 							</box>
 							<staticText>
-								<reportElement x="2" y="0" width="45" height="30" backcolor="#FFFFFF" uuid="9841d59c-ed85-480d-9884-e3c34c242649"/>
+								<reportElement x="2" y="0" width="45" height="21" backcolor="#FFFFFF" uuid="9841d59c-ed85-480d-9884-e3c34c242649"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -236,9 +257,16 @@ WHERE
 								<text><![CDATA[Orden]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<textField>
-								<reportElement x="4" y="0" width="43" height="45" uuid="955be2dc-282d-40bf-9d7a-a37929ab568d"/>
+								<reportElement x="4" y="0" width="43" height="34" uuid="955be2dc-282d-40bf-9d7a-a37929ab568d"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -247,9 +275,16 @@ WHERE
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="43" uuid="92405046-2328-4d7a-917f-883d84ee52a0">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="21" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<staticText>
-								<reportElement x="2" y="0" width="41" height="30" backcolor="#FFFFFF" uuid="450a9591-d947-4df9-a5bb-76fe468c7320"/>
+								<reportElement x="2" y="0" width="41" height="21" backcolor="#FFFFFF" uuid="450a9591-d947-4df9-a5bb-76fe468c7320"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -257,9 +292,16 @@ WHERE
 								<text><![CDATA[Código Bien]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<textField>
-								<reportElement x="2" y="0" width="41" height="45" uuid="4520550f-c565-45bb-be56-cf84d8aeea4b"/>
+								<reportElement x="2" y="0" width="41" height="34" uuid="4520550f-c565-45bb-be56-cf84d8aeea4b"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -268,9 +310,16 @@ WHERE
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="102" uuid="a7adfb55-7e15-4311-9095-3ce6fe713217">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="21" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<staticText>
-								<reportElement x="2" y="0" width="100" height="30" backcolor="#FFFFFF" uuid="0db80951-5878-46d5-96e8-aeaa6ec003c0"/>
+								<reportElement x="2" y="0" width="100" height="21" backcolor="#FFFFFF" uuid="0db80951-5878-46d5-96e8-aeaa6ec003c0"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -278,9 +327,16 @@ WHERE
 								<text><![CDATA[Nombre Bien]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<textField>
-								<reportElement x="2" y="0" width="100" height="45" uuid="6da44e28-7b97-4676-b6b0-02f73a935dd0"/>
+								<reportElement x="2" y="0" width="100" height="34" uuid="6da44e28-7b97-4676-b6b0-02f73a935dd0"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -289,9 +345,16 @@ WHERE
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="90" uuid="dc880672-9a48-41d4-b482-33454b0fedd5">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="21" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<staticText>
-								<reportElement x="2" y="0" width="88" height="30" backcolor="#FFFFFF" uuid="3aa852f4-eb5a-487e-b236-2f1bb113b740"/>
+								<reportElement x="2" y="0" width="88" height="21" backcolor="#FFFFFF" uuid="3aa852f4-eb5a-487e-b236-2f1bb113b740"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -299,9 +362,16 @@ WHERE
 								<text><![CDATA[Ubicación]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<textField>
-								<reportElement x="2" y="0" width="88" height="45" uuid="d95a033b-f564-4c59-82b0-290b5b4468ec"/>
+								<reportElement x="2" y="0" width="88" height="34" uuid="d95a033b-f564-4c59-82b0-290b5b4468ec"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -310,9 +380,16 @@ WHERE
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="157" uuid="7f9997f2-b1ea-40aa-8ad3-ebc67557ef57">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="21" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<staticText>
-								<reportElement x="2" y="0" width="155" height="30" backcolor="#FFFFFF" uuid="ea9b9e84-15a8-4f91-8648-74377271726c"/>
+								<reportElement x="2" y="0" width="155" height="21" backcolor="#FFFFFF" uuid="ea9b9e84-15a8-4f91-8648-74377271726c"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -320,9 +397,16 @@ WHERE
 								<text><![CDATA[Problema]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<textField>
-								<reportElement x="2" y="0" width="155" height="45" uuid="c0d0d5ca-6526-415b-8524-3a546455a7e7"/>
+								<reportElement x="2" y="0" width="155" height="34" uuid="c0d0d5ca-6526-415b-8524-3a546455a7e7"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -331,9 +415,16 @@ WHERE
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="90" uuid="1b393733-5e8f-4243-b82c-4a0ee1f7cded">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="21" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<staticText>
-								<reportElement x="2" y="0" width="88" height="30" backcolor="#FFFFFF" uuid="18de3126-6d81-4cb6-bd35-c17df8299acc"/>
+								<reportElement x="2" y="0" width="88" height="21" backcolor="#FFFFFF" uuid="18de3126-6d81-4cb6-bd35-c17df8299acc"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -341,9 +432,16 @@ WHERE
 								<text><![CDATA[Tipo Servicio]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<textField>
-								<reportElement x="2" y="0" width="88" height="45" uuid="a85a57da-ac69-44ca-a258-f5b464be72d4"/>
+								<reportElement x="2" y="0" width="88" height="34" uuid="a85a57da-ac69-44ca-a258-f5b464be72d4"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -352,9 +450,16 @@ WHERE
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="67" uuid="3f334b46-adf6-47c4-b3ce-37a334ef0ec4">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="21" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<staticText>
-								<reportElement x="2" y="0" width="65" height="30" backcolor="#FFFFFF" uuid="3452c9ce-d755-48ee-857e-2748a23837e5"/>
+								<reportElement x="2" y="0" width="65" height="21" backcolor="#FFFFFF" uuid="3452c9ce-d755-48ee-857e-2748a23837e5"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -362,9 +467,16 @@ WHERE
 								<text><![CDATA[Fecha Revisión]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<textField>
-								<reportElement x="2" y="0" width="65" height="45" uuid="31d65014-9777-46a0-9fc7-9ff0195bd0cc"/>
+								<reportElement x="2" y="0" width="65" height="34" uuid="31d65014-9777-46a0-9fc7-9ff0195bd0cc"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -373,9 +485,16 @@ WHERE
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="99" uuid="79a0e1e4-a271-49b6-9660-2cc3d4da8d7d">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="21" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<staticText>
-								<reportElement x="2" y="0" width="97" height="30" backcolor="#FFFFFF" uuid="fa3ec333-5810-4865-8086-1151c36d08f0"/>
+								<reportElement x="2" y="0" width="97" height="21" backcolor="#FFFFFF" uuid="fa3ec333-5810-4865-8086-1151c36d08f0"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -383,9 +502,16 @@ WHERE
 								<text><![CDATA[Entregado A]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<textField>
-								<reportElement x="2" y="0" width="97" height="45" uuid="3015f5ec-e7d0-4a23-aa20-6a7a02043c8b"/>
+								<reportElement x="2" y="0" width="97" height="34" uuid="3015f5ec-e7d0-4a23-aa20-6a7a02043c8b"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -394,18 +520,32 @@ WHERE
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="67" uuid="c2c8a5ec-1b05-4797-96f0-33fa63a92e1c">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="21" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<staticText>
-								<reportElement x="2" y="0" width="65" height="30" uuid="479faa71-0c44-4d8f-a579-eb31aae46c85"/>
+								<reportElement x="2" y="0" width="65" height="21" uuid="479faa71-0c44-4d8f-a579-eb31aae46c85"/>
 								<textElement textAlignment="Left" verticalAlignment="Top">
 									<font size="8" isBold="true" isItalic="false"/>
 								</textElement>
 								<text><![CDATA[Fecha de Entrega]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
+							<box>
+								<pen lineColor="#999999"/>
+								<topPen lineColor="#999999"/>
+								<leftPen lineColor="#999999"/>
+								<bottomPen lineColor="#999999"/>
+								<rightPen lineColor="#999999"/>
+							</box>
 							<textField>
-								<reportElement x="2" y="0" width="65" height="45" uuid="43dc86c3-7cc8-4654-9aaa-36d921ae13f5"/>
+								<reportElement x="2" y="0" width="65" height="34" uuid="43dc86c3-7cc8-4654-9aaa-36d921ae13f5"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -415,6 +555,86 @@ WHERE
 					</jr:column>
 				</jr:table>
 			</componentElement>
+		</band>
+		<band height="38" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="20" y="1" width="701" height="11" uuid="41db3395-3fbc-4975-b0e5-c0b104a66899"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Riobamba, "+new SimpleDateFormat("EEEEE dd MMMMM yyyy", new Locale("es", "ES")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="11" width="396" height="11" backcolor="#FFFFFF" uuid="c703ec2a-6484-4099-9115-c937eef0ec5b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
+					<font size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Sistema de Bienes Informáticos (SIBI)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="21" width="396" height="11" backcolor="#FFFFFF" uuid="8e5056a2-c7d2-4805-a2ea-567e85154f6a"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
+					<font size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Dirección de Tecnologías de la Información y Comunicación]]></text>
+			</staticText>
+		</band>
+		<band height="111">
+			<elementGroup>
+				<frame>
+					<reportElement x="187" y="0" width="426" height="111" uuid="e0c6bfad-6071-4d58-9a44-29fcd8f727e3"/>
+					<staticText>
+						<reportElement x="292" y="0" width="60" height="13" backcolor="#FFFFFF" uuid="16eee790-f085-48a3-b2a7-02008398a49b"/>
+						<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
+							<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+							<paragraph lineSpacing="Proportional"/>
+						</textElement>
+						<text><![CDATA[Revisado por:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="0" y="75" width="205" height="13" uuid="73c12787-c20d-4ee3-9f87-a62a1814ae6d"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+							<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+							<paragraph lineSpacing="Proportional"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{tgenerado}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="54" y="88" width="95" height="13" uuid="a5074831-b5ab-4235-b3ba-bc4d52c1d913"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+							<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+							<paragraph lineSpacing="Proportional"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{tgeneradocargo}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="278" y="88" width="95" height="13" uuid="b5f923ae-ada5-4b70-9685-f996e42eefe4"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+							<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+							<paragraph lineSpacing="Proportional"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{trevisadocargo}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="66" y="0" width="60" height="13" backcolor="#FFFFFF" uuid="07637959-653a-4a0a-ae2a-75150ed2d81c"/>
+						<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
+							<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+							<paragraph lineSpacing="Proportional"/>
+						</textElement>
+						<text><![CDATA[Generado por:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="229" y="75" width="197" height="13" uuid="bd418b72-652a-458f-8b1c-6588575eb140"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+							<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+							<paragraph lineSpacing="Proportional"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{trevisado}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</elementGroup>
 		</band>
 	</detail>
 	<columnFooter>
@@ -461,99 +681,16 @@ WHERE
 				</textElement>
 				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="329" y="3" width="150" height="11" backcolor="#FFFFFF" uuid="51ed0103-11b7-4b2f-8f8e-c5899a345f0d"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
+					<font size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Sistema de Bienes Informáticos (SIBI)]]></text>
+			</staticText>
 		</band>
 	</pageFooter>
-	<lastPageFooter>
-		<band height="123" splitType="Stretch">
-			<staticText>
-				<reportElement x="424" y="3" width="60" height="13" backcolor="#FFFFFF" uuid="07637959-653a-4a0a-ae2a-75150ed2d81c"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
-					<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Proportional"/>
-				</textElement>
-				<text><![CDATA[Generado por:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="651" y="3" width="60" height="13" backcolor="#FFFFFF" uuid="16eee790-f085-48a3-b2a7-02008398a49b"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
-					<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Proportional"/>
-				</textElement>
-				<text><![CDATA[Revisado por:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="635" y="91" width="95" height="13" uuid="b5f923ae-ada5-4b70-9685-f996e42eefe4"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Proportional"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{trevisadocargo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="400" y="91" width="95" height="13" uuid="a5074831-b5ab-4235-b3ba-bc4d52c1d913"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Proportional"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{tgeneradocargo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="357" y="68" width="205" height="23" uuid="73c12787-c20d-4ee3-9f87-a62a1814ae6d"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Proportional"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{tgenerado}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="586" y="68" width="197" height="23" uuid="bd418b72-652a-458f-8b1c-6588575eb140"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Proportional"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{trevisado}]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report" pattern="" isBlankWhenNull="false">
-				<reportElement key="textField" x="756" y="109" width="36" height="12" forecolor="#000000" backcolor="#FFFFFF" uuid="a92a9abb-c4ec-433b-a27f-9ac55e0316cd"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA["" + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField pattern="" isBlankWhenNull="false">
-				<reportElement key="textField" x="582" y="109" width="170" height="12" forecolor="#000000" backcolor="#FFFFFF" uuid="0a8930d6-219e-4865-a552-451607f40d78"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Right">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER} + " of "]]></textFieldExpression>
-			</textField>
-			<textField pattern="" isBlankWhenNull="false">
-				<reportElement key="textField" x="8" y="109" width="209" height="12" forecolor="#000000" backcolor="#FFFFFF" uuid="94c890f0-93f3-4b8d-a11b-d8d307d80e28"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
-			</textField>
-		</band>
-	</lastPageFooter>
 	<summary>
 		<band splitType="Stretch"/>
 	</summary>

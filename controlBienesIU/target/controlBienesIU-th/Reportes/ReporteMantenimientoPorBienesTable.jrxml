@@ -1,86 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="36586e6a-a437-444c-8485-4c6c2baf4a04">
-	<property name="ireport.zoom" value="1.6105100000000199"/>
+	<property name="ireport.zoom" value="1.4641000000000184"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="376"/>
+	<property name="ireport.y" value="384"/>
 	<style name="table">
 		<box>
-			<pen lineWidth="1.0" lineColor="#000000"/>
+			<pen lineWidth="1.0" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 1">
 		<box>
-			<pen lineWidth="1.0" lineColor="#000000"/>
+			<pen lineWidth="1.0" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 2">
 		<box>
-			<pen lineWidth="1.0" lineColor="#000000"/>
+			<pen lineWidth="1.0" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 2_TH" mode="Opaque" backcolor="#FFFFFF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 2_CH" mode="Opaque" backcolor="#FFBFBF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 3">
 		<box>
-			<pen lineWidth="1.0" lineColor="#000000"/>
+			<pen lineWidth="1.0" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#999999"/>
 		</box>
 	</style>
 	<subDataset name="MantxBien" uuid="c47b7f49-0218-4094-ab7c-ad87261b403f">
@@ -326,40 +326,40 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
-	<title>
-		<band height="76" splitType="Stretch">
-			<image scaleImage="RetainShape">
-				<reportElement x="694" y="17" width="89" height="59" uuid="81b81777-4bb0-4ccc-bf95-ae3118f89a3c"/>
-				<imageExpression><![CDATA["../assets/img/dtic.png"]]></imageExpression>
-			</image>
+	<pageHeader>
+		<band height="97" splitType="Stretch">
 			<staticText>
-				<reportElement x="241" y="29" width="311" height="20" uuid="2aadfbcd-9997-405e-8bb6-c680c2477d0a"/>
+				<reportElement x="229" y="20" width="336" height="25" uuid="7642eec6-267e-411e-be77-7761e460bd15"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="11" isBold="true" isItalic="false" isStrikeThrough="false"/>
-				</textElement>
-				<text><![CDATA[UNIDAD DE GESTION DE SOPORTE Y MANTENIMIENTO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="229" y="5" width="336" height="25" uuid="08e81c75-d612-4396-aae0-27b64c678b73"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12" isBold="true" isItalic="false" isStrikeThrough="false"/>
+					<font fontName="SansSerif" size="12" isBold="true" isItalic="false" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[ESCUELA SUPERIOR POLITÉCNICA DE CHIMBORAZO]]></text>
 			</staticText>
+			<image scaleImage="RetainShape">
+				<reportElement x="694" y="32" width="89" height="59" uuid="50ef23b4-8efc-4582-a9c9-585f1f84f668"/>
+				<imageExpression><![CDATA["../assets/img/dtic.png"]]></imageExpression>
+			</image>
 			<image>
-				<reportElement x="20" y="11" width="60" height="57" uuid="e5eb34ce-4623-45de-a655-f7b1c45229ef"/>
+				<reportElement x="20" y="26" width="60" height="57" uuid="f77db523-098f-48c7-9a93-e51fa6ef0806"/>
 				<imageExpression><![CDATA["../assets/img/espoch.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="241" y="48" width="311" height="20" uuid="96ea90c2-4478-4a8b-b6c0-14919e79d58f"/>
+				<reportElement x="241" y="58" width="311" height="15" uuid="2d37ed31-0ce7-4404-bc16-49c89a2ef901"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="11" isBold="true" isItalic="false" isStrikeThrough="false"/>
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[HISTORIAL DE MANTENIMIENTO DEL BIEN]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="241" y="44" width="311" height="15" uuid="a6ec3092-a82e-4986-8d83-480e3814dc3e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[UNIDAD DE GESTIÓN DE SOPORTE Y MANTENIMIENTO]]></text>
+			</staticText>
 		</band>
-	</title>
-	<pageHeader>
+	</pageHeader>
+	<detail>
 		<band height="86" splitType="Stretch">
 			<staticText>
 				<reportElement x="8" y="0" width="72" height="15" backcolor="#FFFFFF" uuid="58c25d20-9667-4072-8c19-4ec4cd39812d"/>
@@ -458,8 +458,6 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 				<textFieldExpression><![CDATA[$F{ubicacion_ub_descripcion}]]></textFieldExpression>
 			</textField>
 		</band>
-	</pageHeader>
-	<detail>
 		<band height="56" splitType="Stretch">
 			<componentElement>
 				<reportElement key="table 2" style="table 2" x="2" y="2" width="802" height="50" uuid="28bba0b5-1e11-4a31-a1b3-cbc0e361ffe3"/>
@@ -477,9 +475,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
 					<jr:column width="47" uuid="715d5fc1-58eb-40d3-9dc6-1764bd9e887a">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="13" rowSpan="1">
 							<staticText>
-								<reportElement x="2" y="0" width="45" height="30" backcolor="#FFFFFF" uuid="800fdb59-575f-4c13-b90a-7c1e0883ded5"/>
+								<reportElement x="2" y="0" width="45" height="13" backcolor="#FFFFFF" uuid="800fdb59-575f-4c13-b90a-7c1e0883ded5"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -487,9 +485,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 								<text><![CDATA[Orden]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
 							<textField>
-								<reportElement x="4" y="0" width="43" height="45" uuid="0269aa78-f7ea-4a1c-bc5d-89a736f5df26"/>
+								<reportElement x="4" y="0" width="43" height="34" uuid="0269aa78-f7ea-4a1c-bc5d-89a736f5df26"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -498,9 +496,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="56" uuid="be1444e8-a95c-40a5-9cf9-65ae48649f3a">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="13" rowSpan="1">
 							<staticText>
-								<reportElement x="2" y="0" width="54" height="30" backcolor="#FFFFFF" uuid="c1e65ea0-6856-4f6f-b228-d827fb7d2756"/>
+								<reportElement x="2" y="0" width="54" height="13" backcolor="#FFFFFF" uuid="c1e65ea0-6856-4f6f-b228-d827fb7d2756"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -508,9 +506,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 								<text><![CDATA[Tipo Servicio]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
 							<textField>
-								<reportElement x="2" y="0" width="54" height="45" uuid="a2300573-dccc-453d-9311-d5b640e91aa3"/>
+								<reportElement x="2" y="0" width="54" height="34" uuid="a2300573-dccc-453d-9311-d5b640e91aa3"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -519,9 +517,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="56" uuid="2dfe9690-deab-4716-8854-5663e25917c1">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="13" rowSpan="1">
 							<staticText>
-								<reportElement x="2" y="0" width="54" height="30" backcolor="#FFFFFF" uuid="235c8288-ddfd-4fdf-acf0-229a15a8a443"/>
+								<reportElement x="2" y="0" width="54" height="13" backcolor="#FFFFFF" uuid="235c8288-ddfd-4fdf-acf0-229a15a8a443"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -529,9 +527,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 								<text><![CDATA[Tipo Mant.]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
 							<textField>
-								<reportElement x="2" y="0" width="54" height="45" uuid="af945df9-bda0-4db0-969e-36bcb02d7c6b"/>
+								<reportElement x="2" y="0" width="54" height="34" uuid="af945df9-bda0-4db0-969e-36bcb02d7c6b"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -540,9 +538,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="137" uuid="b2809936-ffec-43ec-a9ce-2249ed15cb1e">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="13" rowSpan="1">
 							<staticText>
-								<reportElement x="2" y="0" width="135" height="30" backcolor="#FFFFFF" uuid="9e0a2681-817d-4ece-bb42-a5ea6ea31188"/>
+								<reportElement x="2" y="0" width="135" height="13" backcolor="#FFFFFF" uuid="9e0a2681-817d-4ece-bb42-a5ea6ea31188"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -550,9 +548,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 								<text><![CDATA[Problema]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
 							<textField>
-								<reportElement x="2" y="0" width="135" height="45" uuid="ea27ad96-053a-444c-938f-8ff07d50dc3b"/>
+								<reportElement x="2" y="0" width="135" height="34" uuid="ea27ad96-053a-444c-938f-8ff07d50dc3b"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -561,9 +559,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="157" uuid="f2921428-5ed9-4e7d-bee9-ea74018980ab">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="13" rowSpan="1">
 							<staticText>
-								<reportElement x="2" y="0" width="155" height="30" backcolor="#FFFFFF" uuid="0e076bcf-d6ba-4bdd-959b-c58f27fb2a66"/>
+								<reportElement x="2" y="0" width="155" height="13" backcolor="#FFFFFF" uuid="0e076bcf-d6ba-4bdd-959b-c58f27fb2a66"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -571,9 +569,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 								<text><![CDATA[Solución]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
 							<textField>
-								<reportElement x="2" y="0" width="155" height="45" uuid="79b3ff4a-89bc-4abc-8fe7-8cd63b507538"/>
+								<reportElement x="2" y="0" width="155" height="34" uuid="79b3ff4a-89bc-4abc-8fe7-8cd63b507538"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -582,9 +580,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="90" uuid="d1c8279b-2487-4656-9239-f8ab335d683d">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="13" rowSpan="1">
 							<staticText>
-								<reportElement x="2" y="0" width="88" height="30" backcolor="#FFFFFF" uuid="1d394e3e-c214-484f-bcdc-2df676735a07"/>
+								<reportElement x="2" y="0" width="88" height="13" backcolor="#FFFFFF" uuid="1d394e3e-c214-484f-bcdc-2df676735a07"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -592,9 +590,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 								<text><![CDATA[Técnico Ingreso]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
 							<textField>
-								<reportElement x="2" y="0" width="88" height="45" uuid="9daeed55-f1aa-47e2-b425-82456d0dcedb"/>
+								<reportElement x="2" y="0" width="88" height="34" uuid="9daeed55-f1aa-47e2-b425-82456d0dcedb"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -603,9 +601,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="90" uuid="fbfb8e6a-4025-4f7e-b565-f0a59c352fe5">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="13" rowSpan="1">
 							<staticText>
-								<reportElement x="2" y="0" width="88" height="30" backcolor="#FFFFFF" uuid="1db96da6-27b9-40e6-a765-e311707c713e"/>
+								<reportElement x="2" y="0" width="88" height="13" backcolor="#FFFFFF" uuid="1db96da6-27b9-40e6-a765-e311707c713e"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -613,9 +611,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 								<text><![CDATA[Técnico Asignado]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
 							<textField>
-								<reportElement x="2" y="0" width="88" height="45" uuid="35edf8e6-50a9-4464-9e78-ead22f77d09c"/>
+								<reportElement x="2" y="0" width="88" height="34" uuid="35edf8e6-50a9-4464-9e78-ead22f77d09c"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -624,9 +622,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="90" uuid="ae5248e4-b82e-4f3a-a072-691f2b0abf8f">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="13" rowSpan="1">
 							<staticText>
-								<reportElement x="2" y="0" width="88" height="30" backcolor="#FFFFFF" uuid="1fcc5d3b-3dd8-4bd5-a431-616070fa6a6e"/>
+								<reportElement x="2" y="0" width="88" height="13" backcolor="#FFFFFF" uuid="1fcc5d3b-3dd8-4bd5-a431-616070fa6a6e"/>
 								<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
 									<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
@@ -634,9 +632,9 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 								<text><![CDATA[Custodio]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
 							<textField>
-								<reportElement x="2" y="0" width="88" height="45" uuid="3492b10b-03c5-4f16-8ec3-21e7aa94b745"/>
+								<reportElement x="2" y="0" width="88" height="34" uuid="3492b10b-03c5-4f16-8ec3-21e7aa94b745"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -645,18 +643,18 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="76" uuid="4d458745-d19b-4e57-bbd2-14b55419cead">
-						<jr:tableHeader style="table 3_TH" height="30" rowSpan="1">
+						<jr:tableHeader style="table 3_TH" height="13" rowSpan="1">
 							<staticText>
-								<reportElement x="2" y="0" width="65" height="30" uuid="6e1a05ac-f28b-4fb9-b6c4-1c5e071cb972"/>
+								<reportElement x="2" y="0" width="65" height="13" uuid="6e1a05ac-f28b-4fb9-b6c4-1c5e071cb972"/>
 								<textElement textAlignment="Left" verticalAlignment="Top">
 									<font size="8" isBold="true" isItalic="false"/>
 								</textElement>
 								<text><![CDATA[Fecha Mant.]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:detailCell style="table 2_TD" height="45" rowSpan="1">
+						<jr:detailCell style="table 2_TD" height="34" rowSpan="1">
 							<textField>
-								<reportElement x="2" y="0" width="65" height="45" uuid="d310f281-5935-48a7-862a-d67924891b98"/>
+								<reportElement x="2" y="0" width="65" height="34" uuid="d310f281-5935-48a7-862a-d67924891b98"/>
 								<textElement>
 									<font size="8"/>
 								</textElement>
@@ -666,6 +664,86 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 					</jr:column>
 				</jr:table>
 			</componentElement>
+		</band>
+		<band height="38" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="20" y="1" width="701" height="11" uuid="41db3395-3fbc-4975-b0e5-c0b104a66899"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Riobamba, "+new SimpleDateFormat("EEEEE dd MMMMM yyyy", new Locale("es", "ES")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="11" width="396" height="11" backcolor="#FFFFFF" uuid="c703ec2a-6484-4099-9115-c937eef0ec5b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
+					<font size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Sistema de Bienes Informáticos (SIBI)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="21" width="396" height="11" backcolor="#FFFFFF" uuid="8e5056a2-c7d2-4805-a2ea-567e85154f6a"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
+					<font size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Dirección de Tecnologías de la Información y Comunicación]]></text>
+			</staticText>
+		</band>
+		<band height="111">
+			<elementGroup>
+				<frame>
+					<reportElement x="187" y="0" width="426" height="111" uuid="d390c681-f825-4709-9691-1757853aa3df"/>
+					<staticText>
+						<reportElement x="292" y="0" width="60" height="13" backcolor="#FFFFFF" uuid="57c7dcfd-5686-494d-ad24-ce1192499071"/>
+						<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
+							<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+							<paragraph lineSpacing="Proportional"/>
+						</textElement>
+						<text><![CDATA[Revisado por:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="0" y="75" width="205" height="13" uuid="4be20151-07a1-4b63-ab97-6b4cb541a7ed"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+							<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+							<paragraph lineSpacing="Proportional"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{tgenerado}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="54" y="88" width="95" height="13" uuid="ac6306e1-6906-41fb-93f3-8f830a5d3eb3"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+							<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+							<paragraph lineSpacing="Proportional"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{tgeneradocargo}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="278" y="88" width="95" height="13" uuid="0cd2729b-f524-46f4-8eff-1f5301744fff"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+							<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+							<paragraph lineSpacing="Proportional"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{trevisadocargo}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="66" y="0" width="60" height="13" backcolor="#FFFFFF" uuid="ffb563b9-07b1-4d8a-8a18-35a7ce51a35b"/>
+						<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
+							<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+							<paragraph lineSpacing="Proportional"/>
+						</textElement>
+						<text><![CDATA[Generado por:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="229" y="75" width="197" height="13" uuid="174447b3-a3e4-4486-a956-cee655233219"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+							<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+							<paragraph lineSpacing="Proportional"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{trevisado}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</elementGroup>
 		</band>
 	</detail>
 	<columnFooter>
@@ -712,99 +790,16 @@ where bien."bn_cod_bien" = $P{bienId}]]>
 				</textElement>
 				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="329" y="3" width="150" height="11" backcolor="#FFFFFF" uuid="51ed0103-11b7-4b2f-8f8e-c5899a345f0d"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
+					<font size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Proportional"/>
+				</textElement>
+				<text><![CDATA[Sistema de Bienes Informáticos (SIBI)]]></text>
+			</staticText>
 		</band>
 	</pageFooter>
-	<lastPageFooter>
-		<band height="123" splitType="Stretch">
-			<staticText>
-				<reportElement x="424" y="3" width="60" height="13" backcolor="#FFFFFF" uuid="07637959-653a-4a0a-ae2a-75150ed2d81c"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
-					<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Proportional"/>
-				</textElement>
-				<text><![CDATA[Generado por:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="651" y="3" width="60" height="13" backcolor="#FFFFFF" uuid="16eee790-f085-48a3-b2a7-02008398a49b"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="none">
-					<font size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Proportional"/>
-				</textElement>
-				<text><![CDATA[Revisado por:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="635" y="91" width="95" height="13" uuid="b5f923ae-ada5-4b70-9685-f996e42eefe4"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Proportional"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{trevisadocargo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="400" y="91" width="95" height="13" uuid="a5074831-b5ab-4235-b3ba-bc4d52c1d913"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Proportional"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{tgeneradocargo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="357" y="68" width="205" height="23" uuid="73c12787-c20d-4ee3-9f87-a62a1814ae6d"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Proportional"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{tgenerado}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="586" y="68" width="197" height="23" uuid="bd418b72-652a-458f-8b1c-6588575eb140"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Proportional"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{trevisado}]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report" pattern="" isBlankWhenNull="false">
-				<reportElement key="textField" x="756" y="109" width="36" height="12" forecolor="#000000" backcolor="#FFFFFF" uuid="a92a9abb-c4ec-433b-a27f-9ac55e0316cd"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA["" + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField pattern="" isBlankWhenNull="false">
-				<reportElement key="textField" x="582" y="109" width="170" height="12" forecolor="#000000" backcolor="#FFFFFF" uuid="0a8930d6-219e-4865-a552-451607f40d78"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Right">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER} + " of "]]></textFieldExpression>
-			</textField>
-			<textField pattern="" isBlankWhenNull="false">
-				<reportElement key="textField" x="8" y="109" width="209" height="12" forecolor="#000000" backcolor="#FFFFFF" uuid="94c890f0-93f3-4b8d-a11b-d8d307d80e28"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
-			</textField>
-		</band>
-	</lastPageFooter>
 	<summary>
 		<band splitType="Stretch"/>
 	</summary>

@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c4d1b671-e864-4b22-9ebd-140bfe26d914">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="DatasetUbicDep" uuid="090691bf-8487-4431-b413-e05dc8db1df2">
+		<parameter name="ubicaciond" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="dependenciad" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="fechaid" class="java.util.Date">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="fechafd" class="java.util.Date">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[select b.bn_cod_bien, b.bn_nombre, b.bn_serie, b.bn_modelo, b.bn_marca, b.bn_color, b.bn_precio, b.bn_estado_bien, b.bn_fecha_compra, b.bn_tiempo_garantia, b.bn_fecha_garantia, b.bn_proveedor  from controlbien.bien b inner join controlbien.baja ba on b.ba_id = ba.ba_id inner join controlbien.dependencia d on b.dp_id = d.dp_id inner join controlbien.ubicacion u on b.ub_id = u.ub_id inner join controlbien.traspaso tra on tra.bn_cod_bien = b.bn_cod_bien where u.ub_descripcion = $P{ubicaciond} and d.dp_descripcion = $P{dependenciad}  and tra.tra_fecha_inicio BETWEEN $P{fechaid} and $P{fechafd}]]>
+		</queryString>
+		<field name="bn_cod_bien" class="java.lang.String"/>
+		<field name="bn_nombre" class="java.lang.String"/>
+		<field name="bn_serie" class="java.lang.String"/>
+		<field name="bn_modelo" class="java.lang.String"/>
+		<field name="bn_marca" class="java.lang.String"/>
+		<field name="bn_color" class="java.lang.String"/>
+		<field name="bn_precio" class="java.lang.Float"/>
+		<field name="bn_estado_bien" class="java.lang.String"/>
+		<field name="bn_fecha_compra" class="java.sql.Date"/>
+		<field name="bn_tiempo_garantia" class="java.lang.Integer"/>
+		<field name="bn_fecha_garantia" class="java.sql.Date"/>
+		<field name="bn_proveedor" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="ubicacion" class="java.lang.String"/>
+	<parameter name="dependencia" class="java.lang.String"/>
+	<parameter name="fechai" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaf" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="responsable" class="java.lang.String"/>
+	<parameter name="cargo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 1]]>
+	</queryString>
+	<field name="?column?" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="114" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e4f3e3dc-998b-40e4-a87d-4a79297fee95" x="242" y="14" width="337" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESCUELA SUPERIOR POLITÉCNICA DE CHIMBORAZO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ed8b3c89-7390-4268-b1dd-5dc1d41c4623" x="274" y="34" width="288" height="20"/>
+				<textElement/>
+				<text><![CDATA[UNIDAD DE GESTIÓN DE SOPORTE Y MANTENIMIENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="643a2089-e4b6-4e46-bd0b-62e8b1170d1d" x="304" y="54" width="217" height="20"/>
+				<textElement/>
+				<text><![CDATA[BIENES POR UBICACION Y DEPENDENCIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5ad07bf5-24be-4630-b51d-fe1d0b79ba25" x="16" y="72" width="70" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ubicación:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ff92dfbe-fdce-457f-9e71-ad2ff2d36363" x="16" y="92" width="70" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dependencia:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="68a00b29-d2fa-4e14-9e92-f0315a261837" x="86" y="74" width="287" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{ubicacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="77bd1a72-7765-405f-b0a5-3f87698d1305" x="86" y="92" width="287" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{dependencia}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="7dcbc764-503c-4a1d-8e17-a13e3d6b150f" x="16" y="14" width="101" height="52"/>
+				<imageExpression><![CDATA["C:\\Users\\Toshiba\\Documents\\NetBeansProjects\\ControlBienes 0.1\\ControlBienes\\controlBienesIU\\src\\main\\webapp\\assets\\img\\espoch.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="a602edd3-fcb4-4b85-9223-2b1fe81fd6c1" x="682" y="22" width="142" height="32"/>
+				<imageExpression><![CDATA["C:\\Users\\Toshiba\\Documents\\NetBeansProjects\\ControlBienes 0.1\\ControlBienes\\controlBienesIU\\src\\main\\webapp\\assets\\img\\dtic.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="82" splitType="Stretch">
+			<componentElement>
+				<reportElement uuid="c6973251-1765-4c60-a327-e47952ad198c" key="table" style="table" x="16" y="0" width="765" height="80"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DatasetUbicDep" uuid="2858fc1f-2ed5-4275-b4c0-821af17f3e9e">
+						<datasetParameter name="ubicaciond">
+							<datasetParameterExpression><![CDATA[$P{ubicacion}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="dependenciad">
+							<datasetParameterExpression><![CDATA[$P{dependencia}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="fechaid">
+							<datasetParameterExpression><![CDATA[$P{fechai}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="fechafd">
+							<datasetParameterExpression><![CDATA[$P{fechaf}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column uuid="cdf6c7e0-5e65-4af7-a66d-a0a99ddccecc" width="42">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="6e92ff64-46fe-4657-a48d-2eb88ef45199" mode="Opaque" x="2" y="0" width="40" height="30" backcolor="#F0F8FF"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Código]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement uuid="87f4e265-c332-4d42-b152-882c4497e2c0" mode="Opaque" x="2" y="0" width="40" height="34"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{bn_cod_bien}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="732eb2e5-5338-460e-bb7f-c04749d87194" width="168">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="d6c263a0-508e-4fed-80d4-beb3ab4dcb1a" mode="Opaque" x="2" y="0" width="166" height="30" backcolor="#F0F8FF"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nombre]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement uuid="5692a26a-fae9-4c07-9d9c-f49dea749bcd" mode="Opaque" x="2" y="0" width="166" height="34"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{bn_nombre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="f15eebf7-2820-4701-ac60-59aaa8eff7e7" width="60">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="3e1df5fc-542e-4ebb-bccb-825660cf92e4" mode="Opaque" x="2" y="0" width="58" height="30" backcolor="#F0F8FF"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Serie]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement uuid="874a8333-fbdc-4d42-a9cf-052d8175ae02" mode="Opaque" x="2" y="0" width="58" height="34"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{bn_serie}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="fff5673c-6d9a-481b-997e-985f71ebb070" width="71">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="2a22a910-9f21-4a8f-9a39-fd77d0373e9d" mode="Opaque" x="2" y="0" width="69" height="30" backcolor="#F0F8FF"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Modelo]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement uuid="1d81963d-cb6b-47e5-83e6-e26dcb1c976a" mode="Opaque" x="2" y="0" width="69" height="34"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{bn_modelo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="7e18fc45-3043-417b-9b1e-5ea33b98b766" width="90">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="d7c6950e-ab36-4eec-9315-5ba556d714c6" mode="Opaque" x="2" y="0" width="88" height="30" backcolor="#F0F8FF"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Marca]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement uuid="6c2a03b6-fbba-45af-8038-2c82593c822f" mode="Opaque" x="2" y="0" width="88" height="34"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{bn_marca}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="640a2f88-dedb-458d-9737-6b89114e3c43" width="49">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="038dbe1b-e20e-4d96-a207-0457573f6867" mode="Opaque" x="2" y="0" width="47" height="30" backcolor="#F0F8FF"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Color]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement uuid="01b88d83-a4eb-4f42-923c-84cd8f34cd20" mode="Opaque" x="2" y="0" width="47" height="34"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{bn_color}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="01c81275-a97a-4e2b-8f97-9cb5d9397253" width="39">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="6f43f2a5-0b22-46a1-b27f-fec4a842904e" mode="Opaque" x="2" y="0" width="37" height="30" backcolor="#F0F8FF"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Precio]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement uuid="91999a40-c2b4-40f2-80fc-e2ce1edd9a1a" mode="Opaque" x="2" y="0" width="37" height="34"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{bn_precio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="c3df5cb9-f788-4250-ae22-2cc6cae5a49a" width="37">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="ebe080ff-b6f1-4618-a618-9d613510394e" mode="Opaque" x="2" y="0" width="35" height="30" backcolor="#F0F8FF"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Estado]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement uuid="ae179247-f12e-41db-817d-f5e9768d6915" mode="Opaque" x="2" y="1" width="35" height="34"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{bn_estado_bien}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="ed8da8df-be5c-4934-a52d-e4d03c7a5ee1" width="39">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="9e0c6eac-d6f7-43dc-b38b-fa0cd26b9ae1" mode="Opaque" x="2" y="0" width="37" height="30" backcolor="#F0F8FF"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Fecha Compra]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement uuid="eef54980-ccf5-42e7-a648-69bed939acc5" mode="Transparent" x="2" y="0" width="28" height="15"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{bn_fecha_compra}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="1fe237a1-7960-40c9-b5bd-8b07bd7b6082" width="50">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="606b2263-dfde-47ff-a5f2-7ad6f1f03447" mode="Opaque" x="2" y="0" width="48" height="30" backcolor="#F0F8FF"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Fecha Garantia]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement uuid="ef60589a-975e-41f3-ad4f-237cef375ccd" mode="Transparent" x="2" y="0" width="31" height="15"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{bn_fecha_garantia}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="45ac36ce-5f09-44e5-bbcf-44f7edde1539" width="108">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="4f30f0a8-5680-4507-8517-88673d437a93" mode="Opaque" x="2" y="0" width="106" height="30" backcolor="#F0F8FF"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Proveedor]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement uuid="9857128c-2039-42b8-8d68-465309f63e4e" mode="Opaque" x="2" y="1" width="106" height="34" backcolor="#FFFFFF"/>
+								<textElement>
+									<font size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{bn_proveedor}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="48">
+			<staticText>
+				<reportElement uuid="af7f9ff2-1542-469d-9a97-75aeaa18bff4" x="16" y="0" width="42" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Riobamba,]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="13a1845c-9242-4d31-9456-02416b496b20" x="58" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="551eeeb9-2572-4e58-8046-303e854738a3" x="16" y="20" width="171" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Sistema de Bienes Informáticos (SIBI)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="619bcd9d-2afb-4884-a737-9c51f07b0750" x="16" y="32" width="272" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Dirección de Tecnologías de la Información y Comunicación]]></text>
+			</staticText>
+		</band>
+		<band height="134">
+			<frame>
+				<reportElement uuid="bd42ec1d-d0d3-4675-86df-e4e622896896" x="274" y="0" width="269" height="133"/>
+				<staticText>
+					<reportElement uuid="68a469b6-584a-4d92-bb7f-837dd5c8af43" x="85" y="11" width="100" height="13"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Generado por:]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="adc8142d-3ef2-4517-830d-f609351accd7" x="0" y="93" width="269" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{responsable}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="fe27998c-9308-4e3a-84fe-ce174285ca0a" x="0" y="113" width="269" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{cargo}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement uuid="02aff6f7-1058-4352-9b9a-bea17131fab4" x="661" y="4" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="b6169099-e79c-47a9-afd3-f194697a954e" x="741" y="4" width="40" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="afa5e98a-c3e6-49da-86da-20a2970ea365" x="304" y="4" width="191" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Sistema de Bienes Informáticos (SIBI)]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="1c8d03e5-fd6f-44d7-8c42-e95890ab47b6" x="16" y="4" width="42" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="h.mm a">
+				<reportElement uuid="77b02f1d-0866-4861-ba2b-7d5ded42b34a" x="58" y="4" width="33" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

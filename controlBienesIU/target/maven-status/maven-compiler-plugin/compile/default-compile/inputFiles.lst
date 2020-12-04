@@ -1,49 +1,49 @@
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\esntidadesSeg\Grupo.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\WSCentralizada.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sInforme.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Catalogo.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\esntidadesSeg\Sistema.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sUbicacion.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\esntidadesSeg\Usuario.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Tecnico.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sTipoMantenimiento.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Dependencia.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Tipoingreso.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sTemporal.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sTraspaso.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\esntidadesSeg\Accion.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sNivelmantenimiento.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Nivelmantenimiento.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sTecnico.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Persona.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Cargo.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sCargo.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sCatalogo.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\esntidadesSeg\Rol.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Csv.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sBaja.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\utils\Conexion.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sDependencia.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sBien.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sCsv.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sMotivoInforme.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Auditoria.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Bien.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sTipoIngreso.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\esntidadesSeg\Perfil.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sPersona.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Temp.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Baja.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sMantenimiento.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Motivoinforme.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Tipomantenimiento.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Traspaso.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Ubicacion.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sMantenimientoN.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\esntidadesSeg\Funcion.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Informe.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\utils\Constantes.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\servicios\sSeguridad.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Tecnodisco.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Mantenimientos.java
-D:\VersionesPracticas\PracticasControlBienesAD_IU\controlBienesIU\src\main\java\entidades\Mantenimiento.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sBaja.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sCargo.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Mantenimientos.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sMantenimientoN.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sTecnico.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Persona.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Tipoingreso.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sDependencia.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\esntidadesSeg\Funcion.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\esntidadesSeg\Rol.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Tecnico.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Tecnodisco.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sTraspaso.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sBien.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sSeguridad.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sTemporal.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Catalogo.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Cargo.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\utils\Conexion.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\WSCentralizada.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\esntidadesSeg\Usuario.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sTipoMantenimiento.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sPersona.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Traspaso.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\esntidadesSeg\Sistema.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sNivelmantenimiento.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sCsv.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Motivoinforme.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Dependencia.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Informe.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Ubicacion.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Temp.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\esntidadesSeg\Accion.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Bien.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Baja.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Tipomantenimiento.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sUbicacion.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Csv.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Mantenimiento.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sInforme.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Nivelmantenimiento.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sCatalogo.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\esntidadesSeg\Grupo.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sMotivoInforme.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\esntidadesSeg\Perfil.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sMantenimiento.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Auditoria.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\utils\Constantes.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sTipoIngreso.java

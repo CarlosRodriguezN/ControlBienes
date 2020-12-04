@@ -19,36 +19,37 @@
 	<title>
 		<band height="120" splitType="Stretch">
 			<image>
-				<reportElement x="438" y="35" width="89" height="59" uuid="81b81777-4bb0-4ccc-bf95-ae3118f89a3c"/>
+				<reportElement uuid="81b81777-4bb0-4ccc-bf95-ae3118f89a3c" x="438" y="35" width="89" height="59"/>
 				<imageExpression><![CDATA["C:\\Users\\Alex\\Desktop\\proyecto6\\PracticasControlBienesAD_IU\\controlBienesIU\\src\\main\\webapp\\assets\\img\\dtic.png"]]></imageExpression>
 			</image>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="424" y="87" width="131" height="20" uuid="3f9454ef-27a9-4d08-9bc8-66bad13db485"/>
+				<reportElement uuid="3f9454ef-27a9-4d08-9bc8-66bad13db485" x="424" y="87" width="131" height="20"/>
+				<textElement/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="125" y="60" width="323" height="20" uuid="2aadfbcd-9997-405e-8bb6-c680c2477d0a"/>
+				<reportElement uuid="2aadfbcd-9997-405e-8bb6-c680c2477d0a" x="125" y="60" width="323" height="20"/>
 				<textElement>
 					<font size="11" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[UNIDAD DE GESTION DE SOPORTE Y MANTENIMIENTO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="176" y="104" width="201" height="16" uuid="06c36c52-2210-4fbf-ac3c-795f4b84f317"/>
+				<reportElement uuid="06c36c52-2210-4fbf-ac3c-795f4b84f317" x="176" y="104" width="201" height="16"/>
 				<textElement>
 					<font size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reporte de Bienes Desactivados]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="115" y="35" width="335" height="25" uuid="08e81c75-d612-4396-aae0-27b64c678b73"/>
+				<reportElement uuid="08e81c75-d612-4396-aae0-27b64c678b73" x="115" y="35" width="335" height="25"/>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ESCUELA SUPERIOR POLITECNICA DE CHIMBORAZO]]></text>
 			</staticText>
 			<image>
-				<reportElement x="19" y="30" width="60" height="57" uuid="e5eb34ce-4623-45de-a655-f7b1c45229ef"/>
+				<reportElement uuid="e5eb34ce-4623-45de-a655-f7b1c45229ef" x="19" y="30" width="60" height="57"/>
 				<imageExpression><![CDATA["C:\\Users\\Alex\\Desktop\\proyecto6\\PracticasControlBienesAD_IU\\controlBienesIU\\src\\main\\webapp\\assets\\img\\espoch.png"]]></imageExpression>
 			</image>
 		</band>
@@ -59,7 +60,7 @@
 	<columnHeader>
 		<band height="22" splitType="Stretch">
 			<staticText>
-				<reportElement x="8" y="0" width="44" height="20" backcolor="#FFFFFF" uuid="4aec2503-3495-4576-be50-026aabb87230"/>
+				<reportElement uuid="4aec2503-3495-4576-be50-026aabb87230" x="8" y="0" width="44" height="20" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Justified" markup="none">
 					<font size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Proportional"/>
@@ -67,7 +68,7 @@
 				<text><![CDATA[Cod.Bien]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="91" y="0" width="131" height="20" backcolor="#FFFFFF" uuid="7ea34c3a-7320-49ce-bed3-be987514863b"/>
+				<reportElement uuid="7ea34c3a-7320-49ce-bed3-be987514863b" x="91" y="0" width="131" height="20" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" markup="none">
 					<font size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Proportional"/>
@@ -75,7 +76,7 @@
 				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="52" y="0" width="39" height="20" backcolor="#FFFFFF" uuid="20d923f3-08fc-4e78-9658-c86dd9170b77"/>
+				<reportElement uuid="20d923f3-08fc-4e78-9658-c86dd9170b77" x="52" y="0" width="39" height="20" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" markup="none">
 					<font size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Proportional"/>
@@ -83,7 +84,7 @@
 				<text><![CDATA[Serie]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="222" y="0" width="93" height="20" backcolor="#FFFFFF" uuid="9a43ed17-c0be-4e8d-be9d-c190e674688f"/>
+				<reportElement uuid="9a43ed17-c0be-4e8d-be9d-c190e674688f" x="222" y="0" width="93" height="20" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" markup="none">
 					<font size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Proportional"/>
@@ -91,7 +92,7 @@
 				<text><![CDATA[Ubicacion]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="315" y="0" width="77" height="20" backcolor="#FFFFFF" uuid="9471ae66-3af8-469d-8d17-9effc819ad3c"/>
+				<reportElement uuid="9471ae66-3af8-469d-8d17-9effc819ad3c" x="315" y="0" width="77" height="20" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" markup="none">
 					<font size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Proportional"/>
@@ -99,7 +100,7 @@
 				<text><![CDATA[Dependencia]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="392" y="2" width="110" height="20" backcolor="#FFFFFF" uuid="6a1b49cd-be07-474e-90a8-6b847ef2db46"/>
+				<reportElement uuid="6a1b49cd-be07-474e-90a8-6b847ef2db46" x="392" y="2" width="110" height="20" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" markup="none">
 					<font size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Proportional"/>
@@ -107,7 +108,7 @@
 				<text><![CDATA[Motivo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="502" y="2" width="40" height="20" uuid="1516aeab-6cf2-4f8e-adb0-cc79954a5520"/>
+				<reportElement uuid="1516aeab-6cf2-4f8e-adb0-cc79954a5520" x="502" y="2" width="40" height="20"/>
 				<textElement textAlignment="Center">
 					<font size="9" isBold="true" isItalic="false"/>
 				</textElement>
@@ -118,7 +119,7 @@
 	<detail>
 		<band height="21" splitType="Stretch">
 			<textField>
-				<reportElement mode="Transparent" x="8" y="0" width="44" height="20" backcolor="#FFFFFF" uuid="8ace6409-8a92-4bc9-91f6-4031d7422f2b"/>
+				<reportElement uuid="8ace6409-8a92-4bc9-91f6-4031d7422f2b" mode="Transparent" x="8" y="0" width="44" height="20" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" markup="none">
 					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Proportional"/>
@@ -126,7 +127,7 @@
 				<textFieldExpression><![CDATA[$F{bn_cod_bien}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Transparent" x="91" y="0" width="131" height="20" backcolor="#FFFFFF" uuid="b9d4519f-b096-4400-9c26-fe54c5e1d4d7"/>
+				<reportElement uuid="b9d4519f-b096-4400-9c26-fe54c5e1d4d7" mode="Transparent" x="91" y="0" width="131" height="20" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" markup="none">
 					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Proportional"/>
@@ -134,7 +135,7 @@
 				<textFieldExpression><![CDATA[$F{bn_nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Transparent" x="52" y="0" width="39" height="20" backcolor="#FFFFFF" uuid="08403622-fcd3-44bc-ae15-a6f23518087d"/>
+				<reportElement uuid="08403622-fcd3-44bc-ae15-a6f23518087d" mode="Transparent" x="52" y="0" width="39" height="20" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" markup="none">
 					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Proportional"/>
@@ -142,7 +143,7 @@
 				<textFieldExpression><![CDATA[$F{bn_serie}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Transparent" x="222" y="0" width="93" height="20" backcolor="#FFFFFF" uuid="4c99484a-8a94-41e6-8243-fb38ef687c3e"/>
+				<reportElement uuid="4c99484a-8a94-41e6-8243-fb38ef687c3e" mode="Transparent" x="222" y="0" width="93" height="20" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" markup="none">
 					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Proportional"/>
@@ -150,7 +151,7 @@
 				<textFieldExpression><![CDATA[$F{ub_descripcion}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement mode="Transparent" x="315" y="0" width="77" height="20" backcolor="#FFFFFF" uuid="03c55b61-d881-4d61-b13f-96bf1556c648"/>
+				<reportElement uuid="03c55b61-d881-4d61-b13f-96bf1556c648" mode="Transparent" x="315" y="0" width="77" height="20" backcolor="#FFFFFF"/>
 				<textElement textAlignment="Center" markup="none">
 					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Proportional"/>
@@ -158,7 +159,7 @@
 				<textFieldExpression><![CDATA[$F{dp_descripcion}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Transparent" x="392" y="0" width="110" height="20" backcolor="#FFFFFF" uuid="3e61aafd-1889-4d45-bd06-21a2e5b61d1d"/>
+				<reportElement uuid="3e61aafd-1889-4d45-bd06-21a2e5b61d1d" mode="Transparent" x="392" y="0" width="110" height="20" backcolor="#FFFFFF"/>
 				<textElement markup="none">
 					<font size="8" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Proportional"/>
@@ -166,7 +167,7 @@
 				<textFieldExpression><![CDATA[$F{mot_detalle}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="502" y="0" width="40" height="20" uuid="73bab9d9-2b8e-4808-a84d-501b3716cc92"/>
+				<reportElement uuid="73bab9d9-2b8e-4808-a84d-501b3716cc92" x="502" y="0" width="40" height="20"/>
 				<textElement textAlignment="Center">
 					<font size="8"/>
 				</textElement>
@@ -180,12 +181,13 @@
 	<pageFooter>
 		<band height="31" splitType="Stretch">
 			<textField>
-				<reportElement x="422" y="4" width="80" height="20" uuid="7a9bc1a0-491a-46ad-ae25-d710b8469fe5"/>
+				<reportElement uuid="7a9bc1a0-491a-46ad-ae25-d710b8469fe5" x="422" y="4" width="80" height="20"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="502" y="4" width="40" height="20" uuid="78967025-14ce-4dee-9c6f-032d36edabb1"/>
+				<reportElement uuid="78967025-14ce-4dee-9c6f-032d36edabb1" x="502" y="4" width="40" height="20"/>
+				<textElement/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>

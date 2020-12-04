@@ -23,7 +23,7 @@ public class Constantes {
     
     
     public final static String PREFIJO_seguridad = "https://";
-    //public final static String IP_seguridad = "talentohumano.espoch.edu.ec:8181";
+//    public final static String IP_seguridad = "talentohumano.espoch.edu.ec:8181";
     public final static String IP_seguridad = "talentohumano.espoch.edu.ec";
     public final static String SERVICIO_seguridad = "RolSeguridad";
 

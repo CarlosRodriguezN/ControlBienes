@@ -1814,6 +1814,23 @@ function clicReportesMantGeneral() { //datNomb ; datIDPerio ; datTipoCer ; datFe
     window.open(url, "", params);
 
 }
+
+function clicReportesInvBienes(fomulario,tipo) { //datNomb ; datIDPerio ; datTipoCer ; datFecha; datPerio
+    var datos = Objeto2Json(fomulario);
+    //var datos = Objeto2Json('FrmBienMarca');
+    var datosFecha = Objeto2Json('FrmRangoFecha');
+    datos =  datos + "__" + datosFecha + "__" + tipo;
+    datos = window.btoa(unescape(encodeURIComponent(datos)));
+    var url = "repotesInventarios.jsp?cert=" + datos;
+    //var url = "repotesInventarios.jsp?cert=" + datos;
+    var params = 'width=' + screen.width;
+    params += ', height=' + screen.height;
+    params += ', top=0, left=0';
+    params += ', fullscreen=yes';
+    window.open(url, "", params);
+
+}
+
 function AsignarTecnicoMantenimiento(idMantenimiento) {
     var datos = Objeto2Json('FrmAsignarTecnico');
     $.ajax({

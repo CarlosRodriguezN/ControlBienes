@@ -193,7 +193,7 @@ Total_horas_perdidas_aqui = 0-->
                     <div class="clearfix">
                         <!-- logo -->
                         <div class="pull-left left logo">
-                            <a href="index.jsp"><img src="assets/img/logoDEAC.png"  /></a>
+                            <a href="index.jsp"><img src="assets/img/logbien.png"/></a>
                         </div>
                         <!-- end logo -->
                         <div class="pull-right right">

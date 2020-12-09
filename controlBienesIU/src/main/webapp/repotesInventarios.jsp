@@ -91,7 +91,6 @@ Total_horas_perdidas_aqui = 0-->
             String datmarca = parametros.replaceAll("\\{", "").replaceAll("\"", "").replaceAll(":", "").replaceAll("marca", "").replaceAll("\\}", "");
             parameters.put("marca", datmarca);
             reportFile = new File(application.getRealPath("Reportes/ReporteInventarioMarca.jasper"));
-            String v1 ="";
         }
         
         if(tiporeporte.equals("desactivado"))
@@ -107,7 +106,6 @@ Total_horas_perdidas_aqui = 0-->
             parameters.put("ubicacion", ubicacion);
             parameters.put("dependencia", dependencia);
             reportFile = new File(application.getRealPath("Reportes/ReporteInventarioUbicDep.jasper"));
-            String v2 ="";
         }
         
         if(tiporeporte.equals("garantia"))
@@ -116,31 +114,6 @@ Total_horas_perdidas_aqui = 0-->
             reportFile = new File(application.getRealPath("Reportes/ReporteInventarioGarantia.jasper"));
         }
 
-
-
-//----------------------------------------------------------        
-        
-//        //String[] datos = decodedString.split(",");
-////        String datNombres = datos[0].replaceAll("\\{", "").replaceAll("\"", "").replaceAll(":", "").replace("mantnombre", "");
-////        String datFechai = datos[1].replaceAll("\"", "").replaceAll(":", "").replaceAll("mantfechai", "");
-////        String datFechaf = datos[2].replaceAll("\"", "").replaceAll(":", "").replaceAll("mantfechaf", "");
-////        String datNombresG = datos[3].replaceAll("\"", "").replaceAll(":", "").replaceAll("nombresUsuarioA", "");
-////        String datCargoG = datos[4].replaceAll("\"", "").replaceAll(":", "").replaceAll("cargoUsuarioA", "");
-////        String[] datRevision = datos[5].split("_");
-////        String datResRevision = datRevision[0].replaceAll("\"", "").replaceAll(":", "").replaceAll("responsableReciboA", "");;
-////        String datResCargo = datRevision[1].replaceAll("\\}", "").replaceAll("\"", "");
-//
-//        
-////        File reportFile = new File(application.getRealPath("Reportes/Test.jasper"));
-////        
-////        Map parameters = new HashMap();
-////        parameters.put("tecnico", datNombres);
-////        parameters.put("fechai", di);
-////        parameters.put("fechaf", df);
-////        parameters.put("tgenerado", datNombresG);
-////        parameters.put("tgeneradocargo", datCargoG);
-////        parameters.put("trevisado", datResRevision);
-////        parameters.put("trevisadocargo", datResCargo);
         /*Enviamos la ruta del reporte, los parámetros y la conexión(objeto Connection)*/
         Conexion c = new Conexion();
         byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath(), parameters, c.connectDatabase());

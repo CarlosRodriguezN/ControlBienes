@@ -111,8 +111,9 @@
                                             <input value="traspaso" required="true" type="hidden" class="form-control" id="repotTraspaso" name="repotTraspaso">
                                         </div>
                                     </fom>
-                                    <button class='btn btn-outline-warning' type = 'button' name = 'btnTraspaso' onclick="clicReportesInvBienes('FrmBienTaspaso','traspaso')" value='btnTraspaso'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button> 
-                                    <!--<input  type = 'submit' name = 'btnTraspaso' value='' class='btn btn-outline-warning'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></input>--> 
+                                    <!--<button class='btn btn-outline-warning' type = 'button' name = 'btnTraspaso' onclick="clicReportesInvBienes('FrmBienTaspaso','traspaso')" value='btnTraspaso'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button>--> 
+                                    <button class='btn btn-outline-warning' type = 'button' name = 'btnTraspaso' onclick="invTraspasoPDF()" value='btnTraspaso'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button>
+                                    <button class='btn btn-outline-warning' type = 'button' name = 'btnTraspaso' onclick="invTraspasoCSV()" value='btnTraspaso'><i class="fa fa-file-excel-o" style="font-size: 25px;"></i></button> 
                                 </div>
                             </div>
                         </div>
@@ -121,14 +122,16 @@
                             <div class="well well-lg knowledge-recent-popular">
                                 <div class="row">  
                                     <form role="form" id="FrmBienMarca">
-                                        <label for="repotTraspaso"><b>Repote por Marca de Bienes</b></label>
+                                        <label for="repotTraspaso"><b>Reporte por Marca de Bienes</b></label>
                                         <div class="form-group col-md-6" >
                                             
-                                            <input value="ASUS" required="true" type="text" class="form-control" id="FrmBienMarca" name="marca">
+                                            <!--<input value="ASUS" required="true" type="text" class="form-control" id="FrmBienMarca" name="marca">-->
+                                            <input value="ASUS" required="true" type="text" class="form-control" id="idmarca" name="marca">
                                         </div>
                                     </fom>
-                                    <button class='btn btn-outline-warning' type = 'button' name = 'btnMarca' onclick="clicReportesInvBienes('FrmBienMarca','marca')" value='btnMarca'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button> 
-                                    <!--<input  type = 'submit' name = 'btnTraspaso' value='' class='btn btn-outline-warning'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></input>--> 
+                                    <!--<button class='btn btn-outline-warning' type = 'button' name = 'btnMarca' onclick="clicReportesInvBienes('FrmBienMarca','marca')" value='btnMarca'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button>--> 
+                                    <button class='btn btn-outline-warning' type = 'button' name = 'btnMarca' onclick="invMarcaPDF()" value='btnMarca'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button> 
+                                    <button class='btn btn-outline-warning' type = 'button' name = 'btnMarcaCsv' onclick="invMarcaCSV()" value='btnMarcaCsv'><i class="fa fa-file-excel-o" style="font-size: 25px;"></i></button>  
                                 </div>
                             </div>
                         </div>
@@ -141,7 +144,9 @@
                                             <label><b>Reporte de Bienes Desactivados</b></label>
                                         </div>
                                     </form>
-                                    <button class='btn btn-outline-warning' type = 'button' name = 'btnDesactivado' onclick="clicReportesInvBienes('FrmBienDesactivado','desactivado')" value='btnDesactivado'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button> 
+                                    <!--<button class='btn btn-outline-warning' type = 'button' name = 'btnDesactivado' onclick="clicReportesInvBienes('FrmBienDesactivado','desactivado')" value='btnDesactivado'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button>--> 
+                                    <button class='btn btn-outline-warning' type = 'button' name = 'btnDesactivado' onclick="invDesactivadosPDF()" value='btnDesactivado'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button> 
+                                    <button class='btn btn-outline-warning' type = 'button' name = 'invDesactivadosCSV' onclick="invDesactivadosCSV()" value='invDesactivadosCSV'><i class="fa fa-file-excel-o" style="font-size: 25px;"></i></button> 
                                 </div>
                             </div>
                         </div>
@@ -152,7 +157,7 @@
                                     <form role="form" id="FrmBienDependenciaUbicacion">
                                         <div class="form-group col-md-10" >
                                                 <div class="col-md-10" >
-                                                    <label><b>Reporte de Bienes por Dependencia y Ubicacion</b></label>
+                                                    <label><b>Reporte de Bienes por Dependencia y Ubicación</b></label>
                                                 </div>
                                                 <div class="caja col-sm-10" >
                                                         <select class='form-control Recursos' id='UbicacionId' name='ubicacion'>
@@ -179,14 +184,16 @@
                                         </div>
                                     </form>
                                     <div align='center'>    
-                                        <button class='btn btn-outline-warning' type = 'button' name = 'btnDepUbic' onclick="clicReportesInvBienes('FrmBienDependenciaUbicacion','ubicadep')" value='btnDepUbic'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button> 
+                                        <!--<button class='btn btn-outline-warning' type = 'button' name = 'btnDepUbic' onclick="clicReportesInvBienes('FrmBienDependenciaUbicacion','ubicadep')" value='btnDepUbic'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button>--> 
+                                        <button class='btn btn-outline-warning' type = 'button' name = 'btnDepUbic' onclick="invUbicDepPDF()" value='btnDepUbic'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button> 
+                                        <button class='btn btn-outline-warning' type = 'button' name = 'invUbicDepCSV' onclick="invUbicDepCSV()" value='invUbicDepCSV'><i class="fa fa-file-excel-o" style="font-size: 25px;"></i></button> 
                                     </div>
                                 </div>
                             </div>
                         </div>   
                     </div>
                     <!--Pestana 2-->                                   
-                    <div class="active tab-pane" id="blkReportesSinFecha">
+                    <div class="tab-pane" id="blkReportesSinFecha">
                         <div class="col-sm-4">
                             <div class="well well-lg knowledge-recent-popular">
                                 <div class="row">  
@@ -197,7 +204,7 @@
                                         </div>
                                     </fom>
                                     <button class='btn btn-outline-warning' type = 'button' name = 'btnGarantia' onclick="clicReportesInvBienes('FrmBienGarantia','garantia')" value='btnGarantia'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button> 
-                                    <!--<input  type = 'submit' name = 'btnTraspaso' value='' class='btn btn-outline-warning'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></input>--> 
+                                    <button class='btn btn-outline-warning' type = 'button' name = 'invGarantiaUbicDepCSV' onclick="verTodosReportesInvGarantia()" value='invGarantiaCSV'><i class="fa fa-file-excel-o" style="font-size: 25px;"></i></button> 
                                 </div>
                             </div>
                         </div>
@@ -206,15 +213,91 @@
             </div>                                            
         </div>
 
-                                        
-<!--        <div class="btn-group btn-group-xs">
-            <button type="button" class="btn btn-primary" target="_blank" title="Editar" onclick="repotesBien('pdf','baja')"><i class="fa fa-file-pdf-o" style="font-size: 17px;"></i></button>
-        </div>                                  
-                                    
-                                     
-                                        
-                                        
-       
-       <a href = "report.jsp" target="_blank">Reporte</a>
-       <p>holassssss</p>-->
+        <script>
+            function invTraspasoPDF() {
+                fechai = $("input[id='fechai']").val();
+                fechaf = $("input[id='fechaf']").val();
+                if (fechai !== "" && fechaf !== "") {
+                    clicReportesInvBienes('FrmBienTaspaso','traspaso');
+                } else {
+                    alertErrorValidacion(" Ingrese todos los campos de búsqueda ");
+                }
+            }
+            
+            function invUbicDepPDF() {
+                fechai = $("input[id='fechai']").val();
+                fechaf = $("input[id='fechaf']").val();
+                ubicacion = $("select[id='UbicacionId']").val();
+                dependencia = $("select[id='DependenciaId']").val();
+                if (fechai !== "" && fechaf !== "") {
+                    clicReportesInvBienes('FrmBienDependenciaUbicacion','ubicadep')
+                } else {
+                    alertErrorValidacion(" Ingrese todos los campos de búsqueda ");
+                }
+            }
+            
+            function invMarcaPDF() {
+                fechai = $("input[id='fechai']").val();
+                fechaf = $("input[id='fechaf']").val();
+                marca = $("input[id='idmarca']").val();
+                if (fechai !== "" && fechaf !== "" && marca !== "") {
+                    clicReportesInvBienes('FrmBienMarca','marca')
+                } else {
+                    alertErrorValidacion(" Ingrese todos los campos de búsqueda ");
+                }
+            }
+            
+            function invDesactivadosPDF() {
+                fechai = $("input[id='fechai']").val();
+                fechaf = $("input[id='fechaf']").val();
+                if (fechai !== "" && fechaf !== "") {
+                    clicReportesInvBienes('FrmBienDesactivado','desactivado')
+                } else {
+                    alertErrorValidacion(" Ingrese todos los campos de búsqueda ");
+                }
+            }
+            
+            function invTraspasoCSV() {
+                fechai = $("input[id='fechai']").val();
+                fechaf = $("input[id='fechaf']").val();
+                if (fechai !== "" && fechaf !== "") {
+                    verTodosReportesInvTraspaso(fechai, fechaf);
+                } else {
+                    alertErrorValidacion(" Ingrese todos los campos de búsqueda ");
+                }
+            }
+            
+            function invUbicDepCSV() {
+                fechai = $("input[id='fechai']").val();
+                fechaf = $("input[id='fechaf']").val();
+                ubicacion = $("select[id='UbicacionId']").val();
+                dependencia = $("select[id='DependenciaId']").val();
+                if (fechai !== "" && fechaf !== "") {
+                    verTodosReportesInvUbicDep(fechai, fechaf, ubicacion, dependencia);
+                } else {
+                    alertErrorValidacion(" Ingrese todos los campos de búsqueda ");
+                }
+            }
+            
+            function invMarcaCSV() {
+                fechai = $("input[id='fechai']").val();
+                fechaf = $("input[id='fechaf']").val();
+                marca = $("input[id='idmarca']").val();
+                if (fechai !== "" && fechaf !== "" && marca !== "") {
+                    verTodosReportesInvMarca(fechai, fechaf, marca);
+                } else {
+                    alertErrorValidacion(" Ingrese todos los campos de búsqueda ");
+                }
+            }
+            
+            function invDesactivadosCSV() {
+                fechai = $("input[id='fechai']").val();
+                fechaf = $("input[id='fechaf']").val();
+                if (fechai !== "" && fechaf !== "") {
+                    verTodosReportesInvDesactivados(fechai, fechaf);
+                } else {
+                    alertErrorValidacion(" Ingrese todos los campos de búsqueda ");
+                }
+            }
+        </script>
 </html>

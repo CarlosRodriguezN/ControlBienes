@@ -59,7 +59,90 @@ public class sTraspaso {
         }
         return strJson;
     }
+    
+        public static String listaTraspasoPorFecha(String fechai, String fechaf) throws JSONException {
+        String strJson = "";
+        try {
+            URL url = new URL(Constantes.PREFIJO + Constantes.IP + "/" + Constantes.SERVICIO + "/" + Constantes.ACCESO_DATOS +"/invtraspasofecha/" + fechai + "/" + fechaf);
+            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setDoOutput(true);
+            connection.setDoInput(true);
+            InputStream content = (InputStream) connection.getInputStream();
+            BufferedReader in = new BufferedReader(new InputStreamReader(content, "UTF-8"));
+            String line;
+            while ((line = in.readLine()) != null) {
+                strJson = line;
+            }
+            connection.disconnect();
+        } catch (NumberFormatException | IOException ex) {
+            System.out.println("Fallort");
+        }
+        return strJson;
+    }
 
+    public static String listaTaspasoUbicDepPorFecha(String ubicacion, String dependencia, String fechai, String fechaf) throws JSONException {
+        String strJson = "";
+        try {
+            URL url = new URL(Constantes.PREFIJO + Constantes.IP + "/" + Constantes.SERVICIO + "/" + Constantes.ACCESO_DATOS +"/invtraspasoUbicDepfecha/" + ubicacion + "/" + dependencia + "/" + fechai + "/" + fechaf);
+            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setDoOutput(true);
+            connection.setDoInput(true);
+            InputStream content = (InputStream) connection.getInputStream();
+            BufferedReader in = new BufferedReader(new InputStreamReader(content, "UTF-8"));
+            String line;
+            while ((line = in.readLine()) != null) {
+                strJson = line;
+            }
+            connection.disconnect();
+        } catch (NumberFormatException | IOException ex) {
+            System.out.println("Fallort");
+        }
+        return strJson;
+    }
+
+        public static String listaTaspasoMarcaPorFecha(String marca, String fechai, String fechaf) throws JSONException {
+        String strJson = "";
+        try {
+            URL url = new URL(Constantes.PREFIJO + Constantes.IP + "/" + Constantes.SERVICIO + "/" + Constantes.ACCESO_DATOS +"/invtraspasoMarcafecha/" + marca + "/" + fechai + "/" + fechaf);
+            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setDoOutput(true);
+            connection.setDoInput(true);
+            InputStream content = (InputStream) connection.getInputStream();
+            BufferedReader in = new BufferedReader(new InputStreamReader(content, "UTF-8"));
+            String line;
+            while ((line = in.readLine()) != null) {
+                strJson = line;
+            }
+            connection.disconnect();
+        } catch (NumberFormatException | IOException ex) {
+            System.out.println("Fallort");
+        }
+        return strJson;
+    }
+        
+    public static String listaTaspasoDesactivadosPorFecha(String fechai, String fechaf) throws JSONException {
+        String strJson = "";
+        try {
+            URL url = new URL(Constantes.PREFIJO + Constantes.IP + "/" + Constantes.SERVICIO + "/" + Constantes.ACCESO_DATOS +"/invtraspasoDesactivadosfecha/" + fechai + "/" + fechaf);
+            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setDoOutput(true);
+            connection.setDoInput(true);
+            InputStream content = (InputStream) connection.getInputStream();
+            BufferedReader in = new BufferedReader(new InputStreamReader(content, "UTF-8"));
+            String line;
+            while ((line = in.readLine()) != null) {
+                strJson = line;
+            }
+            connection.disconnect();
+        } catch (NumberFormatException | IOException ex) {
+            System.out.println("Fallort");
+        }
+        return strJson;
+    }
 //    public static String listaTraspasoCedBien(String codBien, String codPer) throws JSONException {
 //        String strJson = "";
 //        try {

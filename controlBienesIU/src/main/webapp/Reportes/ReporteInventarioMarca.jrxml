@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="db353e1e-6225-4646-835f-64d7c12d51c4">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="table">
@@ -78,7 +78,7 @@
 			</staticText>
 			<staticText>
 				<reportElement uuid="eb9d60a6-761d-491b-af01-100919798a6b" x="350" y="54" width="118" height="20"/>
-				<textElement/>
+				<textElement textAlignment="Center"/>
 				<text><![CDATA[BIENES POR MARCA]]></text>
 			</staticText>
 			<staticText>

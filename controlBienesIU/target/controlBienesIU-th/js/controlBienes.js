@@ -1817,18 +1817,15 @@ function clicReportesMantGeneral() { //datNomb ; datIDPerio ; datTipoCer ; datFe
 
 function clicReportesInvBienes(fomulario,tipo) { //datNomb ; datIDPerio ; datTipoCer ; datFecha; datPerio
     var datos = Objeto2Json(fomulario);
-    //var datos = Objeto2Json('FrmBienMarca');
     var datosFecha = Objeto2Json('FrmRangoFecha');
     datos =  datos + "__" + datosFecha + "__" + tipo;
     datos = window.btoa(unescape(encodeURIComponent(datos)));
     var url = "repotesInventarios.jsp?cert=" + datos;
-    //var url = "repotesInventarios.jsp?cert=" + datos;
     var params = 'width=' + screen.width;
     params += ', height=' + screen.height;
     params += ', top=0, left=0';
     params += ', fullscreen=yes';
     window.open(url, "", params);
-
 }
 
 function AsignarTecnicoMantenimiento(idMantenimiento) {
@@ -2109,6 +2106,106 @@ function verTodosReportesMantenimientoVersionSO(nombre, fechai, fechaf) {
         url: "ReporteMantenimientoPorVersionSOCsv.jsp",
         type: "GET",
         data: {nombre: nombre, fechai: fechai, fechaf: fechaf},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            $("#contenidoDinamico").html("");
+            $("#contenidoDinamico").html(datos);
+        }
+        ,
+        error: function (error) {
+            location.reload();
+        }
+    });
+}
+
+function verTodosReportesInvTraspaso(fechai, fechaf) {
+    document.getElementById('contenidoDinamico').innerHTML = "";
+    document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
+    VentanaPorte();
+    $.ajax({
+        url: "ReporteInventarioTraspasoCsv.jsp",
+        type: "GET",
+        data: {fechai: fechai, fechaf: fechaf},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            $("#contenidoDinamico").html("");
+            $("#contenidoDinamico").html(datos);
+        }
+        ,
+        error: function (error) {
+            location.reload();
+        }
+    });
+}
+
+function verTodosReportesInvUbicDep(fechai, fechaf, ubicacion, dependencia) {
+    document.getElementById('contenidoDinamico').innerHTML = "";
+    document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
+    VentanaPorte();
+    $.ajax({
+        url: "ReporteInventarioUbicDepCsv.jsp",
+        type: "GET",
+        data: {fechai: fechai, fechaf: fechaf, ubicacion: ubicacion, dependencia: dependencia},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            $("#contenidoDinamico").html("");
+            $("#contenidoDinamico").html(datos);
+        }
+        ,
+        error: function (error) {
+            location.reload();
+        }
+    });
+}
+
+function verTodosReportesInvMarca(fechai, fechaf, marca) {
+    document.getElementById('contenidoDinamico').innerHTML = "";
+    document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
+    VentanaPorte();
+    $.ajax({
+        url: "ReporteInventarioMarcaCsv.jsp",
+        type: "GET",
+        data: {fechai: fechai, fechaf: fechaf, marca: marca},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            $("#contenidoDinamico").html("");
+            $("#contenidoDinamico").html(datos);
+        }
+        ,
+        error: function (error) {
+            location.reload();
+        }
+    });
+}
+
+function verTodosReportesInvGarantia() {
+    document.getElementById('contenidoDinamico').innerHTML = "";
+    document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
+    VentanaPorte();
+    $.ajax({
+        url: "ReporteInventarioGarantiaCsv.jsp",
+        type: "GET",
+        data: { },
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            $("#contenidoDinamico").html("");
+            $("#contenidoDinamico").html(datos);
+        }
+        ,
+        error: function (error) {
+            location.reload();
+        }
+    });
+}
+
+function verTodosReportesInvDesactivados(fechai, fechaf) {
+    document.getElementById('contenidoDinamico').innerHTML = "";
+    document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
+    VentanaPorte();
+    $.ajax({
+        url: "ReporteInventarioDesactivadoCsv.jsp",
+        type: "GET",
+        data: {fechai: fechai, fechaf: fechaf},
         contentType: "application/json ; charset=UTF-8",
         success: function (datos) {
             $("#contenidoDinamico").html("");

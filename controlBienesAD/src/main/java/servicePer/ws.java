@@ -60,10 +60,14 @@ public class ws {
     @EJB
     private CatalogoFacadeLocal catalogo;
 
-//    @EJB    
-//    private TraspasoFacadeLocal traspaso;
+    @EJB    
+    private TraspasoFacadeLocal traspaso;
+    
     @EJB
     private BienFacadeLocal bien;
+    
+    @EJB
+    private InformeFacadeLocal informe;
 
     @GET
     @Path("personadadocedula/{cedula}")
@@ -532,6 +536,90 @@ public class ws {
         }
     }
 
+    @GET
+    @Path("invtraspasofecha/{fechai}/{fechaf}")
+    @Produces({"application/json; charset=utf-8"})
+    @Consumes({"application/json; charset=utf-8"})
+    public List<Traspaso> listarInvTraspasoFecha(@PathParam("fechai") String fechai, @PathParam("fechaf") String fechaf) {
+        List<Traspaso> objTraspaso = new ArrayList<Traspaso>();
+
+        try {
+            objTraspaso = traspaso.findInvTraspasoFecha(fechai, fechaf);
+            return objTraspaso;
+        } catch (Exception e) {
+            e.getLocalizedMessage();
+            objTraspaso = null;
+            return objTraspaso;
+        }
+    }
+    
+    @GET
+    @Path("invtraspasoUbicDepfecha/{ubicacion}/{dependencia}/{fechai}/{fechaf}")
+    @Produces({"application/json; charset=utf-8"})
+    @Consumes({"application/json; charset=utf-8"})
+    public List<Traspaso> listarInvTraspasoUbicDepFecha(@PathParam("ubicacion") String ubicacion, @PathParam("dependencia") String dependencia, @PathParam("fechai") String fechai, @PathParam("fechaf") String fechaf) {
+        List<Traspaso> objTraspaso = new ArrayList<Traspaso>();
+
+        try {
+            objTraspaso = traspaso.findInvTraspasoUbicDepFecha(ubicacion, dependencia, fechai, fechaf);
+            return objTraspaso;
+        } catch (Exception e) {
+            e.getLocalizedMessage();
+            objTraspaso = null;
+            return objTraspaso;
+        }
+    }
+    
+    @GET
+    @Path("invtraspasoMarcafecha/{marca}/{fechai}/{fechaf}")
+    @Produces({"application/json; charset=utf-8"})
+    @Consumes({"application/json; charset=utf-8"})
+    public List<Traspaso> listarInvTraspasoUbicDepFecha(@PathParam("marca") String marca, @PathParam("fechai") String fechai, @PathParam("fechaf") String fechaf) {
+        List<Traspaso> objTraspaso = new ArrayList<Traspaso>();
+
+        try {
+            objTraspaso = traspaso.findInvTraspasoMarcaFecha(marca, fechai, fechaf);
+            return objTraspaso;
+        } catch (Exception e) {
+            e.getLocalizedMessage();
+            objTraspaso = null;
+            return objTraspaso;
+        }
+    }  
+            
+    @GET
+    @Path("invGarantiafecha/{fechactual}")
+    @Produces({"application/json; charset=utf-8"})
+    @Consumes({"application/json; charset=utf-8"})
+    public List<Bien> listarGarantiaFecha(@PathParam("fechactual") String fechact) {
+        List<Bien> objBien = new ArrayList<Bien>();
+
+        try {
+            objBien = bien.findInvGarantiaFecha(fechact);
+            return objBien;
+        } catch (Exception e) {
+            e.getLocalizedMessage();
+            objBien = null;
+            return objBien;
+        }
+    }
+    
+    @GET
+    @Path("invBienDesactivadosfecha/{fechai}/{fechaf}")
+    @Produces({"application/json; charset=utf-8"})
+    @Consumes({"application/json; charset=utf-8"})
+    public List<Bien> listarInvBienDesactivadosFecha(@PathParam("fechai") String fechai, @PathParam("fechaf") String fechaf) {
+        List<Bien> objBien = new ArrayList<Bien>();
+
+        try {
+            objBien = bien.findInvBienDesactivadosMotFecha(fechai, fechaf);
+            return objBien;
+        } catch (Exception e) {
+            e.getLocalizedMessage();
+            objBien = null;
+            return objBien;
+        }
+    } 
     //consultar transpasos por una codigo del bien y codigo de persona
 //    @GET
 //    @Path("wstraspaso/{codBien}/{codPer}")

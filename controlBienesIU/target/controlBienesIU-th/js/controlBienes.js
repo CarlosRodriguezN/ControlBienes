@@ -1315,12 +1315,13 @@ function actualizarBien(idDato) {
     });
 }
 
-function editarTrasCustodio() {
-    var datos = Objeto2Json('FrmTraspCustodio');
+function editarTrasCustodio(traCodigo, bnCodigo) {
+    var datosP = Objeto2Json('FrmTraspPersona');
+    var datosUbDp = Objeto2Json('FrmTraspCustodio');
     $.ajax({
         url: "controladorBienes.jsp",
         type: "GET",
-        data: {opc: 'Traspaso', tsk: 'editTraspaso', datos: datos},
+        data: {opc: 'Traspaso', tsk: 'editTraspaso', datosP:datosP, datosUbDp:datosUbDp, traCodigo: traCodigo, bnCodigo: bnCodigo},
         contentType: "application/json ; charset=UTF-8",
         success: function (datos) {
             verTodosBienes();
@@ -2206,6 +2207,55 @@ function verTodosReportesInvDesactivados(fechai, fechaf) {
         url: "ReporteInventarioDesactivadoCsv.jsp",
         type: "GET",
         data: {fechai: fechai, fechaf: fechaf},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            $("#contenidoDinamico").html("");
+            $("#contenidoDinamico").html(datos);
+        }
+        ,
+        error: function (error) {
+            location.reload();
+        }
+    });
+}
+         
+function verTodosReportesInvGeneral(bnCodigo, bnNombre, bnModelo, bnSerie, bnMarca,
+                                    bnColor, bnPrecio, bnEstado, bnFechaCompra, bnFechaGarantia,
+                                    bnProveedor, bnDescripcion, bnDependencia, bnUbicacion, bnCodCatalogo,
+                                    bnNombreCatalogo, prCedula, prNombre, prFechaTraspaso, prEmail,
+                                    prTelefono, prCargo) {
+    document.getElementById('contenidoDinamico').innerHTML = "";
+    document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
+    VentanaPorte();
+    $.ajax({
+        url: "ReporteInventarioGeneralCsv.jsp",
+        type: "GET",
+        data: {bnCodigo: bnCodigo, bnNombre: bnNombre, bnModelo:bnModelo, bnSerie:bnSerie, bnMarca:bnMarca,
+                bnColor:bnColor, bnPrecio:bnPrecio, bnEstado:bnEstado, bnFechaCompra:bnFechaCompra, bnFechaGarantia:bnFechaGarantia,
+                bnProveedor:bnProveedor, bnDescripcion:bnDescripcion, bnDependencia:bnDependencia, bnUbicacion:bnUbicacion, bnCodCatalogo:bnCodCatalogo,
+                bnNombreCatalogo:bnNombreCatalogo, prCedula:prCedula, prNombre:prNombre, prFechaTraspaso:prFechaTraspaso, prEmail:prEmail,
+                prTelefono:prTelefono, prCargo:prCargo},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            $("#contenidoDinamico").html("");
+            $("#contenidoDinamico").html(datos);
+        }
+        ,
+        error: function (error) {
+            location.reload();
+        }
+    });
+}
+
+
+function bnTraspasoPersona(traCodigo, bnCodigo) {
+    document.getElementById('contenidoDinamico').innerHTML = "";
+    document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
+    VentanaPorte();
+    $.ajax({
+        url: "AdminEditTraspaso.jsp",
+        type: "GET",
+        data: {traCodigo: traCodigo, bnCodigo: bnCodigo},
         contentType: "application/json ; charset=UTF-8",
         success: function (datos) {
             $("#contenidoDinamico").html("");

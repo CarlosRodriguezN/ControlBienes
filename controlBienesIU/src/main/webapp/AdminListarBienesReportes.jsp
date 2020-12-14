@@ -107,7 +107,7 @@
                                 <div class="row">  
                                     <form role="form" id="FrmBienTaspaso">
                                         <div class="form-group col-md-6" >
-                                            <label for="repotTraspaso"><b>Reporte de traspaso de Bienes</b></label>
+                                            <label for="repotTraspaso"><b>Reporte de Traspaso de Bienes</b></label>
                                             <input value="traspaso" required="true" type="hidden" class="form-control" id="repotTraspaso" name="repotTraspaso">
                                         </div>
                                     </fom>
@@ -199,12 +199,114 @@
                                 <div class="row">  
                                     <form role="form" id="FrmBienGarantia">
                                         <div class="form-group col-md-6" >
-                                            <label for="repotGarantia"><b>Reporte de Bienes con Grantia</b></label>
+                                            <label for="repotGarantia"><b>Reporte de Bienes con Garantía</b></label>
                                             <input value="garantia" required="true" type="hidden" class="form-control" id="repotGarantia" name="repotGarantia">
                                         </div>
                                     </fom>
                                     <button class='btn btn-outline-warning' type = 'button' name = 'btnGarantia' onclick="clicReportesInvBienes('FrmBienGarantia','garantia')" value='btnGarantia'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button> 
                                     <button class='btn btn-outline-warning' type = 'button' name = 'invGarantiaUbicDepCSV' onclick="verTodosReportesInvGarantia()" value='invGarantiaCSV'><i class="fa fa-file-excel-o" style="font-size: 25px;"></i></button> 
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-6">
+                            <div class="well well-lg knowledge-recent-popular">
+                                <div class="row">  
+                                    <form role="form" id="FrmEditPermisos">
+                                       <table class="table">
+                                           <thead>
+                                               <tr>
+                                                   <th></th>
+                                                   <th></th>
+                                                   <th></th>
+                                                   <th></th>
+                                                   <th></th>
+                                               </tr>
+                                           </thead>
+                                           <tbody>
+                                               <%
+//                                               int cont = 0;
+//                                               for (Personapermiso oPerPm: cadPerPm) {
+//                                                   if(oPerPm.getPerId().getPerId() == Integer.parseInt(idDato)){
+//                                                       cont++;
+//                                                       if(cont==1)
+//                                                           out.println("<tr>"); 
+
+                                               %>
+<!--                                                           //<td align="center"> -->
+                                                               <div class="form-check form-check-inline">
+                                                                   <tr class="bg-primary"><td colspan="5" align="center"> Reporte General Personalizado</td></tr>
+                                                                   <tr><td colspan="5" align="center"> Datos del Bien </td></tr>
+                                                                    <tr>  
+                                                                    <td>  <input class="form-check-input" type="checkbox" id="bnCod" name ="nombre" value="bnCod" checked>
+                                                                          <label class="form-check-label" for="inlineCheckbox1">Código</label></td>
+                                                                    <td>  <input class="form-check-input" type="checkbox" id="bnNombre" name ="nombre" value="bnNombre" checked>
+                                                                          <label class="form-check-label" for="inlineCheckbox1">Nombre</label></td>                                                                                                                                     
+                                                                    <td>  <input class="form-check-input" type="checkbox" id="bnSerie" name ="nombre" value="bnSerie" checked>
+                                                                          <label class="form-check-label" for="inlineCheckbox1">Serie</label></td>
+                                                                    <td>  <input class="form-check-input" type="checkbox" id="bnModelo" name ="nombre" value="bnModelo" checked>
+                                                                          <label class="form-check-label" for="inlineCheckbox1">Modelo</label></td>
+                                                                    <td>  <input class="form-check-input" type="checkbox" id="bnMarca" name ="nombre" value="bnMarca" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Marca</label></td> 
+                                                                    </tr><tr>
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="bnColor" name ="nombre" value="bnColor" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Color</label></td>
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="bnPrecio" name ="nombre" value="bnPrecio" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Precio</label></td> 
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="bnEstado" name ="nombre" value="bnEstado" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Estado</label></td> 
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="bnFechaCompra" name ="nombre" value="bnFechaCompra" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Fecha Compra</label></td> 
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="bnFechaGarantia" name ="nombre" value="bnFechaGarantia" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Fecha Garantía</label></td>  
+                                                                    </tr><tr>
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="bnProveedor" name ="nombre" value="bnProveedor" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Proveedor</label></td> 
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="bnDescripcion" name ="nombre" value="bnDescripcion" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Descripción</label></td> 
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="bnDependencia" name ="nombre" value="bnDependencia" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Dependencia</label></td> 
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="bnUbicacion" name ="nombre" value="bnUbicacion" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Ubicacion</label></td>                                                                                                                                      
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="bnCodCatalogo" name ="nombre" value="bnCodCatalogo" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Cod Catalogo</label> </td>
+                                                                    </tr><tr>
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="bnNombreCatalogo" name ="nombre" value="bnNombreCatalogo" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Catalogo</label> </td>
+                                                                    </tr>
+                                                                        <tr><td  class="table-primary" colspan="5" align="center"> Datos del Custodio </td></tr>
+                                                                    <tr>
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="prCedula" name ="nombre" value="prCedula" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Cedula </label> </td>
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="prNombre" name ="nombre" value="prNombre" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Nombre</label> </td>                                                                                                                              
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="prFechaTraspaso" name ="nombre" value="prFechaTraspaso" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Fecha Traspaso</label> </td>
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="prEmail" name ="nombre" value="prEmail" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Email</label> </td>
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="prTelefono" name ="nombre" value="prTelefono" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Telefono</label> </td>
+                                                                    </tr><tr>
+                                                                    <td>    <input class="form-check-input" type="checkbox" id="prCargo" name ="nombre" value="prCargo" checked>
+                                                                        <label class="form-check-label" for="inlineCheckbox1">Cargo</label> </td>                                                                                                                       
+                                                                    </tr>
+                                                               </div>
+                                                           
+                                            <tbody>      
+                                               <%
+
+//                                                       if(cont==4){
+//                                                           out.println("</tr>");  
+//                                                           cont = 0;
+//                                                       }
+//                                                   }
+//                                               }
+//                                                   if(cont>0)
+//                                                       out.println("</tr>"); 
+                                               %>
+
+                                   </form>                         
+                                    <button class='btn btn-outline-warning' type = 'button' name = 'invReporteGeneralCSV' onclick="invGeneralCSV()" value='invGarantiaCSV'><i class="fa fa-file-excel-o" style="font-size: 25px;"></i></button> 
                                 </div>
                             </div>
                         </div>
@@ -298,6 +400,41 @@
                 } else {
                     alertErrorValidacion(" Ingrese todos los campos de búsqueda ");
                 }
+            }
+            
+            function invGeneralCSV() {
+                bnCodigo = $( "input[type=checkbox][id='bnCod']:checked" ).val();
+                bnNombre = $( "input[type=checkbox][id='bnNombre']:checked" ).val();
+                bnModelo = $( "input[type=checkbox][id='bnModelo']:checked" ).val();
+                bnSerie = $( "input[type=checkbox][id='bnSerie']:checked" ).val();
+                bnMarca = $( "input[type=checkbox][id='bnMarca']:checked" ).val();
+                bnColor = $( "input[type=checkbox][id='bnColor']:checked" ).val();
+                bnPrecio = $( "input[type=checkbox][id='bnPrecio']:checked" ).val();
+                bnEstado = $( "input[type=checkbox][id='bnEstado']:checked" ).val();
+                bnFechaCompra = $( "input[type=checkbox][id='bnFechaCompra']:checked" ).val();
+                bnFechaGarantia = $( "input[type=checkbox][id='bnFechaGarantia']:checked" ).val();
+                bnProveedor = $( "input[type=checkbox][id='bnProveedor']:checked" ).val();
+                bnDescripcion = $( "input[type=checkbox][id='bnDescripcion']:checked" ).val();
+                bnDependencia = $( "input[type=checkbox][id='bnDependencia']:checked" ).val();
+                bnUbicacion = $( "input[type=checkbox][id='bnUbicacion']:checked" ).val();
+                bnCodCatalogo = $( "input[type=checkbox][id='bnCodCatalogo']:checked" ).val();
+                bnNombreCatalogo = $( "input[type=checkbox][id='bnNombreCatalogo']:checked" ).val();
+                prCedula = $( "input[type=checkbox][id='prCedula']:checked" ).val();
+                prNombre = $( "input[type=checkbox][id='prNombre']:checked" ).val();
+                prFechaTraspaso = $( "input[type=checkbox][id='prFechaTraspaso']:checked" ).val();
+                prEmail = $( "input[type=checkbox][id='prEmail']:checked" ).val();
+                prTelefono = $( "input[type=checkbox][id='prTelefono']:checked" ).val();
+                prCargo = $( "input[type=checkbox][id='prCargo']:checked" ).val();
+
+//                if (fechai !== "" && fechaf !== "") {
+                    verTodosReportesInvGeneral(bnCodigo, bnNombre, bnModelo, bnSerie, bnMarca,
+                                               bnColor, bnPrecio, bnEstado, bnFechaCompra, bnFechaGarantia,
+                                               bnProveedor, bnDescripcion, bnDependencia, bnUbicacion, bnCodCatalogo,
+                                               bnNombreCatalogo, prCedula, prNombre, prFechaTraspaso, prEmail,
+                                               prTelefono, prCargo);
+//                } else {
+//                    alertErrorValidacion(" Ingrese todos los campos de búsqueda ");
+//                }
             }
         </script>
 </html>

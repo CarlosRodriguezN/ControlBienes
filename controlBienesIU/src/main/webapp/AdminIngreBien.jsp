@@ -704,12 +704,12 @@
                                                                           for (Persona oPet : listPersona) {
                                                                               out.println("<tr>");                                                                        
                                                                               out.println("<td>" + oPet.getPerCedula()+ "</td>");
-                                                                              out.println("<td>" + oPet.getPerNombres()+ " " + oPet.getPerApellido1()+ " " + oPet.getPerApellido1()+ "</td>");
+                                                                              out.println("<td>" + oPet.getPerNombres()+ " " + oPet.getPerApellido1()+ " " + oPet.getPerApellido2()+ "</td>");
                                                                           %>
                                                                           <!--INICIO BONOTES DE ACCION-->
                                                                               <td align="center"> 
                                                                                   <div class="form-check">
-                                                                                        <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="<%= oPet.getPerId()+ "_"+ oPet.getPerCedula()+ "_" + oPet.getPerNombres()+ " " + oPet.getPerApellido1()+ " " + oPet.getPerApellido1()%>" checked>
+                                                                                        <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="<%= oPet.getPerId()+ "_"+ oPet.getPerCedula()+ "_" + oPet.getPerNombres()+ " " + oPet.getPerApellido1()+ " " + oPet.getPerApellido2()%>" checked>
                                                                                         <label class="form-check-label" for="exampleRadios1"></label>
                                                                                   </div>
                                                                               </td> 

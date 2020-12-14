@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="traspaso" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c695f2ec-2359-4936-bf70-28d9a8876683">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="table">
@@ -79,11 +79,11 @@
 			</staticText>
 			<image>
 				<reportElement uuid="4f2f79a6-c2f0-4d33-8b44-290342c1991c" x="19" y="11" width="56" height="54"/>
-				<imageExpression><![CDATA["C:\\Users\\Toshiba\\Documents\\NetBeansProjects\\ControlBienes\\controlBienesIU\\src\\main\\webapp\\assets\\img\\espoch.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:../assets/img/espoch.png"]]></imageExpression>
 			</image>
 			<image>
 				<reportElement uuid="a50ba76d-4101-4a8c-a764-b2eceac393cf" x="662" y="16" width="139" height="35"/>
-				<imageExpression><![CDATA["C:\\Users\\Toshiba\\Documents\\NetBeansProjects\\ControlBienes\\controlBienesIU\\src\\main\\webapp\\assets\\img\\dtic.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:../assets/img/dtic.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -294,7 +294,7 @@
 			</textField>
 			<staticText>
 				<reportElement uuid="77c704b7-d7b2-42cd-9740-ba208dde39b3" x="19" y="0" width="46" height="20"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Riobamba,]]></text>
@@ -316,7 +316,7 @@
 		</band>
 		<band height="134">
 			<frame>
-				<reportElement uuid="7a90b768-1e28-47b8-baa0-a9d53f9330b6" x="244" y="0" width="311" height="133"/>
+				<reportElement uuid="7a90b768-1e28-47b8-baa0-a9d53f9330b6" x="131" y="0" width="584" height="133"/>
 				<staticText>
 					<reportElement uuid="42b6978c-dea6-4dd4-8bfd-47e2b5361201" x="119" y="11" width="66" height="13"/>
 					<textElement textAlignment="Center">
@@ -325,19 +325,40 @@
 					<text><![CDATA[Generado Por:]]></text>
 				</staticText>
 				<textField>
-					<reportElement uuid="ebd936ff-f6a7-4377-87c2-13f562637064" x="0" y="93" width="311" height="20"/>
+					<reportElement uuid="ebd936ff-f6a7-4377-87c2-13f562637064" x="15" y="93" width="248" height="20"/>
 					<textElement textAlignment="Center" verticalAlignment="Bottom">
 						<font size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{responsable}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement uuid="71ba80eb-4fa0-436d-afb1-26628c5cdb33" x="0" y="113" width="311" height="20"/>
+					<reportElement uuid="71ba80eb-4fa0-436d-afb1-26628c5cdb33" x="15" y="113" width="248" height="20"/>
 					<textElement textAlignment="Center" verticalAlignment="Bottom">
 						<font size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{cargo}]]></textFieldExpression>
 				</textField>
+				<staticText>
+					<reportElement uuid="9f9bde87-91c9-42a9-b860-b85c2f247e9e" x="394" y="11" width="100" height="20"/>
+					<textElement textAlignment="Center">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Revisado por:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="bac5ff0b-053c-402c-8846-9aeb643f1dfb" x="329" y="113" width="242" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Static textANALISTA DE SOPORTE Y MANTENIMIENTO 3]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="a65d495d-c2c7-4ec6-beb6-792bd88a406c" x="329" y="93" width="242" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Ing. Marcelo Velasco]]></text>
+				</staticText>
 			</frame>
 		</band>
 	</detail>

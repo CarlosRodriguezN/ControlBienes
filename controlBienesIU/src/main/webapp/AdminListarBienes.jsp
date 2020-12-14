@@ -213,7 +213,7 @@
                                             <!--BOTON ACCION TRANSPASO-->
                                             <td align="center"> 
                                                 <div class="btn-group btn-group-xs">
-                                                    <button value = "" onclick = "verOp(<%=oPet.getTraId() %>,<%=oPet.getBnCodBien().getBnCodBien() %>)" name= "idBtnTraspaso" id="idBtnTraspaso" type="button" class="btn btn-success" data-toggle="modal" data-target="#miModal" title="Cambiar Custodio"><i class="fa fa-pencil-square" style="font-size: 17px;"></i></button>
+                                                    <button  onclick = "bnTraspasoPersona(<%=oPet.getTraId() %>,<%=oPet.getBnCodBien().getBnCodBien() %>)" name= "idBtnTraspaso" type="button" class="btn btn-success" data-toggle="modal" data-target="#miModal" ><i class="fa fa-pencil-square" style="font-size: 17px;"></i></button>
                                                 </div>
                                             </td>
                                             <%                                                    out.println("</tr>");
@@ -222,111 +222,7 @@
                                             %>
                                             </tr>
                                         </tbody>                                         
-                                    </table>           
-                                          
-                                    <!--Modal de Traspaso-->    
-                                    <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                      <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                          <div class="modal-header p-3 mb-2 bg-primary text-white text-center">
-                                            <h5 class="modal-title" id="exampleModalLabel">CAMBIAR CUSTODIO</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
-                                          </div>
-                                          <form id ="FrmTraspCustodio">     
-                                                <div class="modal-body" id="contenido">
-                                                    
-                                                    <div class="form-group col-sm-6">
-                                                        <label for="bienDependenciaId">Dependencia</label>
-                                                        <div class="caja">
-                                                            <select class='form-control Recursos' id='bienDependenciaId' name='bienDependenciaId'>
-                                                                 <%
-                                                                    for (Dependencia oPet : listDependencia) {
-                                                                        out.println("<option value='" + oPet.getDpId() + "'>" + oPet.getDpDescripcion() + "</option>");
-                                                                    }
-                                                                 %>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-sm-6">
-                                                        <label for="bienUbicacionId">Ubicacion</label>
-                                                        <div class="caja">
-                                                            <select class='form-control Recursos' id='bienUbicacionId' name='bienUbicacionId'>
-                                                                <%
-                                                                    for (Ubicacion oPet : listUbicacion) {
-                                                                        out.println("<option value='" + oPet.getUbId() + "'>" + oPet.getUbDescripcion() + "</option>");
-                                                                    }
-                                                                %>
-                                                            </select>
-                                                        </div>
-                                                    </div>  
-                                                  
-                                                            
-                                                  <div class="modal-body" id="contenido">    
-                                                  <div class="row">
-                                                  <div class="widget widget-table">
-                                                      <div class="widget-header">
-                                                        <h3><i class="fa fa-table"></i> Usuarios.</h3> 
-                                                      </div>
-                                                      <div class="widget-content">
-                                                          <div class="table-responsive">
-                                                              <table id="featured-datatable" class="table table-sorting table-hover table-bordered datatable">
-                                                                  
-                                                                  <thead>
-                                                                      <tr>                                                      
-                                                                          <th>Cedula</th>
-                                                                          <th>Nombre</th>
-                                                                          <th>Item</th>
-                                                                      </tr>
-                                                                  </thead>                                 
-                                                                  <tbody>
-                                                                  <% 
-                                                                    for (Persona oPet : listPersona) {
-                                                                        out.println("<tr>");                                                                        
-                                                                        out.println("<td>" + oPet.getPerCedula()+ "</td>");
-                                                                        out.println("<td>" + oPet.getPerNombres()+ " " + oPet.getPerApellido1()+ " " + oPet.getPerApellido1()+ "</td>");
-                                                                  %>
-                                                                      <!--INICIO BONOTES DE ACCION-->
-                                                                          <td align="center"> 
-                                                                              <div class="form-check">
-                                                                                   
-                                                                                  <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="<%= oPet.getPerId()+ "_"+ oPet.getPerCedula()+ "_" + oPet.getPerNombres()+ " " + oPet.getPerApellido1()+ " " + oPet.getPerApellido1()%>" checked>  
-                                                                                  <label class="form-check-label" for="exampleRadios1"></label>
-                                                                              </div>
-                                                                          </td> 
-                                                                            </tr>    
-                                                                      <%
-                                                                       }
-                                                                      %>    
-                                                                      </tbody>
-                                                              </table>
-                                                          </div>
-                                                      </div>
-                                                  </div>            
-                                                  </div>
-                                                  </div>
-                                                                      
-                                                    <div class="form-group ">
-                                                        <label for="trasObservacion">Observacion</label>
-                                                            <textarea value="" required="true" type="text" class="form-control" id="trasObservacion" name="trasObservacion" placeholder="Ingrese alguna Oservacion"></textarea>
-                                                    </div>
-                                                    
-                                                     <label for="traspasoId"></label>
-                                                     <input value="" required="true" type="hidden" class="form-control" id="traspasoId" name="traspasoId"> 
-                                                     
-                                                     <label for="codBienId"></label>
-                                                     <input value="" required="true" type="hidden" class="form-control" id="codBienId" name="codBienId">
-                                                     
-                                                </div>
-                                          </form>
-                                            <div class="modal-footer">
-                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                              <button type="button" id="btnElegPer" class="btn btn-primary" data-dismiss="modal" onclick="editarTrasCustodio()">Aceptar</button>
-                                            </div>
-                                        </div>
-                                      </div>                           
-                                    </div>
+                                    </table>                                               
                                     
                                     <!--Modal de Baja de un Bien-->    
                                     <div class="modal fade" id="modalBaja" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -373,8 +269,7 @@
                     </div>
 
                 </div>
-
             </div>
         </div>
-    </div>   
+    </div>                                                           
 </html>

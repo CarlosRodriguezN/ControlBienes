@@ -7,7 +7,9 @@ package ejb;
 
 import com.google.gson.Gson;
 import entidades.Bien;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -105,5 +107,45 @@ public class BienFacade extends AbstractFacade<Bien> implements BienFacadeLocal 
             throw e;
         }
         return jsonCartList;
+    }
+    
+    @Override
+    public List<Bien> findInvGarantiaFecha(String fechact) {
+        List<Bien> listBien = null;
+        String consulta;
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date di = formatter.parse(fechact);
+
+            consulta = "SELECT b FROM Bien b WHERE  b.bnFechaGarantia >= :fi";
+            Query query = em.createQuery(consulta);
+            query.setParameter("fi", di);
+            System.out.println(consulta);
+            listBien = query.getResultList();
+        } catch (Exception e) {
+            System.out.println("Error listar----------------");
+        }
+        return listBien;
+    }
+    
+    @Override
+    public List<Bien> findInvBienDesactivadosMotFecha(String fechainicial, String fechafinal) {
+        List<Bien> listBien = null;
+        String consulta;
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date di = formatter.parse(fechainicial);
+            Date df = formatter.parse(fechafinal);
+            //consulta = "SELECT t FROM Traspaso t WHERE  t.bnCodBien.baId.baId = 2 AND t.traFechaInicio BETWEEN :fi AND :ff";
+            consulta = "SELECT b FROM Bien b WHERE b.baId.baId = 2 AND b.bnFechaBaja BETWEEN :fi AND :ff";
+            Query query = em.createQuery(consulta);
+            query.setParameter("fi", di);
+            query.setParameter("ff", df);
+            System.out.println(consulta);
+            listBien = query.getResultList();
+        } catch (Exception e) {
+            System.out.println("Error listar----------------");
+        }
+        return listBien;
     }
 }

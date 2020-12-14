@@ -33,4 +33,9 @@ public interface TraspasoFacadeLocal {
     int count();
     
 //    Traspaso obtenertraspaso(String codBien , String codPer);
+    
+    List<Traspaso> findInvTraspasoFecha(String fechai, String fechaf);
+    List<Traspaso> findInvTraspasoUbicDepFecha(String ubicacion, String dependencia, String fechai, String fechaf);
+    List<Traspaso> findInvTraspasoMarcaFecha(String marca, String fechai, String fechaf);
+    List<Traspaso> findInvTraspasoDesactivadosFecha(String fechai, String fechaf);
 }

@@ -114,11 +114,11 @@
 			</textField>
 			<image>
 				<reportElement uuid="7dcbc764-503c-4a1d-8e17-a13e3d6b150f" x="16" y="14" width="101" height="52"/>
-				<imageExpression><![CDATA["C:\\Users\\Toshiba\\Documents\\NetBeansProjects\\ControlBienes 0.1\\ControlBienes\\controlBienesIU\\src\\main\\webapp\\assets\\img\\espoch.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:../assets/img/espoch.png"]]></imageExpression>
 			</image>
 			<image>
 				<reportElement uuid="a602edd3-fcb4-4b85-9223-2b1fe81fd6c1" x="682" y="22" width="142" height="32"/>
-				<imageExpression><![CDATA["C:\\Users\\Toshiba\\Documents\\NetBeansProjects\\ControlBienes 0.1\\ControlBienes\\controlBienesIU\\src\\main\\webapp\\assets\\img\\dtic.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:../assets/img/dtic.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -368,7 +368,7 @@
 		<band height="48">
 			<staticText>
 				<reportElement uuid="af7f9ff2-1542-469d-9a97-75aeaa18bff4" x="16" y="0" width="42" height="20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Riobamba,]]></text>
@@ -382,7 +382,7 @@
 			</textField>
 			<staticText>
 				<reportElement uuid="551eeeb9-2572-4e58-8046-303e854738a3" x="16" y="20" width="171" height="12"/>
-				<textElement>
+				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Sistema de Bienes Informáticos (SIBI)]]></text>
@@ -397,7 +397,7 @@
 		</band>
 		<band height="134">
 			<frame>
-				<reportElement uuid="bd42ec1d-d0d3-4675-86df-e4e622896896" x="274" y="0" width="269" height="133"/>
+				<reportElement uuid="bd42ec1d-d0d3-4675-86df-e4e622896896" x="117" y="0" width="590" height="133"/>
 				<staticText>
 					<reportElement uuid="68a469b6-584a-4d92-bb7f-837dd5c8af43" x="85" y="11" width="100" height="13"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -419,6 +419,27 @@
 					</textElement>
 					<textFieldExpression><![CDATA[$P{cargo}]]></textFieldExpression>
 				</textField>
+				<staticText>
+					<reportElement uuid="d630c6df-ea67-4c05-9c2c-09cdae085217" x="388" y="11" width="100" height="20"/>
+					<textElement textAlignment="Center">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Revisado por:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="34dba31b-1c61-424d-a16c-a5f252032113" x="310" y="113" width="255" height="20"/>
+					<textElement textAlignment="Center">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[ANALISTA EN SOPORTE Y MANTENIMIETO 3]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="36e8c631-d287-41a7-9c6e-92bd3e49d7a1" x="310" y="93" width="255" height="20"/>
+					<textElement textAlignment="Center">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Ing Marcelo Velasco]]></text>
+				</staticText>
 			</frame>
 		</band>
 	</detail>

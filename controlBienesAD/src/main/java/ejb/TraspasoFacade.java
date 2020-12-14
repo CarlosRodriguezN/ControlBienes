@@ -5,8 +5,11 @@
  */
 package ejb;
 
+import entidades.Mantenimientos;
 import entidades.Tecnico;
 import entidades.Traspaso;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -56,4 +59,87 @@ public class TraspasoFacade extends AbstractFacade<Traspaso> implements Traspaso
 //        }
 //        return objTraspaso;
 //    }
+    
+    
+    @Override
+    public List<Traspaso> findInvTraspasoFecha(String fechainicial, String fechafinal) {
+        List<Traspaso> listTraspaso = null;
+        String consulta;
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date di = formatter.parse(fechainicial);
+            Date df = formatter.parse(fechafinal);
+            consulta = "SELECT t FROM Traspaso t WHERE t.traFechaInicio BETWEEN :fi AND :ff";
+            Query query = em.createQuery(consulta);
+            query.setParameter("fi", di);
+            query.setParameter("ff", df);
+            System.out.println(consulta);
+            listTraspaso = query.getResultList();
+        } catch (Exception e) {
+            System.out.println("Error listar----------------");
+        }
+        return listTraspaso;
+    }
+    @Override
+    public List<Traspaso> findInvTraspasoUbicDepFecha(String ubicacion, String dependencia, String fechainicial, String fechafinal) {
+        List<Traspaso> listTraspaso = null;
+        String consulta;
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date di = formatter.parse(fechainicial);
+            Date df = formatter.parse(fechafinal);
+            consulta = "SELECT t FROM Traspaso t WHERE  t.bnCodBien.ubId.ubDescripcion = :ubic AND t.bnCodBien.dpId.dpDescripcion = :dep AND t.traFechaInicio BETWEEN :fi AND :ff";
+            Query query = em.createQuery(consulta);
+            query.setParameter("ubic", ubicacion);
+            query.setParameter("dep", dependencia);
+            query.setParameter("fi", di);
+            query.setParameter("ff", df);
+            System.out.println(consulta);
+            listTraspaso = query.getResultList();
+        } catch (Exception e) {
+            System.out.println("Error listar----------------");
+        }
+        return listTraspaso;
+    }
+    
+    @Override
+    public List<Traspaso> findInvTraspasoMarcaFecha(String marca, String fechainicial, String fechafinal) {
+        List<Traspaso> listTraspaso = null;
+        String consulta;
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date di = formatter.parse(fechainicial);
+            Date df = formatter.parse(fechafinal);
+            consulta = "SELECT t FROM Traspaso t WHERE  t.bnCodBien.bnMarca = :marc AND t.traFechaInicio BETWEEN :fi AND :ff";
+            Query query = em.createQuery(consulta);
+            query.setParameter("marc", marca);
+            query.setParameter("fi", di);
+            query.setParameter("ff", df);
+            System.out.println(consulta);
+            listTraspaso = query.getResultList();
+        } catch (Exception e) {
+            System.out.println("Error listar----------------");
+        }
+        return listTraspaso;
+    }
+    
+    @Override
+    public List<Traspaso> findInvTraspasoDesactivadosFecha(String fechainicial, String fechafinal) {
+        List<Traspaso> listTraspaso = null;
+        String consulta;
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date di = formatter.parse(fechainicial);
+            Date df = formatter.parse(fechafinal);
+            consulta = "SELECT t FROM Traspaso t WHERE  t.bnCodBien.baId.baId = 2 AND t.traFechaInicio BETWEEN :fi AND :ff";
+            Query query = em.createQuery(consulta);
+            query.setParameter("fi", di);
+            query.setParameter("ff", df);
+            System.out.println(consulta);
+            listTraspaso = query.getResultList();
+        } catch (Exception e) {
+            System.out.println("Error listar----------------");
+        }
+        return listTraspaso;
+    }
 }

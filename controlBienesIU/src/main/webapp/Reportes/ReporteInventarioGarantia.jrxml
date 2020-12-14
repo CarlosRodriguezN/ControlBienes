@@ -73,11 +73,11 @@
 			</staticText>
 			<image>
 				<reportElement uuid="004a4bab-ce77-48f5-85ce-609c7609257e" x="27" y="11" width="68" height="56"/>
-				<imageExpression><![CDATA["C:\\Users\\Toshiba\\Documents\\NetBeansProjects\\ControlBienes 0.1\\ControlBienes\\controlBienesIU\\src\\main\\webapp\\assets\\img\\espoch.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:../assets/img/espoch.png"]]></imageExpression>
 			</image>
 			<image>
 				<reportElement uuid="1a9cf63e-e906-448c-81fc-c961fbc2c2b4" x="678" y="13" width="105" height="40"/>
-				<imageExpression><![CDATA["C:\\Users\\Toshiba\\Documents\\NetBeansProjects\\ControlBienes 0.1\\ControlBienes\\controlBienesIU\\src\\main\\webapp\\assets\\img\\dtic.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:../assets/img/dtic.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -252,7 +252,7 @@
 			</textField>
 			<staticText>
 				<reportElement uuid="d073125c-d965-45f6-aaf7-6516bda33ff2" x="27" y="20" width="255" height="11"/>
-				<textElement>
+				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Sistema de Bienes Informáticos (SIBI)]]></text>
@@ -267,9 +267,9 @@
 		</band>
 		<band height="135">
 			<frame>
-				<reportElement uuid="49843f0f-649f-44d9-bbbe-398306b570e9" x="282" y="0" width="259" height="133"/>
+				<reportElement uuid="49843f0f-649f-44d9-bbbe-398306b570e9" x="157" y="0" width="521" height="133"/>
 				<staticText>
-					<reportElement uuid="b84301c1-5c2d-4cd5-b760-47d3b7bd3220" x="71" y="0" width="100" height="20"/>
+					<reportElement uuid="b84301c1-5c2d-4cd5-b760-47d3b7bd3220" x="78" y="11" width="100" height="20"/>
 					<textElement textAlignment="Center">
 						<font size="8" isBold="true"/>
 					</textElement>
@@ -289,6 +289,27 @@
 					</textElement>
 					<textFieldExpression><![CDATA[$P{cargo}]]></textFieldExpression>
 				</textField>
+				<staticText>
+					<reportElement uuid="529a07c2-09cc-4455-81e5-1929efc4a318" x="344" y="11" width="100" height="20"/>
+					<textElement textAlignment="Center">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Revisado por:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="17462724-2b9e-4aa0-82a8-ca6ca2606f9d" x="275" y="113" width="230" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[ANALISTA EN SOPORTE Y MANTENIMIENTO 3]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="432b856e-3567-480e-94cd-2c064a9c9106" x="275" y="93" width="230" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Ing Marcelo Velasco]]></text>
+				</staticText>
 			</frame>
 		</band>
 	</detail>

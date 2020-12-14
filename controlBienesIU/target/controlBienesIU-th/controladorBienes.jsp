@@ -1191,33 +1191,40 @@
             if (tsk.equals("editTraspaso")) {
                 //String detOpera = "NO";
 
-                String datos = request.getParameter("datos");
-                JSONObject req = new JSONObject(datos);
+//                String datos = request.getParameter("datos");
+//                JSONObject req = new JSONObject(datos);
 
+                String datosP = request.getParameter("datosP");
+                JSONObject req = new JSONObject(datosP);
+
+                String datosUbDp = request.getParameter("datosUbDp");
+                JSONObject req1 = new JSONObject(datosUbDp);
+                
                 Date date = new Date();
                 DateFormat fechaHora = new SimpleDateFormat("yyyy-MM-dd");
                 String fecha = fechaHora.format(date);
 
-                objTras.setTraId(Integer.parseInt(req.getString("traspasoId")));
+                //objTras.setTraId(Integer.parseInt(req.getString("traspasoId")));
+                objTras.setTraId(Integer.parseInt(request.getParameter("traCodigo")));
                 objTras.setTraFechaInicio(fecha + "T00:00:00-05:00");
                 objTras.setTraFechaFin("2222-01-01T00:00:00-05:00");
                 objTras.setTraEstado(1);
-                objTras.setTraObservacion(req.getString("trasObservacion"));
+                objTras.setTraObservacion(req1.getString("trasObservacion"));
 
-                String cedCustodio = "";
-                String custodioCad = req.getString("exampleRadios1");
-                String[] arrayDatCustodio = custodioCad.split("_");
-                cedCustodio = arrayDatCustodio[0];
+//                String cedCustodio = "";
+//                String custodioCad = req.getString("exampleRadios1");
+//                String[] arrayDatCustodio = custodioCad.split("_");
+//                cedCustodio = arrayDatCustodio[0];
 
                 /*PERSONA*/
                 Persona objPersona = new Persona();
-                String cadPersonaId = sPersona.listaPersonaId(Integer.parseInt(cedCustodio));
+                String cadPersonaId = sPersona.listaPersonaId(Integer.parseInt(req.getString("exampleRadios1")));
                 JSONObject jsonPersona = new JSONObject(cadPersonaId);
                 objPersona = new Gson().fromJson(jsonPersona.toString(), Persona.class);
 
                 /*BIEN*/
                 Bien objBien = new Bien();
-                String cadBienId = sBien.listaBienId(req.getString("codBienId"));
+                String cadBienId = sBien.listaBienId(request.getParameter("bnCodigo"));
                 JSONObject jsonBien = new JSONObject(cadBienId);
                 objBien = new Gson().fromJson(jsonBien.toString(), Bien.class);
 
@@ -1225,19 +1232,19 @@
                 objTras.setBnCodBien(objBien);
 
                 String jsonTrasCutodio = new Gson().toJson(objTras, Traspaso.class);
-                sTraspaso.ModficTraspaso(jsonTrasCutodio, Integer.parseInt(req.getString("traspasoId")));
+                sTraspaso.ModficTraspaso(jsonTrasCutodio, Integer.parseInt(request.getParameter("traCodigo")));
 
-                objBien.setBnCodBien(req.getString("codBienId"));
+                objBien.setBnCodBien(request.getParameter("bnCodigo"));
 
                 /*UBICACION*/
                 Ubicacion objUbicacion = new Ubicacion();
-                String cadUbicacionId = sUbicacion.listaUbicacionId(Integer.parseInt(req.getString("bienUbicacionId")));
+                String cadUbicacionId = sUbicacion.listaUbicacionId(Integer.parseInt(req1.getString("bienUbicacionId")));
                 JSONObject jsonUbicacion = new JSONObject(cadUbicacionId);
                 objUbicacion = new Gson().fromJson(jsonUbicacion.toString(), Ubicacion.class);
 
                 /*DEPENDENCIA*/
                 Dependencia objDependencia = new Dependencia();
-                String cadDependenciaId = sDependencia.listaDependenciaId(Integer.parseInt(req.getString("bienDependenciaId")));
+                String cadDependenciaId = sDependencia.listaDependenciaId(Integer.parseInt(req1.getString("bienDependenciaId")));
                 JSONObject jsonDependencia = new JSONObject(cadDependenciaId);
                 objDependencia = new Gson().fromJson(jsonDependencia.toString(), Dependencia.class);
 
@@ -1245,7 +1252,7 @@
                 objBien.setDpId(objDependencia);
 
                 String jsonBienCust = new Gson().toJson(objBien, Bien.class);
-                sBien.ModficBien(jsonBienCust, req.getString("codBienId"));
+                sBien.ModficBien(jsonBienCust, request.getParameter("bnCodigo"));
 
             } else {
 

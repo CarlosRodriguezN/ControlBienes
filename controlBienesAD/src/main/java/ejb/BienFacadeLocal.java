@@ -37,4 +37,8 @@ public interface BienFacadeLocal {
     List<Bien> findBienesSerie(String serie);
     
     String getVersionSO();
+    
+    List<Bien> findInvGarantiaFecha(String fechact);
+    
+    List<Bien> findInvBienDesactivadosMotFecha(String fechai, String fechaf);
 }

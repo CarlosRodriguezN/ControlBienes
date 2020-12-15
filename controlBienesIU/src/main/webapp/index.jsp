@@ -181,10 +181,7 @@ Total_horas_perdidas_aqui = 0-->
     %>
     <link href="assets/css/skins/dticUser.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <%
-        String rolIng  = null;
-    %>
-    <body class="sidebar-fixed topnav-fixed dashboard" onMouseOver="hayActividad();" onload="rolUSER(<%=rolIng%>)">
+    <body class="sidebar-fixed topnav-fixed dashboard" onMouseOver="hayActividad();" onload="rolUSER()">
         <div id="codCas" name="codCas" ><div style="display:none;"><% out.println(codigocas);%></div></div>
         <div id="Logeo" name="Logeo" ><div style="display:none;"><% out.println(tipoLogueo); %></div></div>
 
@@ -258,7 +255,8 @@ Total_horas_perdidas_aqui = 0-->
                                                                         nomFunc = listafunciones12.get(i).getIntrolId().getStrnombre().replace("CB ", "");
                                                                         session.setAttribute("Rol" + i, nomFunc);
                                                                         if(cont  == 0){
-                                                                            rolIng = nomFunc;
+                                                                            String r = nomFunc;
+                                                                               %><input value="<%= r %>" id="idrol" name="rol" type = "hidden"><%
                                                                             cont++;
                                                                         }    
                                                                         out.print("<li ><a onclick='rol" + nomFunc + "();' style='cursor: pointer'<i class='fa fa-circle-o'></i><span class='text'>&nbsp;" + nomFunc + "</span></a></li>");
@@ -394,7 +392,8 @@ Total_horas_perdidas_aqui = 0-->
         <script src="alertify/alertify.js" type="text/javascript"></script>
         <link href="alertify/css/alertify.css" crossorigin="anonymous" rel="stylesheet" />
         <link href="alertify/css/themes/semantic.css" rel="stylesheet" >
-
+        <script>        
+        </script>
     </body>
 
 </html>

@@ -926,22 +926,47 @@ function estUsuarios(idDato, estado) {
 
 //R  O  L  E  S
 
-function rolUSER() {
-    VentanaPorte();
-    $("#left-sidebar").css("background-color", "#1e6887");
-    var idUser = $("#codCas").text();
-    $.ajax({
-        url: "MenuUser.jsp",
-        type: "GET",
-        data: {idUser: idUser},
-        contentType: "application/json ; charset=UTF-8",
-        success: function (datos) {
-            $("#left-sidebar").html(datos);
-        },
-        error: function (error) {
-            location.reload();
-        }
+function rolUSER(rolIng) {
+        if(rolIng === "ADMINISTRADOR"){
+//            rolADMINISTRADOR();
+             VentanaPorte();
+            $("#left-sidebar").css("background-color", "#304A54");
+            $("#contenidoDinamico").html("");
+            var idUser = $("#codCas").text();
+            $.ajax({
+                url: "MenuAdmin.jsp",
+                type: "GET",
+                data: {idUser: idUser},
+                contentType: "application/json ; charset=UTF-8",
+                success: function (datos) {
+                    $("#left-sidebar").html(datos);
+                    $("#contenidoDinamico").html("");
+                    $("#contenidoDinamico").html("<div class='main-header'><h2>Bienes</h2><em>Bienes</em></div><div id='contenidoInferior' class='main-content'><p class='lead'>Estimado(a) Administrador(a) del Sistema, usted podrá asignar, descargar y administrar las Bienes Honoríficas al Desempeño Integral Docente del Personal Académico (a partir del periodo octubre 2017 - marzo 2018).</p></br><img src='assets/img/dashboard-normal-sidebar.png' class='img-responsive center-block' alt='Normal Sidebar'><div class='bottom-30px'></div></div>");
+                },
+                error: function (error) {
+                    location.reload();
+                }
     });
+        }
+        if(rolIng === "SUPERVISOR")
+            rolSUPERVISOR();
+        if(rolIng === "OPERARIO")
+            rolOPERARIO();
+//    VentanaPorte();
+//    $("#left-sidebar").css("background-color", "#1e6887");
+//    var idUser = $("#codCas").text();
+//    $.ajax({
+//        url: "MenuUser.jsp",
+//        type: "GET",
+//        data: {idUser: idUser},
+//        contentType: "application/json ; charset=UTF-8",
+//        success: function (datos) {
+//            $("#left-sidebar").html(datos);
+//        },
+//        error: function (error) {
+//            location.reload();
+//        }
+//    });
 }
 
 function rolADMINISTRADOR() {
@@ -2016,6 +2041,174 @@ function estNivelMantenimiento(idDato, estado) {
     ).autoCancel(20).set('oncancel', function () {
         //si pasa el tiempo 
         alertCancel();
+    });
+}
+
+function AdminSupervisores() {
+    document.getElementById('contenidoDinamico').innerHTML = "";
+    document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
+    VentanaPorte();
+    $.ajax({
+        url: "AdminListarRoles.jsp",
+        type: "GET",
+        data: {tsk: 'supervisor'},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            $("#contenidoDinamico").html("");
+            $("#contenidoDinamico").html(datos);
+        }
+        ,
+        error: function (error) {
+            location.reload();
+        }
+    });
+}
+
+function AdminOperarios() {
+    document.getElementById('contenidoDinamico').innerHTML = "";
+    document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
+    VentanaPorte();
+    $.ajax({
+        url: "AdminListarRoles.jsp",
+        type: "GET",
+        data: {tsk: 'operario'},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            $("#contenidoDinamico").html("");
+            $("#contenidoDinamico").html(datos);
+        }
+        ,
+        error: function (error) {
+            location.reload();
+        }
+    });
+}
+
+function AddAdministrador(rol) {
+    var datos = convertirObjetoJson('FrmNewTipoFlujo');
+    var uscape = decodeURIComponent(datos);
+    datos = "";
+    datos = uscape;
+    MuestraLoad();
+    $.ajax({
+        url: "controladorBienes.jsp",
+        type: "POST",
+        data: {opc: 'Administrador', tsk: 'AddAdministrador', datos: datos, rol: rol},
+        //contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            //clicSuperAdminUsuario();
+            if(rol === 'supervisor')
+                AdminSupervisores(); 
+            else
+                AdminOperarios(); 
+            TerminaLoad();
+            alertAdd();
+        },
+        error: function (error) {
+            //clicSuperAdminUsuario();
+            if(rol === 'supervisor')
+                AdminSupervisores(); 
+            else
+                AdminOperarios(); 
+            TerminaLoad();
+            alertError();
+        }
+    });
+}
+
+function MostAdministrador(idFuncion) {
+    document.getElementById('contenidoDinamico').innerHTML = "";
+    document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
+    VentanaPorte();
+    $.ajax({
+        url: "AdminEditRol.jsp",
+        type: "GET",
+        data: {idRef: idFuncion},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            $("#contenidoDinamico").html("");
+            $("#contenidoDinamico").html(datos);
+        }
+        ,
+        error: function (error) {
+            location.reload();
+        }
+    });
+}
+    
+function EditRol(idFuncion,rol) {
+    var datos = Objeto2Json('FrmEditTipoFlujo');
+    VentanaPorte();
+    $.ajax({
+        url: "controladorBienes.jsp",
+        type: "GET",
+        data: {opc: "Administrador", tsk:'EditAdministrador', idRef: idFuncion, rol: rol, datos: datos},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            if(rol === 'supervisor')
+                AdminSupervisores(); 
+            else
+                AdminOperarios();
+              alertEdit();
+        }
+        ,
+        error: function (error) {
+            if(rol === 'supervisor')
+                AdminSupervisores(); 
+            else
+                AdminOperarios();
+        }
+    });
+}
+
+function ChekPermisos(idFuncion, rol) {
+    document.getElementById('contenidoDinamico').innerHTML = "";
+    document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
+    VentanaPorte();
+    $.ajax({
+        url: "AdminEditPermisos.jsp",
+        type: "GET",
+        data: {idRef: idFuncion, rol:rol},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            $("#contenidoDinamico").html("");
+            $("#contenidoDinamico").html(datos);
+        }
+        ,
+        error: function (error) {
+            location.reload();
+        }
+    });
+}
+
+function EditCheck(idDato) {
+    var datos = Objeto2Json('FrmEditPermisos');
+    var selected = '';    
+        $('#FrmEditPermisos input[type=checkbox]').each(function(){
+            if (this.checked) {
+                selected += $(this).val()+'_';
+            }
+        });
+    VentanaPorte();
+    $.ajax({
+        url: "controladorBienes.jsp",
+        type: "GET",
+        data: {opc: "Administrador", tsk:'EditPermisos', selected:selected, idDato : idDato, datos: datos},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+//            if(rol === 'supervisor')
+                AdminSupervisores(); 
+//            else
+//                AdminOperarios();
+              alertEdit();
+        }
+        ,
+        error: function (error) {
+//            if(rol === 'supervisor')
+//                AdminSupervisores(); 
+//            else
+                AdminOperarios();
+        }
     });
 }
 

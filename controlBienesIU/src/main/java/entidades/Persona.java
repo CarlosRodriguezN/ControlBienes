@@ -38,7 +38,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Persona.findByPerApellido2", query = "SELECT p FROM Persona p WHERE p.perApellido2 = :perApellido2")
     , @NamedQuery(name = "Persona.findByPerEmail", query = "SELECT p FROM Persona p WHERE p.perEmail = :perEmail")
     , @NamedQuery(name = "Persona.findByPerTelefono", query = "SELECT p FROM Persona p WHERE p.perTelefono = :perTelefono")
-    , @NamedQuery(name = "Persona.findByPerEstado", query = "SELECT p FROM Persona p WHERE p.perEstado = :perEstado")})
+    , @NamedQuery(name = "Persona.findByPerEstado", query = "SELECT p FROM Persona p WHERE p.perEstado = :perEstado")
+    , @NamedQuery(name = "Persona.findByPerRol", query = "SELECT p FROM Persona p WHERE p.perRol = :perRol")})
 public class Persona implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -73,11 +74,16 @@ public class Persona implements Serializable {
     private String perTelefono;
     @Column(name = "per_estado")
     private Integer perEstado;
+    @Size(max = 100)
+    @Column(name = "per_rol")
+    private String perRol;
     @OneToMany(mappedBy = "perId")
     private Collection<Traspaso> traspasoCollection;
     @JoinColumn(name = "car_id", referencedColumnName = "car_id")
     @ManyToOne
     private Cargo carId;
+    @OneToMany(mappedBy = "perId")
+    private Collection<Personapermiso> personapermisoCollection;
 
     public Persona() {
     }
@@ -157,6 +163,14 @@ public class Persona implements Serializable {
         this.perEstado = perEstado;
     }
 
+    public String getPerRol() {
+        return perRol;
+    }
+
+    public void setPerRol(String perRol) {
+        this.perRol = perRol;
+    }
+    
     @XmlTransient
     public Collection<Traspaso> getTraspasoCollection() {
         return traspasoCollection;
@@ -174,6 +188,15 @@ public class Persona implements Serializable {
         this.carId = carId;
     }
 
+    @XmlTransient
+    public Collection<Personapermiso> getPersonapermisoCollection() {
+        return personapermisoCollection;
+    }
+
+    public void setPersonapermisoCollection(Collection<Personapermiso> personapermisoCollection) {
+        this.personapermisoCollection = personapermisoCollection;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

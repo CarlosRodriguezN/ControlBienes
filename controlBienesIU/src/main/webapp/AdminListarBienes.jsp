@@ -1,3 +1,4 @@
+<%@page import="esntidadesSeg.Funcion"%>
 <%@page import="net.sf.jasperreports.engine.JasperRunManager"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
@@ -37,8 +38,30 @@
 
 
     <%
+
         String UsuLinea = session.getAttribute("codigoPersona").toString();
         String UsuLineaCedula = session.getAttribute("cedulaPersona").toString();
+        String rol1,rol2,rol3;
+  
+        try{
+            rol1 = session.getAttribute("Rol0").toString();
+        }catch(Exception e)
+        {
+            rol1 = "";
+        }
+        try{
+            rol2 = session.getAttribute("Rol1").toString();
+        }catch(Exception e)
+        {
+            rol2 = "";
+        }
+        try{
+            rol3 = session.getAttribute("Rol2").toString();
+        }catch(Exception e)
+        {
+            rol3 = "";
+        }
+        
         ArrayList<Traspaso> listTraspaso = new ArrayList<Traspaso>();
         ArrayList<Persona> listPersona = new ArrayList<Persona>();
         ArrayList<Dependencia> listDependencia = new ArrayList<Dependencia>();
@@ -97,7 +120,7 @@
                     Motivoinforme objMenuMotivo = new Gson().fromJson(childJSONObject.toString(), Motivoinforme.class);
                     listMotInforme.add(objMenuMotivo);
                 }
-
+                    
             } else {
                 response.sendRedirect("index.jsp");
             }
@@ -105,6 +128,21 @@
             response.sendRedirect("index.jsp");
         }
     %>
+    
+    <%
+        //Pemisos Pesona
+        ArrayList<Personapermiso> cadPerPm = new ArrayList<Personapermiso>();  
+        String listPerPm = sPermisoPersona.listaPermisoPersonaPorCodPersona(Integer.parseInt(UsuLinea));
+        String resultadoaccion = "{\"respuesta\":" + listPerPm + "}";
+        JSONObject objJSONrespuesta1 = new JSONObject(resultadoaccion);
+        JSONArray arrayJSONrespuesta1 = objJSONrespuesta1.getJSONArray("respuesta");
+        for (int i = 0; i < arrayJSONrespuesta1.length(); i++) {
+            JSONObject childJSONObject = arrayJSONrespuesta1.getJSONObject(i);
+            Personapermiso objPerPm = new Gson().fromJson(childJSONObject.toString(), Personapermiso.class);
+            cadPerPm.add(objPerPm);
+        }
+    %>
+    
     
     <script>
       function verOp(idTraspaso,codBien){
@@ -148,10 +186,19 @@
                                                 <th>Apellidos</th>
                                                 <th>Fecha traspaso</th>
                                                 <th>Condicion</th>
-                                                <th>Estado</th>
+                                                <th>Estado</th> 
+                                                <%if(getPermisos(cadPerPm ,"POP_MODBIEN")||rol1.equals("ADMINISTRADOR") || rol2.equals("ADMINISTRADOR") || rol3.equals("ADMINISTRADOR")){%>
                                                 <th>Editar</th>
+                                                <%}
+                                                 if(getPermisos(cadPerPm ,"POP_DESBIEN")||rol1.equals("ADMINISTRADOR") || rol2.equals("ADMINISTRADOR") || rol3.equals("ADMINISTRADOR")){
+                                                %>
                                                 <th>Estado</th>
-                                                <th>Traspaso</th>
+                                                <% 
+                                                }    
+                                                //if((getPermisos(cadPerPm ,"PSU_TRABIEN") && (rol1.equals("SUPEVISOR") || rol2.equals("SUPERVISOR") || rol3.equals("SUPERVISOR"))) || rol1.equals("ADMINISTRADOR") || rol2.equals("ADMINISTRADOR") || rol3.equals("ADMINISTRADOR")){
+                                                if(getPermisos(cadPerPm ,"PSU_TRABIEN")||rol1.equals("ADMINISTRADOR") || rol2.equals("ADMINISTRADOR") || rol3.equals("ADMINISTRADOR")){%>
+                                                    <th>Traspaso</th>
+                                                <%}%>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -182,18 +229,18 @@
                                                         out.println("<td>" + oPet.getPerId().getPerApellido1() +" "+ oPet.getPerId().getPerApellido2() + "</td>");
                                                         out.println("<td>" + datFecha + "</td>");
                                                         out.println("<td>" + oPet.getBnCodBien().getBnEstadoBien() + "</td>");
-                                                        out.println("<td>" + oPet.getBnCodBien().getBaId().getBaDetalle() + "</td>");
-                                                        
-
-
+                                                        out.println("<td>" + oPet.getBnCodBien().getBaId().getBaDetalle() + "</td>");                                                      
                                             %>
                                             <!--INICIO BONOTES DE ACCION-->
-                                            <td align="center"> 
-                                                <div class="btn-group btn-group-xs">
-                                                    <button type="button" class="btn btn-warning" title="Editar" onclick="editarBien(<%=oPet.getBnCodBien().getBnCodBien()%>,<%=oPet.getPerId().getPerId()%>,<%=oPet.getBnCodBien().getCatId().getCtId()%>)"><i class="fa  fa-pencil-square-o" style="font-size: 17px;"></i></button>
-                                                </div>
-                                            </td>
-
+                                            <%if(getPermisos(cadPerPm ,"POP_MODBIEN")||rol1.equals("ADMINISTRADOR") || rol2.equals("ADMINISTRADOR") || rol3.equals("ADMINISTRADOR")){%>
+                                                <td align="center"> 
+                                                    <div class="btn-group btn-group-xs">
+                                                        <button type="button" class="btn btn-warning" title="Editar" onclick="editarBien(<%=oPet.getBnCodBien().getBnCodBien()%>,<%=oPet.getPerId().getPerId()%>,<%=oPet.getBnCodBien().getCatId().getCtId()%>)"><i class="fa  fa-pencil-square-o" style="font-size: 17px;"></i></button>
+                                                    </div>
+                                                </td>
+                                            <%}
+                                            if(getPermisos(cadPerPm ,"POP_DESBIEN")||rol1.equals("ADMINISTRADOR") || rol2.equals("ADMINISTRADOR") || rol3.equals("ADMINISTRADOR")){
+                                            %>
                                             <!-- BONOTES DE ACCION HABILITAR DESABILITAR-->
                                             <td align="center"> 
                                                 <div class="btn-group btn-group-xs">
@@ -209,21 +256,27 @@
                                                     <!--FIN IF PARA DESABILITAR-->
                                                 </div>
                                             </td>
-
-                                            <!--BOTON ACCION TRANSPASO-->
-                                            <td align="center"> 
-                                                <div class="btn-group btn-group-xs">
-                                                    <button  onclick = "bnTraspasoPersona(<%=oPet.getTraId() %>,<%=oPet.getBnCodBien().getBnCodBien() %>)" name= "idBtnTraspaso" type="button" class="btn btn-success" data-toggle="modal" data-target="#miModal" ><i class="fa fa-pencil-square" style="font-size: 17px;"></i></button>
-                                                </div>
-                                            </td>
-                                            <%                                                    out.println("</tr>");
+                                            <% 
+                                                }
+                                                //if((getPermisos(cadPerPm ,"PSU_TRABIEN") && (rol1.equals("SUPEVISOR") || rol2.equals("SUPERVISOR") || rol3.equals("SUPERVISOR"))) || rol1.equals("ADMINISTRADOR") || rol2.equals("ADMINISTRADOR") || rol3.equals("ADMINISTRADOR")){
+                                                if(getPermisos(cadPerPm ,"PSU_TRABIEN")||rol1.equals("ADMINISTRADOR") || rol2.equals("ADMINISTRADOR") || rol3.equals("ADMINISTRADOR")){
+                                            %>
+                                                <!--BOTON ACCION TRANSPASO-->
+                                                <td align="center"> 
+                                                    <div class="btn-group btn-group-xs">
+                                                        <button  onclick = "bnTraspasoPersona(<%=oPet.getTraId() %>,<%=oPet.getBnCodBien().getBnCodBien() %>)" name= "idBtnTraspaso" type="button" class="btn btn-success" data-toggle="modal" data-target="#miModal" ><i class="fa fa-pencil-square" style="font-size: 17px;"></i></button>
+                                                    </div>
+                                                </td>
+                                            <%  
+                                                }
+                                                out.println("</tr>");
                                                 }
                                             }   
                                             %>
                                             </tr>
                                         </tbody>                                         
-                                    </table>                                               
-                                    
+                                    </table>           
+                                          
                                     <!--Modal de Baja de un Bien-->    
                                     <div class="modal fade" id="modalBaja" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog" role="document">
@@ -269,7 +322,23 @@
                     </div>
 
                 </div>
+
             </div>
         </div>
-    </div>                                                           
+    </div>  
+    <%!
+        public Boolean getPermisos(ArrayList<Personapermiso> cadPerPm, String codPermiso)
+        {
+            Boolean bandera = false;
+            String usuPermiso = "";
+            for (Personapermiso oPerPm: cadPerPm) {
+                usuPermiso = oPerPm.getPmId().getPmCodigo().replaceAll("\n","");
+                if(oPerPm.getPerpmEstado() && usuPermiso.equals(codPermiso))
+                {
+                        bandera = true;
+                }
+            }
+            return bandera; 
+        }
+    %>
 </html>

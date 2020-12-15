@@ -9,11 +9,11 @@
 <div class="sidebar-scroll">
     <nav class="main-nav">
         <ul class="main-menu">
-            <li style='cursor: pointer' title="Mis datos">
+<!--            <li style='cursor: pointer' title="Mis datos">
                 <a onclick="clicUserCertif()" >
                     <i class="fa fa-handshake-o"></i><span class="text">Mis datos</span>
                 </a>
-            </li>
+            </li>-->
             <li id="menu1"><a href="#" class="js-sub-menu-toggle"><i class="fa fa-file-text-o"></i><span class="text">CSV</span>
                     <i id="ico11" class="toggle-icon fa fa-angle-left"></i></a>
                 <ul id="submenu1" class="sub-menu ">
@@ -53,11 +53,11 @@
                         </a>
                     </li>
                     
-                    <li style='cursor: pointer' title="Por estado">
+<!--                    <li style='cursor: pointer' title="Por estado">
                         <a onclick="PreBusquedaPorPersona()" >
                             <i class="fa fa-handshake-o"></i><span class="text">Por persona</span>
                         </a>
-                    </li>
+                    </li>-->
                     <li style='cursor: pointer' title="Reportes">
                         <a onclick="ReportesBien()" >
                             <i class="fa fa-handshake-o"></i><span class="text">Reportes</span>
@@ -97,11 +97,11 @@
 
 
 
-            <li style='cursor: pointer' title="Informes">
+<!--            <li style='cursor: pointer' title="Informes">
                 <a onclick="verInformes()" >
                     <i class="fa fa-handshake-o"></i><span class="text">Informes</span>
                 </a>
-            </li>
+            </li>-->
 
             <li style='cursor: pointer' title="Motivo de Informes">
                 <a onclick="verMotivoInforme()" >

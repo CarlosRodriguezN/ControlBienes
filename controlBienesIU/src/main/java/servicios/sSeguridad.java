@@ -213,7 +213,7 @@ public class sSeguridad {
      public static String listarRolesPersonas() throws JSONException {
         String strJson = "";
         try {
-            URL url = new URL(Constantes.PREFIJO_seguridad + Constantes.IP_seguridad + "/" + Constantes.SERVICIO_seguridad + "/wsrol/listarolessdadosistematodosusuarios/DESEMPENIO%20DOCENTE");
+            URL url = new URL(Constantes.PREFIJO_seguridad + Constantes.IP_seguridad + "/" + Constantes.SERVICIO_seguridad + "/wsrol/listarolessdadosistematodosusuarios/CONTROL%20DE%20BIENES%20INFORMATICOS");
             HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setDoOutput(true);

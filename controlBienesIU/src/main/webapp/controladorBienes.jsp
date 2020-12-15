@@ -1,3 +1,9 @@
+<%@page import="esntidadesSeg.Sistema"%>
+<%@page import="esntidadesSeg.Rol"%>
+<%@page import="esntidadesSeg.Grupo"%>
+<%@page import="esntidadesSeg.Accion"%>
+<%@page import="esntidadesSeg.Usuario"%>
+<%@page import="esntidadesSeg.Funcion"%>
 <%@page import="javax.print.attribute.IntegerSyntax"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.text.DateFormat"%>
@@ -15,6 +21,259 @@
     String UsuLinea = session.getAttribute("codigoPersona").toString();
     String UsuLineaCedula = session.getAttribute("cedulaPersona").toString();
     String strOpc = request.getParameter("opc");
+    
+    if (strOpc.equals("Administrador")) {
+        String tsk = request.getParameter("tsk");
+        if (tsk.equals("AddAdministrador")) {
+            Funcion objfuncion = new Funcion();
+            String datos = request.getParameter("datos");
+            JSONObject req = new JSONObject(datos);
+            String resultadopersona = sPersona.listaPersonaCedula(req.getString("numero"));
+
+
+            if (resultadopersona.isEmpty()) {//SI LA PERSONA NO EXISTE EN LA TABLA PERSONA SE LA ADICIONA
+                String datospersona = WSCentralizada.BuscarPersona(req.getString("numero"));
+                if (!datospersona.isEmpty()) {
+                    //asignar id de cargo a la tabla persona
+                       Cargo objCargo = new Cargo();
+                       String servNombreCargo = "";
+                       try{
+                            if(request.getParameter("rol").equals("supervisor"))   
+                                servNombreCargo = sCargo.listaCargoNombre("Supervisor");
+                       }catch(Exception e){       
+                            servNombreCargo = sCargo.listaCargoNombre("Operario");
+                       }
+                       if (servNombreCargo.isEmpty()) {
+                           objCargo.setCarEstado(1);
+                           try{
+                                if(request.getParameter("rol").equals("supervisor")) 
+                                    objCargo.setCarDescripcion("Supervisor");
+                           }catch(Exception e){ 
+                               objCargo.setCarDescripcion("Operario");
+                           }
+                           String strJsonCargo = new Gson().toJson(objCargo, Cargo.class);
+                           String retornoCargo = sCargo.InsertarCargo(strJsonCargo);
+                           JSONObject objYaCargo = new JSONObject(retornoCargo);
+                           objCargo.setCarId(objYaCargo.getInt("carId"));
+                       } else {
+                           JSONObject reqCargo = new JSONObject(servNombreCargo);
+                           objCargo = new Gson().fromJson(reqCargo.toString(), Cargo.class);
+                       }
+
+                    //ingresar persona si no existe
+                    Persona objPersona = new Persona();
+                    JSONObject reqPerso = new JSONObject(datospersona);
+                    objPersona.setPerId(reqPerso.getInt("per_id"));
+                    objPersona.setPerCedula(req.getString("numero"));
+                    objPersona.setPerNombres(reqPerso.getString("per_nombres").replace("\"", ""));
+                    objPersona.setPerApellido1(reqPerso.getString("per_primerApellido").replace("\"", ""));
+                    objPersona.setPerApellido2(reqPerso.getString("per_segundoApellido").replace("\"", ""));
+                    if ((reqPerso.getString("per_email").replace("\"", "").toString().equals("")) || (reqPerso.getString("per_email").equals("null"))) {
+                        objPersona.setPerEmail(" ");
+                    } else {
+                        objPersona.setPerEmail(reqPerso.getString("per_email").replace("\"", ""));
+                    }
+                    if ((reqPerso.getString("per_telefonoCelular").replace("\"", "").toString().equals("")) || (reqPerso.getString("per_telefonoCelular").equals("null"))) {
+                        objPersona.setPerTelefono(" ");
+                    } else {
+                        objPersona.setPerTelefono(reqPerso.getString("per_telefonoCelular").replace("\"", ""));
+                    }
+                    objPersona.setPerEstado(1);
+                    objPersona.setCarId(objCargo);
+                    try{
+                         if(request.getParameter("rol").equals("supervisor")) 
+                             objPersona.setPerRol("supervisor");
+                    }catch(Exception e){ 
+                        objPersona.setPerRol("operativo");
+                    }
+                    String strJsondocumento1 = new Gson().toJson(objPersona, Persona.class);
+                    sPersona.InsertarPersona(strJsondocumento1);
+                    //perExiste = true;
+                    }
+                }   
+            resultadopersona = sPersona.listaPersonaCedula(req.getString("numero"));
+            Persona objpersona = new Gson().fromJson(resultadopersona, Persona.class);
+
+             //verificar q el usuariono exista en la tabla Usuario
+            //String jsonSeguridad = sSeguridad.listarRolesPersonas();
+
+            Usuario objusuario = new Usuario();
+            objusuario.setUsuBlnactivo(true);
+            objusuario.setUsuCedula(objpersona.getPerCedula());
+            if (objpersona.getPerEmail().isEmpty() || objpersona.getPerEmail().equals(" ")) {
+                objusuario.setUsuCorreo(req.getString("numero") + "@espoch.edu.ec");
+
+            } else {
+                objusuario.setUsuCorreo(objpersona.getPerEmail());
+            }
+
+
+            objusuario.setUsuId(objpersona.getPerId());
+            objusuario.setUsuNombre(objpersona.getPerNombres() + " " + objpersona.getPerApellido1()+ " " + objpersona.getPerApellido2());
+            String strusuario = new Gson().toJson(objusuario, Usuario.class);
+            sSeguridad.ServicioInsertarusuario(strusuario);
+            objfuncion.setBlnactivo(true);
+            objfuncion.setBlnpermisoagregar(true);
+            objfuncion.setBlnpermisoeditar(true);
+            objfuncion.setBlnpermisoeliminar(true);
+            String resultadoaccion = sSeguridad.listarAccion(1);
+            JSONObject objJSONrespuesta1 = new JSONObject(resultadoaccion);
+            JSONArray arrayJSONrespuesta1 = objJSONrespuesta1.getJSONArray("objLista");
+            Accion objaccion = new Accion();
+            for (int i = 0; i < arrayJSONrespuesta1.length(); i++) {
+                JSONObject childJSONObject = arrayJSONrespuesta1.getJSONObject(i);
+                objaccion = new Gson().fromJson(childJSONObject.toString(), Accion.class);
+            }
+            objfuncion.setIntaccId(objaccion);
+
+            String resultadogrupo = sSeguridad.listargrupo(1);
+            JSONObject objJSONrespuesta2 = new JSONObject(resultadogrupo);
+            JSONArray arrayJSONrespuesta2 = objJSONrespuesta2.getJSONArray("objLista");
+            Grupo objgrupo = new Grupo();
+            for (int i = 0; i < arrayJSONrespuesta2.length(); i++) {
+                JSONObject childJSONObject = arrayJSONrespuesta2.getJSONObject(i);
+                objgrupo = new Gson().fromJson(childJSONObject.toString(), Grupo.class);
+            }
+            objfuncion.setIntgruId(objgrupo);
+
+            objfuncion.setIntorden(0);
+
+            String resultadorol = "";
+            if(request.getParameter("rol").equals("supervisor"))
+            {
+                resultadorol = sSeguridad.listarRol(52);
+            }else 
+                resultadorol = sSeguridad.listarRol(53);
+            JSONObject objJSONrespuesta3 = new JSONObject(resultadorol);
+            JSONArray arrayJSONrespuesta3 = objJSONrespuesta3.getJSONArray("objLista");
+            Rol objrol = new Rol();
+            for (int i = 0; i < arrayJSONrespuesta3.length(); i++) {
+                JSONObject childJSONObject = arrayJSONrespuesta3.getJSONObject(i);
+                objrol = new Gson().fromJson(childJSONObject.toString(), Rol.class);
+            }
+            objfuncion.setIntrolId(objrol);
+
+            String resultadosistema = sSeguridad.listarSistema(3);
+            JSONObject objJSONrespuesta4 = new JSONObject(resultadosistema);
+            JSONArray arrayJSONrespuesta4 = objJSONrespuesta4.getJSONArray("objLista");
+            Sistema objsistema = new Sistema();
+            for (int i = 0; i < arrayJSONrespuesta4.length(); i++) {
+                JSONObject childJSONObject = arrayJSONrespuesta4.getJSONObject(i);
+                objsistema = new Gson().fromJson(childJSONObject.toString(), Sistema.class);
+            }
+            objfuncion.setSisId(objsistema);
+
+            objfuncion.setUsuId(objusuario);
+            String strresultado = new Gson().toJson(objfuncion, Funcion.class);
+            sSeguridad.ServicioInsertarRol(strresultado);
+
+
+            String listPersonaPermiso = sPermisoPersona.listaPermisoPersonaPorCodPersona(objpersona.getPerId());
+            if(listPersonaPermiso.isEmpty() || listPersonaPermiso.equals("[]")){
+
+                ArrayList<Permiso> cadPermisos = new ArrayList<Permiso>(); 
+                String listPermisos = "";
+//                    if(request.getParameter("rol").equals("supervisor"))   
+                   listPermisos = "{\"respuesta\":" + sPermiso.listaTodosPermiso() + "}";
+//                    else
+//                       listPermisos = "{\"respuesta\":" + sPermiso.listaTodosPermisoOperario() + "}";
+
+                JSONObject objJSONPermiso = new JSONObject(listPermisos);
+                JSONArray arrayJSONPermisos = objJSONPermiso.getJSONArray("respuesta");
+
+                for (int i = 0; i < arrayJSONPermisos.length(); i++) {
+                    JSONObject childJSONObject = arrayJSONPermisos.getJSONObject(i);
+                    Permiso objPermiso = new Gson().fromJson(childJSONObject.toString(), Permiso.class);
+                    cadPermisos.add(objPermiso);
+                }
+
+                for(Permiso oPermiso:cadPermisos){
+                    Personapermiso objPerPm = new Personapermiso();
+                    objPerPm.setPmId(oPermiso);
+                    objPerPm.setPerId(objpersona);
+
+                    if(oPermiso.getPmCodigo().contains("PSU") && request.getParameter("rol").equals("operario"))
+                        objPerPm.setPerpmEstado(false);
+                    else
+                        objPerPm.setPerpmEstado(true);
+
+                    String nuevopermisos = new Gson().toJson(objPerPm, Personapermiso.class);
+                    sPermisoPersona.InsertarPermisoPersona(nuevopermisos);
+                }
+            }
+
+            objaccion = null;
+            objfuncion = null;
+            objgrupo = null;
+            objpersona = null;
+            objrol = null;
+            objsistema = null;
+            objusuario = null;
+        } else if (tsk.equals("EditAdministrador")) {
+            String datos = request.getParameter("datos");
+            JSONObject req1 = new JSONObject(datos);
+            Funcion objPerio = new Funcion();
+            String resultadoaccion = sSeguridad.listarFuncion(Integer.parseInt(request.getParameter("idRef")));
+            JSONObject objJSONrespuesta1 = new JSONObject(resultadoaccion);
+            JSONArray arrayJSONrespuesta1 = objJSONrespuesta1.getJSONArray("objLista");
+            for (int i = 0; i < arrayJSONrespuesta1.length(); i++) {
+                JSONObject childJSONObject = arrayJSONrespuesta1.getJSONObject(i);
+                objPerio = new Gson().fromJson(childJSONObject.toString(), Funcion.class);
+            }
+            try {
+                if (req1.getString("TipoFlEsta").equals("on")) {
+                    objPerio.setBlnactivo(true);
+                }
+            } catch (Exception e) {
+                objPerio.setBlnactivo(false);
+            }
+            String strusuario = new Gson().toJson(objPerio, Funcion.class);
+            sSeguridad.ServicioModficarRol(strusuario, Integer.parseInt(request.getParameter("idRef")));
+
+        } else if (tsk.equals("EditPermisos")) {
+            String datos = request.getParameter("datos");
+            String selected = request.getParameter("selected");
+            String[] parts = selected.split("_");
+            String idDato = request.getParameter("idDato");
+
+            //Listar personas por el codigo de la tabla persona
+            ArrayList<Personapermiso> cadPerPm = new ArrayList<Personapermiso>();    
+            String resultadoaccion = "{\"respuesta\":" + sPermisoPersona.listaTodosPermisoPersona() + "}";
+            JSONObject objJSONpermPersona = new JSONObject(resultadoaccion);
+            JSONArray arrayJSONrespuesta1 = objJSONpermPersona.getJSONArray("respuesta");
+            for (int i = 0; i < arrayJSONrespuesta1.length(); i++) {
+                JSONObject childJSONObject = arrayJSONrespuesta1.getJSONObject(i);
+                Personapermiso objPerPm = new Gson().fromJson(childJSONObject.toString(), Personapermiso.class);
+                cadPerPm.add(objPerPm);
+            }
+            Personapermiso objPerPm = new Personapermiso();
+            String findPerPm = "";
+            int modPePm = 0;
+            for (Personapermiso oPerPm: cadPerPm) {
+                if(oPerPm.getPerId().getPerId() == Integer.parseInt(idDato)){
+                    findPerPm = sPermisoPersona.listaPermisoPersonaId(oPerPm.getIdPerPm());
+                    JSONObject JSONPermiso = new JSONObject(findPerPm);
+                    objPerPm =  new Gson().fromJson(JSONPermiso.toString(),Personapermiso.class);
+
+                    if(!selected.isEmpty()){  
+                        for (int i = 0; i < parts.length; i++) {
+                            if(oPerPm.getIdPerPm() == Integer.parseInt(parts[i])){
+                                objPerPm.setPerpmEstado(true);  
+                                modPePm++;
+                            }       
+                        }
+                    }
+                    if(modPePm == 0){
+                       objPerPm.setPerpmEstado(false);
+                    }
+                    String jsonPersonaPermiso  = new Gson().toJson(objPerPm, Personapermiso.class);
+                    sPermisoPersona.ModficarPermisoPersona(jsonPersonaPermiso , oPerPm.getIdPerPm());
+                    modPePm = 0;
+                }
+            }
+        }
+    }
+    
     if (strOpc != null) {
         if (strOpc.equals("temporales")) {
             String tsk = request.getParameter("tsk");

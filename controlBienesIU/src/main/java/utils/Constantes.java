@@ -8,8 +8,8 @@ package utils;
 public class Constantes {
     
     public final static String PREFIJO = "https://";
-//    public final static String IP = "pruebas.espoch.edu.ec:8181";
-    public final static String IP = "localhost:8181";
+    public final static String IP = "pruebas.espoch.edu.ec:8181";
+//    public final static String IP = "localhost:8181";
     public final static String SERVICIO = "controlBienesAD";
     public final static String ACCESO_DATOS = "wsBienes";
     

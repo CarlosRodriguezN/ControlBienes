@@ -95,7 +95,7 @@
                                                 <th>Ubicación</th>
                                                 <th>Tipo baja</th>
 
-                                                <th>Acción</th>
+<!--                                                <th>Acción</th>-->
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -110,13 +110,13 @@
 
 
                                             %>
-                                        <td align="center"> 
+<!--                                        <td align="center"> 
                                             <div class="btn-group btn-group-xs">
                                                 <button type="button" class="btn btn-success" title="Activar"onclick=""><i class="fa fa-check-circle" style="font-size: 17px;"></i></button>
                                                 <button type="button" class="btn btn-warning" title="Editar" onclick=""><i class="fa  fa-pencil-square-o" style="font-size: 17px;"></i></button>
                                                 <button type="button" class="btn btn-danger" title="Desactivar" onclick=""><i class="fa fa-times" style="font-size: 17px;"></i></button>
                                             </div>
-                                        </td>
+                                        </td>-->
 
                                         <%                                                    out.println("</tr>");
                                             }%>

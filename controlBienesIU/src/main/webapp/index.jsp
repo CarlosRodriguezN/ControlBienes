@@ -181,7 +181,10 @@ Total_horas_perdidas_aqui = 0-->
     %>
     <link href="assets/css/skins/dticUser.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <body class="sidebar-fixed topnav-fixed dashboard" onMouseOver="hayActividad();" onload="rolUSER()">
+    <%
+        String rolIng  = null;
+    %>
+    <body class="sidebar-fixed topnav-fixed dashboard" onMouseOver="hayActividad();" onload="rolUSER(<%=rolIng%>)">
         <div id="codCas" name="codCas" ><div style="display:none;"><% out.println(codigocas);%></div></div>
         <div id="Logeo" name="Logeo" ><div style="display:none;"><% out.println(tipoLogueo); %></div></div>
 
@@ -223,15 +226,16 @@ Total_horas_perdidas_aqui = 0-->
 
                                         </a>
                                         <ul class="dropdown-menu" role="menu" >
-                                            <li>
+<!--                                            <li>
                                                 <a onclick="rolUSER();" style='cursor: pointer'>
                                                     <i class="fa fa-user"></i>
                                                     <span class="text">MI PERFIL</span>
                                                 </a>
-                                            </li>
+                                            </li>-->
 
 
                                             <%
+                                                int cont=0;
                                                 if (session.getAttribute("ingreso").toString().equals("true")) {
                                                     String resSeguridad = sSeguridad.listarRoles(Integer.parseInt(codigocas), "CONTROL DE BIENES INFORMATICOS");
                                                     if (!resSeguridad.isEmpty()) {
@@ -253,31 +257,35 @@ Total_horas_perdidas_aqui = 0-->
                                                                     if (listafunciones12.get(i).getBlnactivo() == true) {
                                                                         nomFunc = listafunciones12.get(i).getIntrolId().getStrnombre().replace("CB ", "");
                                                                         session.setAttribute("Rol" + i, nomFunc);
+                                                                        if(cont  == 0){
+                                                                            rolIng = nomFunc;
+                                                                            cont++;
+                                                                        }    
                                                                         out.print("<li ><a onclick='rol" + nomFunc + "();' style='cursor: pointer'<i class='fa fa-circle-o'></i><span class='text'>&nbsp;" + nomFunc + "</span></a></li>");
                                                                     }
                                                                 }
                                                             } else {
                                                                 out.print("Error al consumir el servicio");
                                                             }
-
-                                                            for (int i = 0; i < listafunciones12.size(); i++) {
-
-                                                                if (listafunciones12.get(i).getIntrolId().getStrnombre().equals("CB ADMINISTRADOR")) {
-                                                                    session.setAttribute("Rol1", "Administra");
-                                                                    out.print("<li ><a onclick='rolAdmin();' style='cursor: pointer'<i class='fa fa-cog'></i><span class='text'>&nbsp;ADMINISTRADOR</span></a></li>");
-                                                                }
-
-                                                                if (listafunciones12.get(i).getIntrolId().getStrnombre().equals("CB SUPERVISOR")) {
-                                                                    session.setAttribute("Rol2", "Supervisa");
-                                                                    out.print("<li ><a onclick='rolSuperv();' style='cursor: pointer'<i class='fa fa-cog'></i><span class='text'>&nbsp;SUPERVISOR</span></a></li>");
-                                                                }
-
-                                                                if (listafunciones12.get(i).getIntrolId().getStrnombre().equals("CB OPERARIO")) {
-                                                                    session.setAttribute("Rol3", "Operario");
-                                                                    out.print("<li ><a onclick='rolOpera();' style='cursor: pointer'<i class='fa fa-cog'></i><span class='text'>&nbsp;OPERARIO</span></a></li>");
-                                                                }
-
-                                                            }
+                                                            cont = 0;
+//                                                            for (int i = 0; i < listafunciones12.size(); i++) {
+//
+//                                                                if (listafunciones12.get(i).getIntrolId().getStrnombre().equals("CB ADMINISTRADOR")) {
+//                                                                    session.setAttribute("Rol1", "Administra");
+//                                                                    out.print("<li ><a onclick='rolAdmin();' style='cursor: pointer'<i class='fa fa-cog'></i><span class='text'>&nbsp;ADMINISTRADOR</span></a></li>");
+//                                                                }
+//
+//                                                                if (listafunciones12.get(i).getIntrolId().getStrnombre().equals("CB SUPERVISOR")) {
+//                                                                    session.setAttribute("Rol2", "Supervisa");
+//                                                                    out.print("<li ><a onclick='rolSuperv();' style='cursor: pointer'<i class='fa fa-cog'></i><span class='text'>&nbsp;SUPERVISOR</span></a></li>");
+//                                                                }
+//
+//                                                                if (listafunciones12.get(i).getIntrolId().getStrnombre().equals("CB OPERARIO")) {
+//                                                                    session.setAttribute("Rol3", "Operario");
+//                                                                    out.print("<li ><a onclick='rolOpera();' style='cursor: pointer'<i class='fa fa-cog'></i><span class='text'>&nbsp;OPERARIO</span></a></li>");
+//                                                                }
+//
+//                                                            }
                                                         }
                                                     }
                                                 }

@@ -27,6 +27,10 @@
     <class>entidades.Baja_1</class>
     <class>entidades.Tecnodisco_1</class>
     <class>entidades.Bien</class>
+    <class>entidades.Cargo_1</class>
+    <class>entidades.Persona_1</class>
+    <class>entidades.Permiso</class>
+    <class>entidades.Personapermiso</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/bienesdtic"/>

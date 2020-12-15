@@ -17,6 +17,7 @@ C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\cont
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Catalogo.java
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Cargo.java
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\utils\Conexion.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Permiso.java
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\WSCentralizada.java
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\esntidadesSeg\Usuario.java
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sTipoMantenimiento.java
@@ -40,10 +41,13 @@ C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\cont
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sInforme.java
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Nivelmantenimiento.java
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sCatalogo.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Personapermiso.java
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\esntidadesSeg\Grupo.java
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sMotivoInforme.java
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\esntidadesSeg\Perfil.java
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sMantenimiento.java
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\entidades\Auditoria.java
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\utils\Constantes.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sPermisoPersona.java
+C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sPermiso.java
 C:\Users\Toshiba\Documents\NetBeansProjects\ControlBienes 0.1\ControlBienes\controlBienesIU\src\main\java\servicios\sTipoIngreso.java

@@ -10,6 +10,7 @@ servicios\sCatalogo.class
 entidades\Traspaso.class
 entidades\Cargo.class
 entidades\Auditoria_.class
+entidades\Personapermiso.class
 entidades\Mantenimientos.class
 entidades\Cargo_.class
 entidades\Nivelmantenimiento_.class
@@ -25,12 +26,14 @@ entidades\Motivoinforme_.class
 esntidadesSeg\Rol_.class
 servicios\sMantenimientoN.class
 entidades\Traspaso_.class
+entidades\Personapermiso_.class
 servicios\sTecnico.class
 esntidadesSeg\Usuario_.class
 entidades\Persona_.class
 esntidadesSeg\Perfil.class
 servicios\sCargo.class
 entidades\Tipomantenimiento.class
+servicios\sPermisoPersona.class
 entidades\Csv_.class
 entidades\Persona.class
 esntidadesSeg\Usuario.class
@@ -45,6 +48,7 @@ entidades\Temp.class
 entidades\Tecnodisco_.class
 servicios\sBaja.class
 servicios\sInforme.class
+entidades\Permiso_.class
 entidades\Baja.class
 entidades\Tipoingreso.class
 entidades\Nivelmantenimiento.class
@@ -61,6 +65,7 @@ servicios\sSeguridad.class
 servicios\sTemporal.class
 esntidadesSeg\Sistema_.class
 entidades\Catalogo_.class
+servicios\sPermiso.class
 esntidadesSeg\Accion.class
 entidades\Mantenimientos_.class
 esntidadesSeg\Funcion_.class
@@ -70,6 +75,7 @@ entidades\Tecnico_.class
 entidades\Dependencia.class
 entidades\Informe.class
 entidades\Dependencia_.class
+entidades\Permiso.class
 servicios\sMotivoInforme.class
 servicios\sTipoIngreso.class
 entidades\Informe_.class

@@ -41,4 +41,10 @@ public interface BienFacadeLocal {
     List<Bien> findInvGarantiaFecha(String fechact);
     
     List<Bien> findInvBienDesactivadosMotFecha(String fechai, String fechaf);
+    
+    List<Bien> BienBajaId(Integer bajaId);
+    
+    List<Bien> BienUbicacionId(Integer ubicacionId);
+    
+    List<Bien> BienDependenciaId(Integer DependenciaId);
 }

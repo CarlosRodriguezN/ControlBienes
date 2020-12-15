@@ -148,4 +148,46 @@ public class BienFacade extends AbstractFacade<Bien> implements BienFacadeLocal 
         }
         return listBien;
     }
+    
+    public List<Bien> BienBajaId(Integer bajaId){
+        List<Bien> listasalida = new ArrayList<Bien>();
+        String consulta;
+        try {
+            consulta = "SELECT b FROM Bien b WHERE b.baId.baId = ?1";
+            Query query = em.createQuery(consulta);
+            query.setParameter(1, bajaId);
+            List<Bien> listainstitucion = query.getResultList();
+            listasalida = listainstitucion;
+        } catch (Exception e) {
+        }
+        return listasalida;
+    }
+    
+        public List<Bien> BienUbicacionId(Integer ubicacionId){
+        List<Bien> listasalida = new ArrayList<Bien>();
+        String consulta;
+        try {
+            consulta = "SELECT b FROM Bien b WHERE b.ubId.ubId = ?1";
+            Query query = em.createQuery(consulta);
+            query.setParameter(1, ubicacionId);
+            List<Bien> listainstitucion = query.getResultList();
+            listasalida = listainstitucion;
+        } catch (Exception e) {
+        }
+        return listasalida;
+    }
+    
+    public List<Bien> BienDependenciaId(Integer ubicacionId){
+        List<Bien> listasalida = new ArrayList<Bien>();
+        String consulta;
+        try {
+            consulta = "SELECT b FROM Bien b WHERE b.dpId.dpId = ?1";
+            Query query = em.createQuery(consulta);
+            query.setParameter(1, ubicacionId);
+            List<Bien> listainstitucion = query.getResultList();
+            listasalida = listainstitucion;
+        } catch (Exception e) {
+        }
+        return listasalida;
+    }
 }

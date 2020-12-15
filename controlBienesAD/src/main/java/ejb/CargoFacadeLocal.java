@@ -32,4 +32,5 @@ public interface CargoFacadeLocal {
     
     Cargo idcargo(String id);
     
+    List<Cargo> listaCargoActivo();
 }

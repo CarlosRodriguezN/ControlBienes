@@ -68,6 +68,24 @@ public class ws {
     
     @EJB
     private InformeFacadeLocal informe;
+    
+    @EJB
+    private PersonapermisoFacadeLocal perpm;
+
+    @EJB
+    private PermisoFacadeLocal permiso;
+    
+    @EJB
+    private BienFacadeLocal listaBienBaja;
+    
+    @EJB
+    private BienFacadeLocal listaBienUbicacion;
+
+    @EJB
+    private BienFacadeLocal listaBienDependencia;
+    
+    @EJB
+    private CargoFacadeLocal listaCargosActivos;
 
     @GET
     @Path("personadadocedula/{cedula}")
@@ -536,6 +554,90 @@ public class ws {
         }
     }
 
+    @GET
+    @Path("wsPersonaPermiso/{codPer}")
+    @Produces({"application/json; charset=utf-8"})
+    @Consumes({"application/json; charset=utf-8"})
+    public List<Personapermiso> listarPersonaPermisoPorCedula(@PathParam("codPer") Integer codPer) {
+        List<Personapermiso> objPersonapermiso = new ArrayList<>();
+        try {
+            objPersonapermiso = perpm.listPersonaPermosoCedula(codPer);
+            return objPersonapermiso;
+        } catch (Exception e) {
+            e.getLocalizedMessage();
+            objPersonapermiso = null;
+            return objPersonapermiso;
+        }
+    }
+    
+        @GET
+    @Path("wsPermiso")
+    @Produces({"application/json; charset=utf-8"})
+    @Consumes({"application/json; charset=utf-8"})
+    public List<Permiso> listPermisosOperario() {
+        List<Permiso> objPermiso = new ArrayList<>();
+        try {
+            objPermiso = permiso.listaPermisosOperario();
+            return objPermiso;
+        } catch (Exception e) {
+            e.getLocalizedMessage();
+            objPermiso = null;
+            return objPermiso;
+        }
+    }
+    
+    @GET
+    @Path("BienBajaId/{bajaId}")
+    @Produces({"application/json; charset=utf-8"})
+    @Consumes({"application/json; charset=utf-8"})
+    public List<Bien> BienBajaId(@PathParam("bajaId") int bajaId) {
+        List<Bien> lstReturn = new ArrayList<>();
+        lstReturn = listaBienBaja.BienBajaId(bajaId);
+        if (lstReturn.isEmpty()) {
+            // MENSAJE SIN DATOS
+        }
+            return lstReturn;
+    }
+    
+    @GET
+    @Path("BienUbicacionId/{ubicacionId}")
+    @Produces({"application/json; charset=utf-8"})
+    @Consumes({"application/json; charset=utf-8"})
+    public List<Bien> BienUbicacionId(@PathParam("ubicacionId") int ubicacionId) {
+        List<Bien> lstReturn = new ArrayList<>();
+        lstReturn = listaBienUbicacion.BienUbicacionId(ubicacionId);
+        if (lstReturn.isEmpty()) {
+            // MENSAJE SIN DATOS
+        }
+        return lstReturn;
+    }
+    
+    @GET
+    @Path("BienDependenciaId/{DependenciaId}")
+    @Produces({"application/json; charset=utf-8"})
+    @Consumes({"application/json; charset=utf-8"})
+    public List<Bien> BienDependenciaId(@PathParam("DependenciaId") int DependenciaId) {
+        List<Bien> lstReturn = new ArrayList<>();
+        lstReturn = listaBienDependencia.BienDependenciaId(DependenciaId);
+        if (lstReturn.isEmpty()) {
+            // MENSAJE SIN DATOS
+        }
+        return lstReturn;
+    }
+    
+    @GET
+    @Path("listacargosactivos")
+    @Produces({"application/json;  charset=utf-8"})
+    @Consumes({"application/json;  charset=utf-8"})
+    public List<Cargo> listacargosactivos() {
+        List<Cargo> lstReturn = new ArrayList<>();
+        lstReturn = listaCargosActivos.listaCargoActivo();
+        if (lstReturn.isEmpty()) {
+            // MENSAJE SIN DATOS
+        }
+        return lstReturn;
+    }
+    
     @GET
     @Path("invtraspasofecha/{fechai}/{fechaf}")
     @Produces({"application/json; charset=utf-8"})

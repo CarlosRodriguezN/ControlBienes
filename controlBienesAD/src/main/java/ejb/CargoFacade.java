@@ -6,6 +6,7 @@
 package ejb;
 
 import entidades.Cargo;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -49,4 +50,17 @@ public class CargoFacade extends AbstractFacade<Cargo> implements CargoFacadeLoc
         return objcargo;
     }
 
+    @Override
+    public List<Cargo> listaCargoActivo() {
+        List<Cargo> listasalida = new ArrayList<Cargo>();
+        String consulta;
+        try {
+            consulta = "SELECT c FROM Cargo c WHERE c.carEstado = 1";      
+            Query query = em.createQuery(consulta);
+            List<Cargo> listainstitucion = query.getResultList();
+            listasalida = listainstitucion;
+        } catch (Exception e) {
+        }
+        return listasalida;
+    }
 }

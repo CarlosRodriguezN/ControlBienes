@@ -926,47 +926,18 @@ function estUsuarios(idDato, estado) {
 
 //R  O  L  E  S
 
-function rolUSER(rolIng) {
-        if(rolIng === "ADMINISTRADOR"){
-//            rolADMINISTRADOR();
-             VentanaPorte();
-            $("#left-sidebar").css("background-color", "#304A54");
-            $("#contenidoDinamico").html("");
-            var idUser = $("#codCas").text();
-            $.ajax({
-                url: "MenuAdmin.jsp",
-                type: "GET",
-                data: {idUser: idUser},
-                contentType: "application/json ; charset=UTF-8",
-                success: function (datos) {
-                    $("#left-sidebar").html(datos);
-                    $("#contenidoDinamico").html("");
-                    $("#contenidoDinamico").html("<div class='main-header'><h2>Bienes</h2><em>Bienes</em></div><div id='contenidoInferior' class='main-content'><p class='lead'>Estimado(a) Administrador(a) del Sistema, usted podrá asignar, descargar y administrar las Bienes Honoríficas al Desempeño Integral Docente del Personal Académico (a partir del periodo octubre 2017 - marzo 2018).</p></br><img src='assets/img/dashboard-normal-sidebar.png' class='img-responsive center-block' alt='Normal Sidebar'><div class='bottom-30px'></div></div>");
-                },
-                error: function (error) {
-                    location.reload();
-                }
-    });
-        }
+function rolUSER() {
+        var rolIng = $("input[id='idrol']").val(); 
+
+        if(rolIng === "ADMINISTRADOR")
+            rolADMINISTRADOR();
+        
         if(rolIng === "SUPERVISOR")
             rolSUPERVISOR();
+        
         if(rolIng === "OPERARIO")
             rolOPERARIO();
-//    VentanaPorte();
-//    $("#left-sidebar").css("background-color", "#1e6887");
-//    var idUser = $("#codCas").text();
-//    $.ajax({
-//        url: "MenuUser.jsp",
-//        type: "GET",
-//        data: {idUser: idUser},
-//        contentType: "application/json ; charset=UTF-8",
-//        success: function (datos) {
-//            $("#left-sidebar").html(datos);
-//        },
-//        error: function (error) {
-//            location.reload();
-//        }
-//    });
+        
 }
 
 function rolADMINISTRADOR() {

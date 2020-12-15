@@ -41,7 +41,9 @@ public class ApplicationConfig extends Application {
         resources.add(service.MantenimientosFacadeREST.class);
         resources.add(service.MotivoinformeFacadeREST.class);
         resources.add(service.NivelmantenimientoFacadeREST.class);
+        resources.add(service.PermisoFacadeREST.class);
         resources.add(service.PersonaFacadeREST.class);
+        resources.add(service.PersonapermisoFacadeREST.class);
         resources.add(service.TecnicoFacadeREST.class);
         resources.add(service.TempFacadeREST.class);
         resources.add(service.TipoingresoFacadeREST.class);

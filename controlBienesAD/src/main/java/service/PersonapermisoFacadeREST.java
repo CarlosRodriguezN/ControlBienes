@@ -5,7 +5,7 @@
  */
 package service;
 
-import entidades.Persona;
+import entidades.Personapermiso;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -22,40 +22,31 @@ import javax.ws.rs.core.MediaType;
 
 /**
  *
- * @author BLADD-ESPOCH
+ * @author Toshiba
  */
 @Stateless
-@Path("persona")
-public class PersonaFacadeREST extends AbstractFacade<Persona> {
+@Path("personapermiso")
+public class PersonapermisoFacadeREST extends AbstractFacade<Personapermiso> {
 
     @PersistenceContext(unitName = "dtic_controlBienesAD_war_1.0PU")
     private EntityManager em;
 
-    public PersonaFacadeREST() {
-        super(Persona.class);
+    public PersonapermisoFacadeREST() {
+        super(Personapermiso.class);
     }
 
     @POST
     //@Override
     @Consumes({"application/json; charset=utf-8"})
     @Produces({"application/json; charset=utf-8"})
-    public Persona insertar(Persona entity) {
-        //super.create(entity);
-        try {
-            super.create(entity);
-            em.flush();
-            return entity;
-        } catch (Exception e) {
-            System.out.println("" + e);
-            entity =null;
-            return entity;
-        }
+    public void create(Personapermiso entity) {
+        super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({"application/json; charset=utf-8"})
-    public void edit(@PathParam("id") Integer id, Persona entity) {
+    public void edit(@PathParam("id") Integer id, Personapermiso entity) {
         super.edit(entity);
     }
 
@@ -68,21 +59,21 @@ public class PersonaFacadeREST extends AbstractFacade<Persona> {
     @GET
     @Path("{id}")
     @Produces({"application/json; charset=utf-8"})
-    public Persona find(@PathParam("id") Integer id) {
+    public Personapermiso find(@PathParam("id") Integer id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({"application/json; charset=utf-8"})
-    public List<Persona> findAll() {
+    public List<Personapermiso> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({"application/json; charset=utf-8"})
-    public List<Persona> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Personapermiso> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 

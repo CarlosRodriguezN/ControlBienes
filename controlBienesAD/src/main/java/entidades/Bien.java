@@ -6,8 +6,10 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,12 +17,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -226,6 +230,12 @@ public class Bien implements Serializable {
     private String bnEstadoUso;
     @Column(name = "bn_imp_color")
     private Boolean bnImpColor;
+    @OneToMany(mappedBy = "bnCodBien")
+    private Collection<Traspaso> traspasoCollection;
+    @OneToMany(mappedBy = "bnCodBien")
+    private Collection<Informe> informeCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bienId")
+    private Collection<Mantenimientos> mantenimientosCollection;
     @JoinColumn(name = "ba_id", referencedColumnName = "ba_id")
     @ManyToOne
     private Baja baId;
@@ -698,6 +708,33 @@ public class Bien implements Serializable {
 
     public void setBnImpColor(Boolean bnImpColor) {
         this.bnImpColor = bnImpColor;
+    }
+    
+    @XmlTransient
+    public Collection<Traspaso> getTraspasoCollection() {
+        return traspasoCollection;
+    }
+
+    public void setTraspasoCollection(Collection<Traspaso> traspasoCollection) {
+        this.traspasoCollection = traspasoCollection;
+    }
+
+    @XmlTransient
+    public Collection<Informe> getInformeCollection() {
+        return informeCollection;
+    }
+
+    public void setInformeCollection(Collection<Informe> informeCollection) {
+        this.informeCollection = informeCollection;
+    }
+
+    @XmlTransient
+    public Collection<Mantenimientos> getMantenimientosCollection() {
+        return mantenimientosCollection;
+    }
+
+    public void setMantenimientosCollection(Collection<Mantenimientos> mantenimientosCollection) {
+        this.mantenimientosCollection = mantenimientosCollection;
     }
     
     @Override

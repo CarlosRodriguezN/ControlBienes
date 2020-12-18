@@ -126,9 +126,27 @@
         <h2>Bienes</h2>
         <em>Traspaso de Bienes registrados en el sistema.</em>
     </div>
+    
+    <style type="text/css">
+/*        
+        thead {
+            text-align: center;
+            vertical-align:top;
+        }*/
+        
+/*        th {
+            text-align: center;
+            vertical-align:text-top;
+        }*/
+    </style>
     <div class="main-content">
         <div class="tab-content">
             <div class="row">
+                <%if(listTraspaso.size() > 20){%>
+                    <div align="center">
+                        <input class='btn btn-primary' type="button" class="exportar" value="Exportar CSV" id="exportar">
+                    </div>
+                <%}%>
                 <div class="widget widget-table">
                     <div class="widget-header">
                         <h3><i class="fa fa-table"></i> Taspaso de Inventarios.</h3> 

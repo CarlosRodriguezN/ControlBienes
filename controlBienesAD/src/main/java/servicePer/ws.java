@@ -663,7 +663,7 @@ public class ws {
         List<Traspaso> objTraspaso = new ArrayList<Traspaso>();
 
         try {
-            objTraspaso = traspaso.findInvTraspasoUbicDepFecha(ubicacion, dependencia, fechai, fechaf);
+            objTraspaso = traspaso.findInvTraspasoUbicDepFecha(ubicacion.replaceAll("_", " "), dependencia.replaceAll("_", " "), fechai, fechaf);
             return objTraspaso;
         } catch (Exception e) {
             e.getLocalizedMessage();

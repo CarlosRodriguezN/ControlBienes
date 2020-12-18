@@ -73,11 +73,11 @@
 			</staticText>
 			<image>
 				<reportElement uuid="a6e38dd8-72cb-40b1-884d-ea9203b7131f" x="23" y="10" width="64" height="50"/>
-				<imageExpression><![CDATA["C:../assets/img/espoch.png"]]></imageExpression>
+				<imageExpression><![CDATA["../assets/img/espoch.png"]]></imageExpression>
 			</image>
 			<image>
 				<reportElement uuid="4c580b13-65fd-44d2-a566-109211f59363" x="699" y="10" width="81" height="49"/>
-				<imageExpression><![CDATA["C:../assets/img/dtic.png"]]></imageExpression>
+				<imageExpression><![CDATA["../assets/img/dtic.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -92,12 +92,12 @@
 					<jr:column uuid="0a40734b-a60c-4772-8905-70cc2e9c4c43" width="44">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="98e54c0a-84bd-4bb6-970b-fb6769ce8cac" mode="Opaque" x="2" y="0" width="42" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="98e54c0a-84bd-4bb6-970b-fb6769ce8cac" style="table_TH" mode="Opaque" x="0" y="0" width="44" height="30" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
 								</textElement>
-								<text><![CDATA[Código]]></text>
+								<text><![CDATA[ Código]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="19" rowSpan="1">
@@ -114,12 +114,12 @@
 					<jr:column uuid="95bd58e2-78d6-4946-bf09-9077bc884564" width="192">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="6c8b9458-7a6d-4c0e-8da9-03bc43432013" mode="Opaque" x="2" y="0" width="190" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="6c8b9458-7a6d-4c0e-8da9-03bc43432013" style="table_TH" mode="Opaque" x="0" y="0" width="192" height="30" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
 								</textElement>
-								<text><![CDATA[Nombre]]></text>
+								<text><![CDATA[ Nombre]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="19" rowSpan="1">
@@ -136,12 +136,12 @@
 					<jr:column uuid="744e30db-3a06-4315-abfb-f41bac5d6504" width="53">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="8778be01-f0a4-4edb-bfe4-ba4ec15f3687" mode="Opaque" x="2" y="0" width="51" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="8778be01-f0a4-4edb-bfe4-ba4ec15f3687" style="table_TH" mode="Opaque" x="0" y="0" width="53" height="30" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
 								</textElement>
-								<text><![CDATA[Serie]]></text>
+								<text><![CDATA[ Serie]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="19" rowSpan="1">
@@ -158,12 +158,12 @@
 					<jr:column uuid="6727cda2-4c26-4959-bdb3-290463e14e92" width="140">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="9f4b0197-5f28-4381-aeea-94327ee4ac5d" mode="Opaque" x="2" y="0" width="138" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="9f4b0197-5f28-4381-aeea-94327ee4ac5d" style="table_TH" mode="Opaque" x="0" y="0" width="140" height="30" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
 								</textElement>
-								<text><![CDATA[Dependencia]]></text>
+								<text><![CDATA[ Dependencia]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="19" rowSpan="1">
@@ -187,12 +187,12 @@
 								<rightPen lineWidth="0.75" lineColor="#CCCCCC"/>
 							</box>
 							<staticText>
-								<reportElement uuid="3ba81464-1a64-414f-94e5-12635ed49b79" mode="Opaque" x="2" y="0" width="138" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="3ba81464-1a64-414f-94e5-12635ed49b79" style="table_TH" mode="Opaque" x="0" y="0" width="140" height="30" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
 								</textElement>
-								<text><![CDATA[Ubicación]]></text>
+								<text><![CDATA[ Ubicación]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="19" rowSpan="1">
@@ -209,12 +209,12 @@
 					<jr:column uuid="78e3b432-714a-4700-a432-aef65b739e1b" width="152">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="82e89656-ebf5-46aa-a828-5d6db7a489c9" style="table_CH" mode="Opaque" x="2" y="0" width="150" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="82e89656-ebf5-46aa-a828-5d6db7a489c9" style="table_TH" mode="Opaque" x="0" y="0" width="152" height="30" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
 								</textElement>
-								<text><![CDATA[Motivo]]></text>
+								<text><![CDATA[ Motivo]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="19" rowSpan="1">
@@ -231,12 +231,12 @@
 					<jr:column uuid="c3518d02-1bd9-44e7-bd36-861abf013247" width="33">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="8d6dd518-150b-4da5-b719-cb360a035eee" mode="Opaque" x="3" y="0" width="30" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="8d6dd518-150b-4da5-b719-cb360a035eee" style="table_TH" mode="Opaque" x="0" y="0" width="33" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement textAlignment="Center">
 									<font isBold="true" isPdfEmbedded="false"/>
 									<paragraph lineSpacing="Proportional"/>
 								</textElement>
-								<text><![CDATA[Fecha Baja]]></text>
+								<text><![CDATA[ Fecha Baja]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="19" rowSpan="1">
@@ -256,7 +256,7 @@
 		<band height="51">
 			<staticText>
 				<reportElement uuid="ac9fa489-a9b8-4c26-9330-df1b5d1f8bc8" x="23" y="0" width="45" height="20"/>
-				<textElement verticalAlignment="Middle">
+				<textElement verticalAlignment="Bottom">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Riobamba,]]></text>
@@ -277,7 +277,7 @@
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement uuid="608ded40-c2ba-410e-adfa-12a02e321898" x="68" y="0" width="100" height="20"/>
-				<textElement verticalAlignment="Middle">
+				<textElement verticalAlignment="Bottom">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
@@ -319,7 +319,7 @@
 					<textElement textAlignment="Center" verticalAlignment="Bottom">
 						<font size="8"/>
 					</textElement>
-					<text><![CDATA[Ing Marcelo Velasco]]></text>
+					<text><![CDATA[HUGO MARCELO VELASCO LOGROÑO]]></text>
 				</staticText>
 				<staticText>
 					<reportElement uuid="a1764794-f61c-42ad-a401-8203cd657c26" x="317" y="113" width="217" height="20"/>

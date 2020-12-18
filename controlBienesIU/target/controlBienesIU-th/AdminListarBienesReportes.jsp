@@ -110,7 +110,7 @@
                                             <label for="repotTraspaso"><b>Reporte de Traspaso de Bienes</b></label>
                                             <input value="traspaso" required="true" type="hidden" class="form-control" id="repotTraspaso" name="repotTraspaso">
                                         </div>
-                                    </fom>
+                                    </form>
                                     <!--<button class='btn btn-outline-warning' type = 'button' name = 'btnTraspaso' onclick="clicReportesInvBienes('FrmBienTaspaso','traspaso')" value='btnTraspaso'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button>--> 
                                     <button class='btn btn-outline-warning' type = 'button' name = 'btnTraspaso' onclick="invTraspasoPDF()" value='btnTraspaso'><i class="fa fa-file-pdf-o" style="font-size: 25px;"></i></button>
                                     <button class='btn btn-outline-warning' type = 'button' name = 'btnTraspaso' onclick="invTraspasoCSV()" value='btnTraspaso'><i class="fa fa-file-excel-o" style="font-size: 25px;"></i></button> 

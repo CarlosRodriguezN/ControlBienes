@@ -84,7 +84,7 @@ public class sTraspaso {
     public static String listaTaspasoUbicDepPorFecha(String ubicacion, String dependencia, String fechai, String fechaf) throws JSONException {
         String strJson = "";
         try {
-            URL url = new URL(Constantes.PREFIJO + Constantes.IP + "/" + Constantes.SERVICIO + "/" + Constantes.ACCESO_DATOS +"/invtraspasoUbicDepfecha/" + ubicacion + "/" + dependencia + "/" + fechai + "/" + fechaf);
+            URL url = new URL(Constantes.PREFIJO + Constantes.IP + "/" + Constantes.SERVICIO + "/" + Constantes.ACCESO_DATOS +"/invtraspasoUbicDepfecha/" + ubicacion.replaceAll(" ", "_") + "/" + dependencia.replaceAll(" ", "_") + "/" + fechai + "/" + fechaf);
             HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setDoOutput(true);

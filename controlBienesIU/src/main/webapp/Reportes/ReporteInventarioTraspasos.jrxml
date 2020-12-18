@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="traspaso" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c695f2ec-2359-4936-bf70-28d9a8876683">
-	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="table">
@@ -79,11 +79,11 @@
 			</staticText>
 			<image>
 				<reportElement uuid="4f2f79a6-c2f0-4d33-8b44-290342c1991c" x="19" y="11" width="56" height="54"/>
-				<imageExpression><![CDATA["C:../assets/img/espoch.png"]]></imageExpression>
+				<imageExpression><![CDATA["../assets/img/espoch.png"]]></imageExpression>
 			</image>
 			<image>
 				<reportElement uuid="a50ba76d-4101-4a8c-a764-b2eceac393cf" x="662" y="16" width="139" height="35"/>
-				<imageExpression><![CDATA["C:../assets/img/dtic.png"]]></imageExpression>
+				<imageExpression><![CDATA["../assets/img/dtic.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -104,11 +104,11 @@
 					<jr:column uuid="317f56d9-f6a1-450a-a898-9616abb22294" width="51">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="fb269adb-63af-4c25-80f5-1fddb707bea7" mode="Opaque" x="2" y="0" width="49" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="fb269adb-63af-4c25-80f5-1fddb707bea7" style="table_TH" mode="Opaque" x="0" y="0" width="51" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
 									<font size="10" isBold="true"/>
 								</textElement>
-								<text><![CDATA[Código]]></text>
+								<text><![CDATA[ Código]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="33" rowSpan="1">
@@ -124,11 +124,11 @@
 					<jr:column uuid="8bd6e8a0-ba5e-4ec9-b538-29a068819841" width="130">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="1e24ab2a-7fcd-4ea1-b88c-f63213e791be" mode="Opaque" x="2" y="0" width="128" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="1e24ab2a-7fcd-4ea1-b88c-f63213e791be" style="table_TH" mode="Opaque" x="0" y="0" width="130" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true"/>
 								</textElement>
-								<text><![CDATA[Nombre]]></text>
+								<text><![CDATA[ Nombre]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="33" rowSpan="1">
@@ -144,11 +144,11 @@
 					<jr:column uuid="90dedbff-c1c5-4f15-a013-3f6cd83aed33" width="49">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="3746cd41-b1f1-4352-a3e7-1e7bbfe3a970" mode="Opaque" x="2" y="0" width="47" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="3746cd41-b1f1-4352-a3e7-1e7bbfe3a970" style="table_TH" mode="Opaque" x="0" y="0" width="49" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true"/>
 								</textElement>
-								<text><![CDATA[Serie]]></text>
+								<text><![CDATA[ Serie]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="33" rowSpan="1">
@@ -164,11 +164,11 @@
 					<jr:column uuid="7522769c-c903-4a14-be39-e8e1200dd4e9" width="110">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="1519ce6c-d7ef-4270-9288-9cfbda09e215" mode="Opaque" x="2" y="0" width="108" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="1519ce6c-d7ef-4270-9288-9cfbda09e215" style="table_TH" mode="Opaque" x="0" y="0" width="110" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true"/>
 								</textElement>
-								<text><![CDATA[Dependencia]]></text>
+								<text><![CDATA[ Dependencia]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="33" rowSpan="1">
@@ -184,11 +184,11 @@
 					<jr:column uuid="ebfff4fe-28bc-4765-bad0-d3e3c7b0d1b0" width="101">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="3a8e4c71-ba82-4983-a832-fed230aa8f34" mode="Opaque" x="2" y="0" width="99" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="3a8e4c71-ba82-4983-a832-fed230aa8f34" style="table_TH" mode="Opaque" x="0" y="0" width="101" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true"/>
 								</textElement>
-								<text><![CDATA[Ubicación]]></text>
+								<text><![CDATA[ Ubicación]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="33" rowSpan="1">
@@ -204,11 +204,11 @@
 					<jr:column uuid="187ab45d-9692-411c-9df7-85de68aaa1ac" width="49">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="53a088a7-ca71-4137-a480-0d5e900dc35f" mode="Opaque" x="2" y="0" width="47" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="53a088a7-ca71-4137-a480-0d5e900dc35f" style="table_TH" mode="Opaque" x="0" y="0" width="49" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true"/>
 								</textElement>
-								<text><![CDATA[Cedula]]></text>
+								<text><![CDATA[ Cedula]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="33" rowSpan="1">
@@ -224,11 +224,11 @@
 					<jr:column uuid="c376b0ad-8bbd-46db-b66d-4d4dfa78352a" width="49">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="30597fe7-1340-41f9-89dd-ea5cb1f66a32" mode="Opaque" x="3" y="0" width="46" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
-								<textElement>
+								<reportElement uuid="30597fe7-1340-41f9-89dd-ea5cb1f66a32" style="table_TH" mode="Opaque" x="0" y="0" width="49" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<textElement textAlignment="Center">
 									<font isBold="true"/>
 								</textElement>
-								<text><![CDATA[Fecha Traspaso]]></text>
+								<text><![CDATA[ Fecha Traspaso]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="33" rowSpan="1">
@@ -244,11 +244,11 @@
 					<jr:column uuid="acd7bcc1-9772-48cc-8694-7ed3c9b974d6" width="108">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="0a6b92b2-7cef-44d9-afa9-5677dbf8c055" mode="Opaque" x="2" y="0" width="106" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="0a6b92b2-7cef-44d9-afa9-5677dbf8c055" style="table_TH" mode="Opaque" x="0" y="0" width="108" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true"/>
 								</textElement>
-								<text><![CDATA[Observacion]]></text>
+								<text><![CDATA[ Observación]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="33" rowSpan="1">
@@ -264,11 +264,11 @@
 					<jr:column uuid="057e9134-1eed-4b1a-b5c3-adb0e7d56226" width="118">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="e9c6f0c8-7dd1-4879-9ed8-5230a5cbaf75" mode="Opaque" x="2" y="0" width="116" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="e9c6f0c8-7dd1-4879-9ed8-5230a5cbaf75" style="table_TH" mode="Opaque" x="0" y="0" width="118" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true"/>
 								</textElement>
-								<text><![CDATA[Custodio]]></text>
+								<text><![CDATA[ Custodio]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="33" rowSpan="1">
@@ -350,14 +350,14 @@
 					<textElement textAlignment="Center" verticalAlignment="Bottom">
 						<font size="8"/>
 					</textElement>
-					<text><![CDATA[Static textANALISTA DE SOPORTE Y MANTENIMIENTO 3]]></text>
+					<text><![CDATA[ANALISTA DE SOPORTE Y MANTENIMIENTO 3]]></text>
 				</staticText>
 				<staticText>
 					<reportElement uuid="a65d495d-c2c7-4ec6-beb6-792bd88a406c" x="329" y="93" width="242" height="20"/>
 					<textElement textAlignment="Center" verticalAlignment="Bottom">
 						<font size="8"/>
 					</textElement>
-					<text><![CDATA[Ing. Marcelo Velasco]]></text>
+					<text><![CDATA[HUGO MARCELO VELASCO LOGROÑO]]></text>
 				</staticText>
 			</frame>
 		</band>

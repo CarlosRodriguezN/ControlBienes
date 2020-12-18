@@ -132,6 +132,11 @@
     <div class="main-content">
         <div class="tab-content">
             <div class="row">
+                <%if(listBien.size() > 20){%>
+                    <div align="center">
+                        <input class='btn btn-primary' type="button" class="exportar" value="Exportar CSV" id="exportar">
+                    </div>
+                <%}%>
                 <div class="widget widget-table">
                     <div class="widget-header">
                         <h3><i class="fa fa-table"></i> Garantia de Inventarios.</h3> 

@@ -73,11 +73,11 @@
 			</staticText>
 			<image>
 				<reportElement uuid="004a4bab-ce77-48f5-85ce-609c7609257e" x="27" y="11" width="68" height="56"/>
-				<imageExpression><![CDATA["C:../assets/img/espoch.png"]]></imageExpression>
+				<imageExpression><![CDATA["../assets/img/espoch.png"]]></imageExpression>
 			</image>
 			<image>
 				<reportElement uuid="1a9cf63e-e906-448c-81fc-c961fbc2c2b4" x="678" y="13" width="105" height="40"/>
-				<imageExpression><![CDATA["C:../assets/img/dtic.png"]]></imageExpression>
+				<imageExpression><![CDATA["../assets/img/dtic.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -95,11 +95,11 @@
 					<jr:column uuid="e951e2a0-8e38-4cbf-b9ac-6e5b6c9cc01e" width="77">
 						<jr:columnHeader style="table_TH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="1e311b27-59c4-463c-9b0a-bfbf78b2b3b8" mode="Opaque" x="2" y="0" width="46" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="1e311b27-59c4-463c-9b0a-bfbf78b2b3b8" style="table_TH" mode="Opaque" x="0" y="0" width="77" height="30" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true"/>
 								</textElement>
-								<text><![CDATA[Codigo]]></text>
+								<text><![CDATA[ Codigo]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="22" rowSpan="1">
@@ -115,11 +115,11 @@
 					<jr:column uuid="92236b02-7658-4fe6-a029-8929c6aea0e1" width="185">
 						<jr:columnHeader style="table_TH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="4d54ace8-cb98-4282-a9ab-2be32b2d4089" mode="Opaque" x="2" y="0" width="137" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="4d54ace8-cb98-4282-a9ab-2be32b2d4089" style="table_TH" mode="Opaque" x="0" y="0" width="185" height="30" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true"/>
 								</textElement>
-								<text><![CDATA[Nombre]]></text>
+								<text><![CDATA[ Nombre]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="22" rowSpan="1">
@@ -135,11 +135,11 @@
 					<jr:column uuid="3de73170-4934-40d8-bef2-4b2d3421c958" width="85">
 						<jr:columnHeader style="table_TH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="891b8fd3-1de4-44c2-9812-d487a1aa4b8f" mode="Opaque" x="2" y="0" width="44" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="891b8fd3-1de4-44c2-9812-d487a1aa4b8f" style="table_TH" mode="Opaque" x="0" y="0" width="85" height="30" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true"/>
 								</textElement>
-								<text><![CDATA[Serie]]></text>
+								<text><![CDATA[ Serie]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="22" rowSpan="1">
@@ -155,11 +155,11 @@
 					<jr:column uuid="586c72c8-69b4-4166-9a0a-a22c4cf4d4e3" width="83">
 						<jr:columnHeader style="table_TH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="1f693e23-9a48-4efa-9afb-f6cf16f2a4a0" mode="Opaque" x="2" y="0" width="60" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="1f693e23-9a48-4efa-9afb-f6cf16f2a4a0" style="table_TH" mode="Opaque" x="0" y="0" width="83" height="30" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true"/>
 								</textElement>
-								<text><![CDATA[Modelo]]></text>
+								<text><![CDATA[ Modelo]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="22" rowSpan="1">
@@ -175,11 +175,11 @@
 					<jr:column uuid="c3075e97-7498-48c9-b384-7c4aff7306e0" width="134">
 						<jr:columnHeader style="table_TH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="94fbb321-ffc7-4ced-96d3-d416b55dba96" mode="Opaque" x="2" y="0" width="94" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="94fbb321-ffc7-4ced-96d3-d416b55dba96" style="table_TH" mode="Opaque" x="0" y="0" width="134" height="30" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true"/>
 								</textElement>
-								<text><![CDATA[Dependencia]]></text>
+								<text><![CDATA[ Dependencia]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="22" rowSpan="1">
@@ -195,11 +195,11 @@
 					<jr:column uuid="822e3c0a-9f1c-4c47-aba0-603efcfad9b1" width="145">
 						<jr:columnHeader style="table_TH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="2916f73a-066d-4bb9-b479-4cdb9d3f84c0" mode="Opaque" x="2" y="0" width="80" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="2916f73a-066d-4bb9-b479-4cdb9d3f84c0" style="table_TH" mode="Opaque" x="0" y="0" width="145" height="30" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true"/>
 								</textElement>
-								<text><![CDATA[Ubicación]]></text>
+								<text><![CDATA[ Ubicación]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="22" rowSpan="1">
@@ -215,11 +215,11 @@
 					<jr:column uuid="942fff01-c751-46b1-ae9a-bdbbd2d3421d" width="44">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="3c2a48e2-cda4-484d-8cda-ce3d1c7f028d" mode="Opaque" x="2" y="0" width="42" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="3c2a48e2-cda4-484d-8cda-ce3d1c7f028d" style="table_TH" mode="Opaque" x="0" y="0" width="44" height="30" backcolor="#F0F8FF"/>
 								<textElement>
 									<font isBold="true"/>
 								</textElement>
-								<text><![CDATA[Fecha Garantia]]></text>
+								<text><![CDATA[ Fecha Garantia]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="22" rowSpan="1">
@@ -238,14 +238,14 @@
 		<band height="44">
 			<staticText>
 				<reportElement uuid="16c009f8-0d7b-4545-a7c4-24e447fd2646" x="27" y="0" width="42" height="20"/>
-				<textElement verticalAlignment="Middle">
+				<textElement verticalAlignment="Bottom">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Riobamba,]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement uuid="52ef2258-a8c6-4db4-89a5-8502c13fea7c" x="69" y="0" width="119" height="20"/>
-				<textElement verticalAlignment="Middle">
+				<textElement verticalAlignment="Bottom">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
@@ -308,7 +308,7 @@
 					<textElement textAlignment="Center" verticalAlignment="Bottom">
 						<font size="8"/>
 					</textElement>
-					<text><![CDATA[Ing Marcelo Velasco]]></text>
+					<text><![CDATA[HUGO MARCELO VELASCO LOGROÑO]]></text>
 				</staticText>
 			</frame>
 		</band>

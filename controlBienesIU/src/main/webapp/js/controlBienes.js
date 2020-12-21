@@ -406,6 +406,26 @@ function verCargos() {
     });
 }
 
+function verAuditoria() {
+    document.getElementById('contenidoDinamico').innerHTML = "";
+    document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
+    VentanaPorte();
+    $.ajax({
+        url: "AdminListarAuditoria.jsp",
+        type: "GET",
+        data: {},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            $("#contenidoDinamico").html("");
+            $("#contenidoDinamico").html(datos);
+        }
+        ,
+        error: function (error) {
+            location.reload();
+        }
+    });
+}
+
 function verTipoIngreso() {
     document.getElementById('contenidoDinamico').innerHTML = "";
     document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
@@ -1063,7 +1083,7 @@ function procesTemp(codBien) {
     $.ajax({
         url: "controladorBienes.jsp",
         type: "GET",
-        data: {opc: 'CSV', tsk: 'precesarIndividual', codBien: codBien},
+        data: {opc: 'CSV', tsk: 'addprocesarIndividual', codBien: codBien},
         contentType: "application/json ; charset=UTF-8",
         success: function (datos) {
             $("#contenidoDinamico").html("");
@@ -1085,7 +1105,7 @@ function importarTodos(codBien) {
     $.ajax({
         url: "controladorBienes.jsp",
         type: "GET",
-        data: {opc: 'CSV', tsk: 'procesarTodos', codBien: codBien},
+        data: {opc: 'CSV', tsk: 'addprocesarTodos', codBien: codBien},
         contentType: "application/json ; charset=UTF-8",
         success: function (datos) {
             $("#contenidoDinamico").html("");
@@ -1340,7 +1360,7 @@ function editarMotivoBaja() {
                 $.ajax({
                     url: "controladorBienes.jsp",
                     type: "GET",
-                    data: {opc: 'BienMotivoBaja', datos: datos},
+                    data: {opc: 'MotivoInforme', tsk: 'editMotivoInforme', datos: datos},
                     contentType: "application/json ; charset=UTF-8",
                     success: function (datos) {
                         verTodosBienes();

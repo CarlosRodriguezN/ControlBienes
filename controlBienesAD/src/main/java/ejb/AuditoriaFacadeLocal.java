@@ -11,7 +11,7 @@ import javax.ejb.Local;
 
 /**
  *
- * @author BLADD-ESPOCH
+ * @author Toshiba
  */
 @Local
 public interface AuditoriaFacadeLocal {

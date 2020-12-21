@@ -81,13 +81,13 @@ Total_horas_perdidas_aqui = 0-->
         
         if(tiporeporte.equals("traspaso"))
         {    
-              reportFile = new File(application.getRealPath("Reportes/ReporteInventarioTraspasos.jasper"));
-            
-
+            fnAuditoria(UsuLinea,tiporeporte);
+            reportFile = new File(application.getRealPath("Reportes/ReporteInventarioTraspasos.jasper"));
         }                                                         
         
         if(tiporeporte.equals("marca"))
         {
+            fnAuditoria(UsuLinea,tiporeporte);
             String datmarca = parametros.replaceAll("\\{", "").replaceAll("\"", "").replaceAll(":", "").replaceAll("marca", "").replaceAll("\\}", "");
             parameters.put("marca", datmarca);
             reportFile = new File(application.getRealPath("Reportes/ReporteInventarioMarca.jasper"));
@@ -95,11 +95,13 @@ Total_horas_perdidas_aqui = 0-->
         
         if(tiporeporte.equals("desactivado"))
         {
+            fnAuditoria(UsuLinea,tiporeporte);
             reportFile = new File(application.getRealPath("Reportes/ReporteInventarioDesactivado.jasper"));
         }                                                                    
         
         if(tiporeporte.equals("ubicadep"))
         {
+            fnAuditoria(UsuLinea,tiporeporte);
             String[] datoDepUbic = parametros.split(",");
             String ubicacion = datoDepUbic[0].replaceAll("\"", "").replaceAll(":", "").replaceAll("ubicacion", "").replaceAll("\\{", "");
             String dependencia = datoDepUbic[1].replaceAll("\"", "").replaceAll(":", "").replaceAll("dependencia", "").replaceAll("\\}", "");
@@ -110,6 +112,7 @@ Total_horas_perdidas_aqui = 0-->
         
         if(tiporeporte.equals("garantia"))
         {
+            fnAuditoria(UsuLinea,tiporeporte);
             parameters.put("fechactual", dfactual);
             reportFile = new File(application.getRealPath("Reportes/ReporteInventarioGarantia.jasper"));
         }
@@ -132,5 +135,51 @@ Total_horas_perdidas_aqui = 0-->
     }
 
 %>
+<!--</html>-->
+<%!
+    //Funcion Auditoria
+    void fnAuditoria(String UsuLinea, String opc)
+    {
+        Auditoria objAuditoria = new Auditoria();
+        objAuditoria.setUsuId(UsuLinea);
 
-</html>
+        if(opc.equals("traspaso")){ 
+            objAuditoria.setAudMetodo("REPORTE_TRASPASO");
+            objAuditoria.setAudDetalle("Generacion de Reporte Traspaso");
+        }
+        if(opc.equals("marca")){
+            objAuditoria.setAudMetodo("REPORTE_MARCA");
+            objAuditoria.setAudDetalle("Generacion de Reporte por Marca");
+        }
+        if(opc.equals("desactivado")){
+            objAuditoria.setAudMetodo("REPORTE_DESACTIVADO");
+            objAuditoria.setAudDetalle("Generacion de Reporte de Bienes Desactivados");
+        }
+        if(opc.equals("ubicadep")){
+            objAuditoria.setAudMetodo("REPORTE_UBICDEP");
+            objAuditoria.setAudDetalle("Generacion de Reporte por Ubicación y Dependencia");
+        }
+        if(opc.equals("garantia")){
+            objAuditoria.setAudMetodo("REPORTE_GARANTIA");
+            objAuditoria.setAudDetalle("Generacion de Reporte por Garantia");
+        }
+      
+        //Obteniendo fecha actual
+        Date date = new Date();
+        DateFormat fechaHora = new SimpleDateFormat("yyyy-MM-dd");
+        String fecha = fechaHora.format(date);
+        DateFormat hora = new SimpleDateFormat("HH:mm");
+        
+        objAuditoria.setAudFecha(fecha + " " + hora.format(date));
+        objAuditoria.setAudIp("");
+        objAuditoria.setAudDatosmod("");
+        objAuditoria.setAudMac("");
+       try{
+        String jsonArmado = new Gson().toJson(objAuditoria, Auditoria.class);
+        String retornoJSON = sAuditoria.InsertarAuditoria(jsonArmado);
+        }  catch (Exception e) {
+//             out.println ( "Ocurrió una excepción:" + e.getMessage ());   
+        }
+    }
+%>
+

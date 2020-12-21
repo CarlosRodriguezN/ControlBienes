@@ -31,8 +31,8 @@
 
         <init-param>
             <param-name>serverName</param-name>
-            <param-value>https://pruebas.espoch.edu.ec</param-value>
-            <!--<param-value>https://localhost:8181</param-value>-->
+            <!--<param-value>https://pruebas.espoch.edu.ec</param-value>-->
+            <param-value>https://localhost:8181</param-value>
         </init-param>
     </filter>
 

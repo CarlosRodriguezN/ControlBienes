@@ -329,7 +329,7 @@
             String codBien = "";
             Integer tope = 0;
             String[] partes = {};
-            if (tsk.equals("precesarIndividual") || tsk.equals("procesarTodos")) {
+            if (tsk.equals("addprocesarIndividual") || tsk.equals("addprocesarTodos")) {
                 if (tsk.equals("procesarTodos")) {
                     codBien = request.getParameter("codBien");
                     partes = codBien.split("_");
@@ -350,12 +350,12 @@
                     // }    
 
                     //}
-                    //if (tsk.equals("precesarIndividual")) {
+                    //if (tsk.equals("addprocesarIndividual")) {
                     //codBien = request.getParameter("codBien");
                     codBien = objTemp.getTempCodBien();
 
                     String estIngreso = "";
-
+                    String codEntidadTras = "";//variable para almacenar ids de traspasos para la Auditoria
 //                JSONObject reqTemp = new JSONObject(sTemporal.listaTemporalesId(codBien));
 //                objTemp = new Gson().fromJson(reqTemp.toString(), Temp.class);
                     String resultCSV = sCsv.listaCsvId(codBien);
@@ -699,10 +699,21 @@
                             String strJsonTraspaso = new Gson().toJson(objTraspaso, Traspaso.class);
                             String retornoTraspaso = sTraspaso.InsertarTraspaso(strJsonTraspaso);
 
+                            /////////Guardar id de Traspasos para la Auditoria
+                            if (!retornoTraspaso.isEmpty()) {
+                                Traspaso objTra = new Traspaso();
+                                JSONObject reqTra = new JSONObject(retornoTraspaso);
+                                objTra = new Gson().fromJson(reqTra.toString(), Traspaso.class);
+                                codEntidadTras = codEntidadTras + "_" + objTra.getTraId();
+                                
+                            }
+                            ////////
+                            
                             String strJsonCSV = new Gson().toJson(objCsv, Csv.class);
                             String retorno = sCsv.InsertarCSV(strJsonCSV);
                             String eliminacTemp = sTemporal.EliminarTemporales(codBien);
                             if (i == tope - 1) {
+                                
                                 estIngreso = "El bien ha sido ingresado correctamente, y se ha eliminado de su tabla temporal";
                             }
                         } else {
@@ -712,14 +723,17 @@
                                 estIngreso = "El bien ya se encuentra en sus DB";
                             }
                         }
-
+                        
+                        if(!codEntidadTras.isEmpty()){
+                            fnAuditoria(UsuLinea, codEntidadTras, tsk, strOpc);
+                        }
+                        
                     } else {
                         estIngreso = "El bien ya se encuientra registrado en la DB principal. Por favor eliminelo de la lista";
                     }
                     String codBien1 = request.getParameter("codBien");
                     response.setContentType("text/plain");
                     response.getWriter().write(estIngreso);
-
                 }
 
             } else if (tsk.equals("SbuTarea")) {
@@ -890,6 +904,15 @@
                     String jsonUbicacion = new Gson().toJson(objUbicacion, Ubicacion.class);
                     String retornoUbicacion = sUbicacion.InsertarUbicacion(jsonUbicacion);
                     detOpera = "SI";
+                                       
+                    //REGISTRO DE AUDITORIA
+                    if (!retornoUbicacion.isEmpty()) {
+                        Ubicacion objUbic = new Ubicacion();
+                        JSONObject reqUbic = new JSONObject(retornoUbicacion);
+                        objUbic = new Gson().fromJson(reqUbic.toString(), Ubicacion.class);
+                        String codEntidadAuditoria = objUbic.getUbId()+"";
+                        fnAuditoria(UsuLinea, codEntidadAuditoria, tsk, strOpc);
+                    }
                 }
                 response.setContentType("text/plain");
                 response.getWriter().write(detOpera);
@@ -921,7 +944,10 @@
                 }
                 String jsonUbicacion = new Gson().toJson(objUbicacion, Ubicacion.class);
                 sUbicacion.ModficarUbicacion(jsonUbicacion, Integer.parseInt(idDato));
-
+                
+                //REGISTRO DE AUDITORIA
+                    fnAuditoria(UsuLinea, idDato, tsk, strOpc);
+                    
             }
         }
 
@@ -1055,6 +1081,15 @@
                     String jsonBaja = new Gson().toJson(objBaja, Baja.class);
                     String retornoBaja = sBaja.InsertarBaja(jsonBaja);
                     detOpera = "SI";
+                    
+                    //REGISTRO DE AUDITORIA
+                    if (!retornoBaja.isEmpty()) {
+                        Baja objBj = new Baja();
+                        JSONObject reqBj  = new JSONObject(retornoBaja);
+                        objBj  = new Gson().fromJson(reqBj .toString(), Baja.class);
+                        String codEntidadAuditoria = objBj.getBaId()+"";
+                        fnAuditoria(UsuLinea, codEntidadAuditoria, tsk, strOpc);
+                    }
                 }
                 response.setContentType("text/plain");
                 response.getWriter().write(detOpera);
@@ -1380,14 +1415,26 @@
 
                             String strJsonTraspaso = new Gson().toJson(objTraspaso, Traspaso.class);
                             String retornoTraspaso = sTraspaso.InsertarTraspaso(strJsonTraspaso);
+                            
+                            //REGISTRO DE AUDITORIA
+                            if (!retornoTraspaso.isEmpty()) {
+                                Traspaso objTrasp = new Traspaso();
+                                JSONObject reqTrasp = new JSONObject(retornoTraspaso);
+                                objTrasp = new Gson().fromJson(reqTrasp.toString(), Traspaso.class);
+                                String codEntidadAuditoria = objTrasp.getTraId()+"";
+                                fnAuditoria(UsuLinea, codEntidadAuditoria, tsk, strOpc);
+                            }
                         }
                         if (tsk.equals("editBien")) {
                             String jsonModBien = new Gson().toJson(objBien, Bien.class);
-                            sBien.ModficBien(jsonModBien, idDato);
-                        }
-                        detTransac = retornoBien;
+                            retornoBien = sBien.ModficBien(jsonModBien, idDato);
+                        } 
 
                         detTransac = "SI";
+                        //REGISTRO DE AUDITORIA
+                        //if (!retornoBien.isEmpty()) {
+                            fnAuditoria(UsuLinea,idDato, tsk, strOpc);
+                        //}
                     } catch (Exception e) {
                         detTransac = "ERROR";
                     }
@@ -1412,9 +1459,9 @@
             }
         }
 
-        if (strOpc.equals("BienMotivoBaja")) {
+        if (strOpc.equals("MotivoInforme")) {
             String datos = request.getParameter("datos");
-
+            String tsk = request.getParameter("addMotivoInforme");
             JSONObject req = new JSONObject(datos);
             //String idDato = req.getString("codigoBienId");
 
@@ -1440,10 +1487,19 @@
             objBien.setBaId(objBaja);
 
             String jsonModBien = new Gson().toJson(objBien, Bien.class);
-            sBien.ModficBien(jsonModBien, req.getString("codigoBienId"));
+            String retornoModBien = sBien.ModficBien(jsonModBien, req.getString("codigoBienId"));
+            
+            //REGISTRO DE AUDITORIA
+            if (!retornoModBien.isEmpty()) {
+                Bien objBn = new Bien();
+                JSONObject reqBn  = new JSONObject(retornoModBien);
+                objBn  = new Gson().fromJson(reqBn .toString(), Bien.class);
+                String codEntidadAuditoria = objBn.getBnCodMotBaja()+"";
+                fnAuditoria(UsuLinea, codEntidadAuditoria, tsk, strOpc);
+            }
         }
 
-        if (strOpc.equals("Traspaso")) {
+            if (strOpc.equals("Traspaso")) {
             Traspaso objTras = new Traspaso();
             //sPersona objPer = new sPersona();
             String tsk = request.getParameter("tsk");
@@ -1467,7 +1523,7 @@
                 objTras.setTraId(Integer.parseInt(request.getParameter("traCodigo")));
                 objTras.setTraFechaInicio(fecha + "T00:00:00-05:00");
                 objTras.setTraFechaFin("2222-01-01T00:00:00-05:00");
-                objTras.setTraEstado(1);
+                objTras.setTraEstado(2);
                 objTras.setTraObservacion(req1.getString("trasObservacion"));
 
 //                String cedCustodio = "";
@@ -1491,11 +1547,20 @@
                 objTras.setBnCodBien(objBien);
 
                 String jsonTrasCutodio = new Gson().toJson(objTras, Traspaso.class);
-                sTraspaso.ModficTraspaso(jsonTrasCutodio, Integer.parseInt(request.getParameter("traCodigo")));
+                String retornoTraMod = sTraspaso.ModficTraspaso(jsonTrasCutodio, Integer.parseInt(request.getParameter("traCodigo")));
 
-                objBien.setBnCodBien(request.getParameter("bnCodigo"));
+                //Auditoria de Traspaso
+                    String codEntidadAuditoria =  " ";
 
-                /*UBICACION*/
+                        codEntidadAuditoria = request.getParameter("traCodigo")+"";
+//                        Traspaso objTra = new Traspaso();
+//                        JSONObject reqTra = new JSONObject(retornoTraMod);
+//                        objTra = new Gson().fromJson(reqTra.toString(), Traspaso.class);
+//                        codEntidadAuditoria = objTra.getTraId()+"";
+                        fnAuditoria(UsuLinea, codEntidadAuditoria, tsk, strOpc);
+
+
+//                UBICACION
                 Ubicacion objUbicacion = new Ubicacion();
                 String cadUbicacionId = sUbicacion.listaUbicacionId(Integer.parseInt(req1.getString("bienUbicacionId")));
                 JSONObject jsonUbicacion = new JSONObject(cadUbicacionId);
@@ -1798,3 +1863,69 @@
         response.sendRedirect("index.jsp");
     }
 %>
+
+<%!
+    //Funcion Auditoria
+    void fnAuditoria(String UsuLinea, String codEntidadAuditoria,String tsk, String opc)
+    {
+        Auditoria objAuditoria = new Auditoria();
+        objAuditoria.setUsuId(UsuLinea);
+        String tipOpc;
+        String mayustsk;
+        mayustsk = tsk.toUpperCase();
+        
+        if(mayustsk.indexOf("ADD") != -1)
+        { 
+            if(opc.equals("Ubicacion")){
+                objAuditoria.setAudMetodo("INSERT_"+ opc.toUpperCase());
+                objAuditoria.setAudDetalle("Ingreso de una nueva Ubicación");
+            }
+            if(opc.equals("Bien")){
+                objAuditoria.setAudMetodo("INSERT_"+ opc.toUpperCase());
+                objAuditoria.setAudDetalle("Ingreso y Asignación de un Bien");
+            }
+            if(opc.equals("CSV")){
+                objAuditoria.setAudMetodo("INSERT_"+ opc.toUpperCase());
+                objAuditoria.setAudDetalle("Registro de Bienes importado mediante un archivo CSV");
+            }
+            if(opc.equals("Baja")){
+                objAuditoria.setAudMetodo("INSERT_"+ opc.toUpperCase());
+                objAuditoria.setAudDetalle("Registro de una nueva Baja");
+            }
+        }
+        
+        if(mayustsk.indexOf("EDIT") != -1)
+        {
+
+            if(opc.equals("Ubicacion")){
+                objAuditoria.setAudMetodo("UPDATE_"+ opc.toUpperCase());
+                objAuditoria.setAudDetalle("Actualización de una Ubicación");
+            }
+            if(opc.equals("Bien")){
+                objAuditoria.setAudMetodo("UPDATE_"+ opc.toUpperCase());
+                objAuditoria.setAudDetalle("Actualización de los Datos de un Bien");
+            }
+            if(opc.equals("Traspaso")){
+                objAuditoria.setAudMetodo("UPDATE_"+ opc.toUpperCase());
+                objAuditoria.setAudDetalle("Traspaso de un Bien");
+            }
+
+        }       
+        //Obteniendo fecha actual
+        Date date = new Date();
+        DateFormat fechaHora = new SimpleDateFormat("yyyy-MM-dd");
+        String fecha = fechaHora.format(date);
+        DateFormat hora = new SimpleDateFormat("HH:mm");
+        
+        objAuditoria.setAudFecha(fecha + " " + hora.format(date));
+        objAuditoria.setAudIp(codEntidadAuditoria);
+        objAuditoria.setAudDatosmod("");
+        objAuditoria.setAudMac("");
+       try{
+        String jsonArmado = new Gson().toJson(objAuditoria, Auditoria.class);
+        String retornoJSON = sAuditoria.InsertarAuditoria(jsonArmado);
+        }  catch (Exception e) {
+//             out.println ( "Ocurrió una excepción:" + e.getMessage ());   
+        }
+    }
+%>  

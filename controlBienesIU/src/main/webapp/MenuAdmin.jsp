@@ -139,6 +139,12 @@ Total_horas_perdidas_aqui = 0-->
                     <i class="fa fa-handshake-o"></i><span class="text">Cargos</span>
                 </a>
             </li>
+            
+            <li style='cursor: pointer' title="Auditoria">
+                <a onclick="verAuditoria()" >
+                    <i class="fa fa-handshake-o"></i><span class="text">Auditoria</span>
+                </a>
+            </li>
        <!------------ Fase 2 Cecilio ------------>
        
             <li id="menu3"><a href="#" class="js-sub-menu-toggle"><i class="fa fa-file-text-o"></i><span class="text">MANTENIMIENTO</span>

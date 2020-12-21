@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author BLADD-ESPOCH
+ * @author Toshiba
  */
 @Stateless
 public class AuditoriaFacade extends AbstractFacade<Auditoria> implements AuditoriaFacadeLocal {

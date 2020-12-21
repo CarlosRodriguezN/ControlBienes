@@ -31,7 +31,7 @@
 			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 		</parameter>
 		<queryString>
-			<![CDATA[select b.bn_cod_bien, b.bn_nombre, b.bn_serie, d.dp_descripcion, u.ub_descripcion, p.per_cedula,  t.tra_fecha_inicio, t.tra_observacion, CONCAT(p.per_nombres,' ',p.per_apellido1,' ',p.per_apellido2) custodio from controlbien.bien b inner join controlbien.dependencia d on b.dp_id = d.dp_id inner join controlbien.ubicacion u on b.ub_id = u.ub_id inner join controlbien.traspaso t on b.bn_cod_bien = t.bn_cod_bien inner join controlbien.persona p on t.per_id = p.per_id where t.tra_fecha_inicio BETWEEN $P{fechaid} and $P{fechafd}]]>
+			<![CDATA[select b.bn_cod_bien, b.bn_nombre, b.bn_serie, d.dp_descripcion, u.ub_descripcion, p.per_cedula,  t.tra_fecha_inicio, t.tra_observacion, CONCAT(p.per_nombres,' ',p.per_apellido1,' ',p.per_apellido2) custodio from controlbien.bien b inner join controlbien.dependencia d on b.dp_id = d.dp_id inner join controlbien.ubicacion u on b.ub_id = u.ub_id inner join controlbien.traspaso t on b.bn_cod_bien = t.bn_cod_bien inner join controlbien.persona p on t.per_id = p.per_id where t.tra_estado = 2 and t.tra_fecha_inicio BETWEEN $P{fechaid} and $P{fechafd}]]>
 		</queryString>
 		<field name="bn_cod_bien" class="java.lang.String"/>
 		<field name="bn_nombre" class="java.lang.String"/>
@@ -88,7 +88,7 @@
 		</band>
 	</title>
 	<detail>
-		<band height="80" splitType="Stretch">
+		<band height="81" splitType="Stretch">
 			<componentElement>
 				<reportElement uuid="608c12dc-81dc-4d54-95e1-e239d1ef0766" key="table" style="table" x="19" y="0" width="768" height="80" backcolor="#D7E4F2"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
@@ -284,30 +284,30 @@
 				</jr:table>
 			</componentElement>
 		</band>
-		<band height="50">
+		<band height="68">
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement uuid="ba92ec65-b3e3-474b-81b8-0b1c043ceb1c" x="65" y="0" width="133" height="20"/>
+				<reportElement uuid="ba92ec65-b3e3-474b-81b8-0b1c043ceb1c" x="65" y="20" width="133" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="77c704b7-d7b2-42cd-9740-ba208dde39b3" x="19" y="0" width="46" height="20"/>
+				<reportElement uuid="77c704b7-d7b2-42cd-9740-ba208dde39b3" x="19" y="20" width="46" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Riobamba,]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="2123acac-9377-42ac-8bc9-1521d0ad4909" x="19" y="20" width="179" height="13"/>
+				<reportElement uuid="2123acac-9377-42ac-8bc9-1521d0ad4909" x="19" y="40" width="179" height="13"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Sistema de Bienes Informáticos (SIBI)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d62958f0-c6ce-451d-b2af-7d218953fe8f" x="19" y="33" width="314" height="14"/>
+				<reportElement uuid="d62958f0-c6ce-451d-b2af-7d218953fe8f" x="19" y="53" width="314" height="14"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -325,14 +325,14 @@
 					<text><![CDATA[Generado Por:]]></text>
 				</staticText>
 				<textField>
-					<reportElement uuid="ebd936ff-f6a7-4377-87c2-13f562637064" x="15" y="93" width="248" height="20"/>
+					<reportElement uuid="ebd936ff-f6a7-4377-87c2-13f562637064" x="15" y="93" width="259" height="20"/>
 					<textElement textAlignment="Center" verticalAlignment="Bottom">
 						<font size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{responsable}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement uuid="71ba80eb-4fa0-436d-afb1-26628c5cdb33" x="15" y="113" width="248" height="20"/>
+					<reportElement uuid="71ba80eb-4fa0-436d-afb1-26628c5cdb33" x="15" y="113" width="259" height="20"/>
 					<textElement textAlignment="Center" verticalAlignment="Bottom">
 						<font size="8"/>
 					</textElement>

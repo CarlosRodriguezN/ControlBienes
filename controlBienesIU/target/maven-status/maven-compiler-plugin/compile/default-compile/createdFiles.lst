@@ -30,6 +30,7 @@ entidades\Personapermiso_.class
 servicios\sTecnico.class
 esntidadesSeg\Usuario_.class
 entidades\Persona_.class
+servicios\sAuditoria.class
 esntidadesSeg\Perfil.class
 servicios\sCargo.class
 entidades\Tipomantenimiento.class

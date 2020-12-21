@@ -6,7 +6,6 @@
 package entidades;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,14 +15,12 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author BLADD-ESPOCH
+ * @author Toshiba
  */
 @Entity
 @Table(schema = "controlbien")
@@ -55,9 +52,9 @@ public class Auditoria implements Serializable {
     @Size(max = 300)
     @Column(name = "aud_detalle")
     private String audDetalle;
+    @Size(max = 100)
     @Column(name = "aud_fecha")
-    @Temporal(TemporalType.DATE)
-    private Date audFecha;
+    private String audFecha;
     @Size(max = 100)
     @Column(name = "aud_ip")
     private String audIp;
@@ -107,11 +104,11 @@ public class Auditoria implements Serializable {
         this.audDetalle = audDetalle;
     }
 
-    public Date getAudFecha() {
+    public String getAudFecha() {
         return audFecha;
     }
 
-    public void setAudFecha(Date audFecha) {
+    public void setAudFecha(String audFecha) {
         this.audFecha = audFecha;
     }
 

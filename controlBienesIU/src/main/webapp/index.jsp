@@ -66,6 +66,9 @@ Total_horas_perdidas_aqui = 0-->
         session.setAttribute("tipousuario2", "");
         session.setAttribute("TipoUser", "");
         session.setAttribute("ingreso", "false");
+        
+        session.setAttribute("fechai", "");//Variable de fecha para Reportes 
+        session.setAttribute("fechaf", "");//Variable de fecha para Reportes
         String codigocas = "";
         String cedulacas = "";
         try {

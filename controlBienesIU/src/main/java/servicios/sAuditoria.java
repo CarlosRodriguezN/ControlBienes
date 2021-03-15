@@ -155,6 +155,25 @@ import utils.Constantes;
         }
         return strJsonResponse;
     }
-
+    public static String listaAuditoriaPorFecha(String fechai, String fechaf) throws JSONException, UnsupportedEncodingException {
+        String strJson = "";
+        try {
+            URL url = new URL(Constantes.PREFIJO + Constantes.IP + "/" + Constantes.SERVICIO + "/" + Constantes.ACCESO_DATOS + "/invBienAuditoriafecha/" + fechai + "/" + fechaf);
+            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setDoOutput(true);
+            connection.setDoInput(true);
+            InputStream content = (InputStream) connection.getInputStream();
+            BufferedReader in = new BufferedReader(new InputStreamReader(content, "UTF-8"));
+            String line;
+            while ((line = in.readLine()) != null) {
+                strJson = line;
+            }
+            connection.disconnect();
+        } catch (NumberFormatException | IOException ex) {
+            System.out.println("Fallort");
+        }
+        return strJson;
+    }
 }
 

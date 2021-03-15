@@ -34,7 +34,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Auditoria.findByAudFecha", query = "SELECT a FROM Auditoria a WHERE a.audFecha = :audFecha")
     , @NamedQuery(name = "Auditoria.findByAudIp", query = "SELECT a FROM Auditoria a WHERE a.audIp = :audIp")
     , @NamedQuery(name = "Auditoria.findByAudMac", query = "SELECT a FROM Auditoria a WHERE a.audMac = :audMac")
-    , @NamedQuery(name = "Auditoria.findByAudDatosmod", query = "SELECT a FROM Auditoria a WHERE a.audDatosmod = :audDatosmod")})
+    , @NamedQuery(name = "Auditoria.findByAudDatosmod", query = "SELECT a FROM Auditoria a WHERE a.audDatosmod = :audDatosmod")
+    , @NamedQuery(name = "Auditoria.findByAudDate", query = "SELECT a FROM Auditoria a WHERE a.audDate = :audDate")})
 public class Auditoria implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -64,6 +65,9 @@ public class Auditoria implements Serializable {
     @Size(max = 300)
     @Column(name = "aud_datosmod")
     private String audDatosmod;
+    @Column(name = "aud_date")
+    //@Temporal(TemporalType.DATE)
+    private String audDate;
 
     public Auditoria() {
     }
@@ -136,6 +140,14 @@ public class Auditoria implements Serializable {
         this.audDatosmod = audDatosmod;
     }
 
+    public String getAudDate() {
+        return audDate;
+    }
+
+    public void setAudDate(String audDate) {
+        this.audDate = audDate;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

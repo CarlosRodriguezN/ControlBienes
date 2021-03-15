@@ -30,6 +30,9 @@
         String UsuLinea = session.getAttribute("codigoPersona").toString();
         String fechai = request.getParameter("fechai");
         String fechaf = request.getParameter("fechaf");
+        
+        session.setAttribute("fechai", fechai);
+        session.setAttribute("fechaf", fechaf);
 
         ArrayList<Bien> listBien = new ArrayList<Bien>();
         if (UsuLinea != null) {
@@ -131,6 +134,7 @@
             <div class="row">
                 <%if(listBien.size() > 20){%>
                     <div align="center">
+                        <button  type='button' class='btn btn-danger' onclick="ReportesBien()">Cancelar</button>
                         <input class='btn btn-primary' type="button" class="exportar" value="Exportar CSV" id="exportar">
                     </div>
                 <%}%>
@@ -143,7 +147,7 @@
                             <table id="tablacsv" class="table table-sorting table-hover table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Codigo Bien</th>
+                                        <th>Código Bien</th>
                                         <th>Nombre</th>
                                         <th>Serie</th>
                                         <th>Ubicación</th>
@@ -169,13 +173,13 @@
                                             out.println("<td>" + oPet.getBnFechaBaja() + "</td>");
                                             out.println("</tr>");
                                         }%>
-                                    <!--</tr>-->
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
                 <div align="center">
+                    <button  type='button' class='btn btn-danger' onclick="ReportesBien()">Cancelar</button>
                     <input class='btn btn-primary' type="button" class="exportar" value="Exportar CSV" id="exportar">
                 </div>
             </div>

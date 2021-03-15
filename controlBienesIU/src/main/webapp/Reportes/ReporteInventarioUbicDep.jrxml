@@ -23,6 +23,21 @@
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
+	<style name="table 2" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="table 3" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="table 4" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="1.0" lineColor="#999999"/>
+		</box>
+	</style>
 	<subDataset name="DatasetUbicDep" uuid="090691bf-8487-4431-b413-e05dc8db1df2">
 		<parameter name="ubicaciond" class="java.lang.String">
 			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -85,7 +100,7 @@
 			</staticText>
 			<staticText>
 				<reportElement uuid="643a2089-e4b6-4e46-bd0b-62e8b1170d1d" x="304" y="54" width="217" height="20"/>
-				<textElement/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[BIENES POR UBICACIÓN Y DEPENDENCIA]]></text>
 			</staticText>
 			<staticText>
@@ -129,7 +144,7 @@
 	<detail>
 		<band height="81" splitType="Stretch">
 			<componentElement>
-				<reportElement uuid="c6973251-1765-4c60-a327-e47952ad198c" key="table" style="table" x="16" y="0" width="765" height="80"/>
+				<reportElement uuid="c6973251-1765-4c60-a327-e47952ad198c" key="table 4" style="table 4" x="16" y="0" width="765" height="80"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="DatasetUbicDep" uuid="2858fc1f-2ed5-4275-b4c0-821af17f3e9e">
 						<datasetParameter name="ubicaciond">
@@ -147,16 +162,16 @@
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
 					<jr:column uuid="cdf6c7e0-5e65-4af7-a66d-a0a99ddccecc" width="42">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="6e92ff64-46fe-4657-a48d-2eb88ef45199" style="table_TH" mode="Opaque" x="0" y="0" width="42" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="6e92ff64-46fe-4657-a48d-2eb88ef45199" mode="Opaque" x="0" y="0" width="42" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Código]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+						<jr:detailCell style="table 2" height="35" rowSpan="1">
 							<textField>
 								<reportElement uuid="87f4e265-c332-4d42-b152-882c4497e2c0" mode="Opaque" x="2" y="0" width="40" height="34"/>
 								<textElement>
@@ -167,16 +182,16 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="732eb2e5-5338-460e-bb7f-c04749d87194" width="168">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="d6c263a0-508e-4fed-80d4-beb3ab4dcb1a" style="table_TH" mode="Opaque" x="0" y="0" width="168" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="d6c263a0-508e-4fed-80d4-beb3ab4dcb1a" mode="Opaque" x="0" y="0" width="168" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Nombre]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+						<jr:detailCell style="table 2" height="35" rowSpan="1">
 							<textField>
 								<reportElement uuid="5692a26a-fae9-4c07-9d9c-f49dea749bcd" mode="Opaque" x="2" y="0" width="166" height="34"/>
 								<textElement>
@@ -187,16 +202,16 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="f15eebf7-2820-4701-ac60-59aaa8eff7e7" width="60">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="3e1df5fc-542e-4ebb-bccb-825660cf92e4" style="table_TH" mode="Opaque" x="0" y="0" width="60" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="3e1df5fc-542e-4ebb-bccb-825660cf92e4" mode="Opaque" x="0" y="0" width="60" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Serie]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+						<jr:detailCell style="table 2" height="35" rowSpan="1">
 							<textField>
 								<reportElement uuid="874a8333-fbdc-4d42-a9cf-052d8175ae02" mode="Opaque" x="2" y="0" width="58" height="34"/>
 								<textElement>
@@ -207,16 +222,16 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="fff5673c-6d9a-481b-997e-985f71ebb070" width="71">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="2a22a910-9f21-4a8f-9a39-fd77d0373e9d" style="table_TH" mode="Opaque" x="0" y="0" width="71" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="2a22a910-9f21-4a8f-9a39-fd77d0373e9d" mode="Opaque" x="0" y="0" width="71" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Modelo]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+						<jr:detailCell style="table 2" height="35" rowSpan="1">
 							<textField>
 								<reportElement uuid="1d81963d-cb6b-47e5-83e6-e26dcb1c976a" mode="Opaque" x="2" y="0" width="69" height="34"/>
 								<textElement>
@@ -226,19 +241,19 @@
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="7e18fc45-3043-417b-9b1e-5ea33b98b766" width="90">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+					<jr:column uuid="7e18fc45-3043-417b-9b1e-5ea33b98b766" width="62">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="d7c6950e-ab36-4eec-9315-5ba556d714c6" style="table_TH" mode="Opaque" x="0" y="0" width="90" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="d7c6950e-ab36-4eec-9315-5ba556d714c6" mode="Opaque" x="0" y="0" width="62" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Marca]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+						<jr:detailCell style="table 2" height="35" rowSpan="1">
 							<textField>
-								<reportElement uuid="6c2a03b6-fbba-45af-8038-2c82593c822f" mode="Opaque" x="2" y="0" width="88" height="34"/>
+								<reportElement uuid="6c2a03b6-fbba-45af-8038-2c82593c822f" mode="Opaque" x="2" y="0" width="60" height="34"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -247,16 +262,16 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="640a2f88-dedb-458d-9737-6b89114e3c43" width="49">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="038dbe1b-e20e-4d96-a207-0457573f6867" style="table_TH" mode="Opaque" x="0" y="0" width="49" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="038dbe1b-e20e-4d96-a207-0457573f6867" mode="Opaque" x="0" y="0" width="49" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Color]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+						<jr:detailCell style="table 2" height="35" rowSpan="1">
 							<textField>
 								<reportElement uuid="01b88d83-a4eb-4f42-923c-84cd8f34cd20" mode="Opaque" x="2" y="0" width="47" height="34"/>
 								<textElement>
@@ -267,16 +282,16 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="01c81275-a97a-4e2b-8f97-9cb5d9397253" width="39">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="6f43f2a5-0b22-46a1-b27f-fec4a842904e" style="table_TH" mode="Opaque" x="0" y="0" width="39" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="6f43f2a5-0b22-46a1-b27f-fec4a842904e" mode="Opaque" x="0" y="0" width="39" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Precio]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+						<jr:detailCell style="table 2" height="35" rowSpan="1">
 							<textField>
 								<reportElement uuid="91999a40-c2b4-40f2-80fc-e2ce1edd9a1a" mode="Opaque" x="2" y="0" width="37" height="34"/>
 								<textElement>
@@ -287,16 +302,16 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="c3df5cb9-f788-4250-ae22-2cc6cae5a49a" width="37">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="ebe080ff-b6f1-4618-a618-9d613510394e" style="table_TH" mode="Opaque" x="0" y="0" width="37" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="ebe080ff-b6f1-4618-a618-9d613510394e" mode="Opaque" x="0" y="0" width="37" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Estado]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+						<jr:detailCell style="table 2" height="35" rowSpan="1">
 							<textField>
 								<reportElement uuid="ae179247-f12e-41db-817d-f5e9768d6915" mode="Opaque" x="2" y="1" width="35" height="34"/>
 								<textElement>
@@ -306,19 +321,19 @@
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="ed8da8df-be5c-4934-a52d-e4d03c7a5ee1" width="39">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+					<jr:column uuid="ed8da8df-be5c-4934-a52d-e4d03c7a5ee1" width="59">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="9e0c6eac-d6f7-43dc-b38b-fa0cd26b9ae1" style="table_TH" mode="Opaque" x="0" y="0" width="39" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="9e0c6eac-d6f7-43dc-b38b-fa0cd26b9ae1" mode="Opaque" x="0" y="0" width="59" height="16" backcolor="#F0F8FF"/>
 								<textElement textAlignment="Center">
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Fecha Compra]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell height="35" rowSpan="1">
+						<jr:detailCell style="table 2" height="35" rowSpan="1">
 							<textField>
-								<reportElement uuid="eef54980-ccf5-42e7-a648-69bed939acc5" mode="Transparent" x="2" y="0" width="28" height="15"/>
+								<reportElement uuid="eef54980-ccf5-42e7-a648-69bed939acc5" mode="Opaque" x="2" y="0" width="28" height="15"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -326,19 +341,19 @@
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="1fe237a1-7960-40c9-b5bd-8b07bd7b6082" width="50">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+					<jr:column uuid="1fe237a1-7960-40c9-b5bd-8b07bd7b6082" width="67">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="606b2263-dfde-47ff-a5f2-7ad6f1f03447" style="table_TH" mode="Opaque" x="0" y="0" width="50" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="606b2263-dfde-47ff-a5f2-7ad6f1f03447" mode="Opaque" x="0" y="0" width="67" height="16" backcolor="#F0F8FF"/>
 								<textElement textAlignment="Center">
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[Fecha Garantia]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+						<jr:detailCell style="table 2" height="35" rowSpan="1">
 							<textField>
-								<reportElement uuid="ef60589a-975e-41f3-ad4f-237cef375ccd" mode="Transparent" x="2" y="0" width="31" height="15"/>
+								<reportElement uuid="ef60589a-975e-41f3-ad4f-237cef375ccd" mode="Opaque" x="2" y="0" width="31" height="15"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -347,16 +362,16 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="45ac36ce-5f09-44e5-bbcf-44f7edde1539" width="108">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="4f30f0a8-5680-4507-8517-88673d437a93" style="table_TH" mode="Opaque" x="0" y="0" width="108" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="4f30f0a8-5680-4507-8517-88673d437a93" mode="Opaque" x="0" y="0" width="108" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[Proveedor]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="35" rowSpan="1">
+						<jr:detailCell style="table 2" height="35" rowSpan="1">
 							<textField>
 								<reportElement uuid="9857128c-2039-42b8-8d68-465309f63e4e" mode="Opaque" x="2" y="1" width="106" height="34" backcolor="#FFFFFF"/>
 								<textElement>
@@ -471,14 +486,14 @@
 				<text><![CDATA[Sistema de Bienes Informáticos (SIBI)]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement uuid="1c8d03e5-fd6f-44d7-8c42-e95890ab47b6" x="16" y="4" width="42" height="20"/>
+				<reportElement uuid="1c8d03e5-fd6f-44d7-8c42-e95890ab47b6" x="16" y="4" width="73" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField pattern="h.mm a">
-				<reportElement uuid="77b02f1d-0866-4861-ba2b-7d5ded42b34a" x="58" y="4" width="33" height="20"/>
+				<reportElement uuid="77b02f1d-0866-4861-ba2b-7d5ded42b34a" x="89" y="4" width="69" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>

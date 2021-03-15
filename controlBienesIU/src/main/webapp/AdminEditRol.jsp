@@ -50,7 +50,14 @@ Total_horas_perdidas_aqui = 0-->
     %>
 
     <div class="main-header">
-                            <%
+                     <%
+                    if(objPerio.getIntrolId().getIntid() == 51)
+                    {
+                    %>
+                        <h2>Administrador del sistema Control de  Bienes</h2>
+                        <em>Editar el estado del Administrador</em>
+                    <%
+                    }
                     if(objPerio.getIntrolId().getIntid() == 52)
                     {
                     %>
@@ -95,6 +102,13 @@ Total_horas_perdidas_aqui = 0-->
                 </form>
                 <div class="col-sm-12" align='right'>
                     <%
+                    if(objPerio.getIntrolId().getIntid() == 51)
+                    {
+                    %>
+                    <button  type='button' class='btn btn-danger' onclick="AdminAdministradores(),alertCancel()">Cancelar</button>
+                    <button  type='button' class='btn btn-primary' onclick="EditRol(<%= objPerio.getIntid()%>,'administrador')">Editar</button>
+                    <%
+                    }
                     if(objPerio.getIntrolId().getIntid() == 52)
                     {
                     %>

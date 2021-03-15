@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="esntidadesSeg.Funcion"%>
 <!--Querido colega programador: 
 Cuando escribí este código, solo Dios y yo sabíamos cómo funcionaba.
@@ -38,7 +40,6 @@ Total_horas_perdidas_aqui = 0-->
 
     <%
         String tsk = request.getParameter("tsk");
-        
         String UsuLinea = session.getAttribute("codigoPersona").toString();
         ArrayList<Funcion> listTipoflujo = new ArrayList<Funcion>();
         if (session.getAttribute("ingreso").toString().equals("true")) {
@@ -74,6 +75,13 @@ Total_horas_perdidas_aqui = 0-->
             <em>Lista de Supervisores</em>
        <%
        }
+       if(tsk.equals("administrador"))
+       {
+       %>
+            <h2>Administrador del sistema de Control de Bienes Informaticos</h2>
+            <em>Lista de Administradores</em>
+       <%
+       }
        %>
     </div>
     <div class="main-content">
@@ -87,17 +95,23 @@ Total_horas_perdidas_aqui = 0-->
                     <div class="row">
                         <div class="widget widget-table">
                             <div class="widget-header">
-                                                                    <%
+                                   <%
                                    if(tsk.equals("operario"))
                                    {
                                    %>
-                                        <h3><i class="fa fa-table"></i> Operarios de Control de Bienes.</h3> 
+                                        <h3><i class="fa fa-table"></i> Operarios del Sistema de Control de Bienes.</h3> 
                                    <%
                                    }
                                    if(tsk.equals("supervisor"))
                                    {
                                    %>
-                                        <h3><i class="fa fa-table"></i> Supervisores de Control de Bienes.</h3> 
+                                        <h3><i class="fa fa-table"></i> Supervisores del Sistema de Control de Bienes.</h3> 
+                                   <%
+                                   }
+                                   if(tsk.equals("administrador"))
+                                   {
+                                   %>
+                                        <h3><i class="fa fa-table"></i> Coordinnadores del Sistema de Control de Bienes.</h3> 
                                    <%
                                    }
                                    %>
@@ -114,7 +128,14 @@ Total_horas_perdidas_aqui = 0-->
                                             <th>Descripción</th>
                                             <th>Estado</th>
                                             <th>Editar</th>
+                                            <%
+                                            if(!tsk.equals("administrador"))
+                                            {
+                                            %>
                                             <th>Permisos</th>
+                                            <%
+                                            }
+                                            %>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -158,6 +179,25 @@ Total_horas_perdidas_aqui = 0-->
                                                 out.println("<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style='cursor: pointer' onclick='ChekPermisos(" + oPet.getUsuId().getUsuId() + ", \"operario\");' class='fa fa-check-circle' style='font-size: 17px;' title='Permisos' ></i></td>");
                                                 out.println("</tr>");
                                                 }
+                                                
+                                                if((!oPet.getIntrolId().getStrnombre().equals("MI PERFIL")) && (oPet.getIntrolId().getStrnombre().equals("CB ADMINISTRADOR"))&& tsk.equals("administrador"))
+                                                {
+                                                cont++;
+                                                out.println("<tr id=" + oPet.getIntid() + ">");
+                                                out.println("<td>" + cont + "</td>");
+                                                out.println("<td>" + oPet.getUsuId().getUsuCedula()+ "</td>");
+                                                out.println("<td>" + oPet.getUsuId().getUsuNombre() + "</td>");
+                                                out.println("<td>" + oPet.getIntrolId().getStrnombre() + "</td>");
+                                                if (oPet.getBlnactivo() == true) {
+                                                    out.println("<td> <span class='badge badge-pill badge-success'>Habilitado</span> </td>");
+                                                }
+                                                if (oPet.getBlnactivo() == false) {
+                                                    out.println("<td> <span class='badge badge-pill badge-danger'>Desabilitado</span> </td>");
+                                                }
+                                                out.println("<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style='cursor: pointer' onclick='MostAdministrador(" + oPet.getIntid() + ");' class='fa fa-edit' title='Editar' ></i></td>");
+                                                //out.println("<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style='cursor: pointer' onclick='ChekPermisos(" + oPet.getUsuId().getUsuId() + ", \"operario\");' class='fa fa-check-circle' style='font-size: 17px;' title='Permisos' ></i></td>");
+                                                out.println("</tr>");
+                                                }
                                             }%>
 
                                         </tr>
@@ -198,6 +238,12 @@ Total_horas_perdidas_aqui = 0-->
                                 <button  type='button' class='btn btn-primary' onclick="AddAdministrador('supervisor')">Agregar Supervisor a CB</button>
                                 <%
                                 }
+                                if(tsk.equals("administrador"))
+                                {
+                                %>
+                                <button  type='button' class='btn btn-primary' onclick="AddAdministrador('administrador')">Agregar Administrador a CB</button>
+                                <%
+                                }
                                 %>
                             </div>
 
@@ -208,5 +254,5 @@ Total_horas_perdidas_aqui = 0-->
             </div>
         </div>
     </div>
-
+                               
 </html>

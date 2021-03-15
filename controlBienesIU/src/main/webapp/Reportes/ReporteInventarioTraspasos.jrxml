@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="traspaso" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c695f2ec-2359-4936-bf70-28d9a8876683">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="93"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -21,6 +21,21 @@
 	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="table 3" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="table 4" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="1.0" lineColor="#999999"/>
 		</box>
 	</style>
 	<subDataset name="DatasetTraspaso" uuid="6b27cfd8-541a-437b-b208-b384e22c1f5c">
@@ -74,7 +89,7 @@
 			</staticText>
 			<staticText>
 				<reportElement uuid="7e1b9514-0ed8-48d3-b082-8752537e8390" x="328" y="51" width="132" height="20"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[TRASPASO DE BIENES]]></text>
 			</staticText>
 			<image>
@@ -90,7 +105,7 @@
 	<detail>
 		<band height="81" splitType="Stretch">
 			<componentElement>
-				<reportElement uuid="608c12dc-81dc-4d54-95e1-e239d1ef0766" key="table" style="table" x="19" y="0" width="768" height="80" backcolor="#D7E4F2"/>
+				<reportElement uuid="608c12dc-81dc-4d54-95e1-e239d1ef0766" key="table 4" style="table 4" x="19" y="0" width="768" height="80" backcolor="#D7E4F2"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="DatasetTraspaso" uuid="3922b2e2-dddd-4471-8bad-e36d1cdd7d93">
 						<datasetParameter name="fechaid">
@@ -102,18 +117,18 @@
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
 					<jr:column uuid="317f56d9-f6a1-450a-a898-9616abb22294" width="51">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="14" rowSpan="1">
 							<staticText>
-								<reportElement uuid="fb269adb-63af-4c25-80f5-1fddb707bea7" style="table_TH" mode="Opaque" x="0" y="0" width="51" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="fb269adb-63af-4c25-80f5-1fddb707bea7" mode="Opaque" x="0" y="0" width="51" height="14" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
-									<font size="10" isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Código]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="33" rowSpan="1">
+						<jr:detailCell style="table 2" height="33" rowSpan="1">
 							<textField>
-								<reportElement uuid="3c94bef8-310a-4a05-a925-0c2c0fcbffae" x="2" y="0" width="49" height="33"/>
+								<reportElement uuid="3c94bef8-310a-4a05-a925-0c2c0fcbffae" mode="Opaque" x="2" y="0" width="49" height="33"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -122,18 +137,18 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="8bd6e8a0-ba5e-4ec9-b538-29a068819841" width="130">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="14" rowSpan="1">
 							<staticText>
-								<reportElement uuid="1e24ab2a-7fcd-4ea1-b88c-f63213e791be" style="table_TH" mode="Opaque" x="0" y="0" width="130" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="1e24ab2a-7fcd-4ea1-b88c-f63213e791be" mode="Opaque" x="0" y="0" width="130" height="14" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Nombre]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="33" rowSpan="1">
+						<jr:detailCell style="table 2" height="33" rowSpan="1">
 							<textField>
-								<reportElement uuid="a845ee62-9b2c-4633-adff-8f2772c91579" x="2" y="0" width="128" height="33"/>
+								<reportElement uuid="a845ee62-9b2c-4633-adff-8f2772c91579" mode="Opaque" x="2" y="0" width="128" height="33"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -142,18 +157,18 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="90dedbff-c1c5-4f15-a013-3f6cd83aed33" width="49">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="14" rowSpan="1">
 							<staticText>
-								<reportElement uuid="3746cd41-b1f1-4352-a3e7-1e7bbfe3a970" style="table_TH" mode="Opaque" x="0" y="0" width="49" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="3746cd41-b1f1-4352-a3e7-1e7bbfe3a970" mode="Opaque" x="0" y="0" width="49" height="14" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Serie]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="33" rowSpan="1">
+						<jr:detailCell style="table 2" height="33" rowSpan="1">
 							<textField>
-								<reportElement uuid="3bcfe932-0d24-4bcf-bb91-495dc02904f0" x="2" y="0" width="47" height="33"/>
+								<reportElement uuid="3bcfe932-0d24-4bcf-bb91-495dc02904f0" mode="Opaque" x="2" y="0" width="47" height="33"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -162,18 +177,18 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="7522769c-c903-4a14-be39-e8e1200dd4e9" width="110">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="14" rowSpan="1">
 							<staticText>
-								<reportElement uuid="1519ce6c-d7ef-4270-9288-9cfbda09e215" style="table_TH" mode="Opaque" x="0" y="0" width="110" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="1519ce6c-d7ef-4270-9288-9cfbda09e215" mode="Opaque" x="0" y="0" width="110" height="14" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Dependencia]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="33" rowSpan="1">
+						<jr:detailCell style="table 2" height="33" rowSpan="1">
 							<textField>
-								<reportElement uuid="354b6e19-2c7a-4953-b170-422177c2ee11" x="2" y="0" width="108" height="33"/>
+								<reportElement uuid="354b6e19-2c7a-4953-b170-422177c2ee11" mode="Opaque" x="2" y="0" width="108" height="33"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -182,18 +197,18 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="ebfff4fe-28bc-4765-bad0-d3e3c7b0d1b0" width="101">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="14" rowSpan="1">
 							<staticText>
-								<reportElement uuid="3a8e4c71-ba82-4983-a832-fed230aa8f34" style="table_TH" mode="Opaque" x="0" y="0" width="101" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="3a8e4c71-ba82-4983-a832-fed230aa8f34" mode="Opaque" x="0" y="0" width="101" height="14" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Ubicación]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="33" rowSpan="1">
+						<jr:detailCell style="table 2" height="33" rowSpan="1">
 							<textField>
-								<reportElement uuid="41cdc547-cf70-4030-9d18-6234b3c6ab04" x="2" y="0" width="99" height="33"/>
+								<reportElement uuid="41cdc547-cf70-4030-9d18-6234b3c6ab04" mode="Opaque" x="2" y="0" width="99" height="33"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -202,18 +217,18 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="187ab45d-9692-411c-9df7-85de68aaa1ac" width="49">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="14" rowSpan="1">
 							<staticText>
-								<reportElement uuid="53a088a7-ca71-4137-a480-0d5e900dc35f" style="table_TH" mode="Opaque" x="0" y="0" width="49" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="53a088a7-ca71-4137-a480-0d5e900dc35f" mode="Opaque" x="0" y="0" width="49" height="14" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Cedula]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="33" rowSpan="1">
+						<jr:detailCell style="table 2" height="33" rowSpan="1">
 							<textField>
-								<reportElement uuid="46a5a22b-7bc3-48ea-879e-d1891acec1b4" x="2" y="0" width="47" height="33"/>
+								<reportElement uuid="46a5a22b-7bc3-48ea-879e-d1891acec1b4" mode="Opaque" x="2" y="0" width="47" height="33"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -222,18 +237,18 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="c376b0ad-8bbd-46db-b66d-4d4dfa78352a" width="49">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="14" rowSpan="1">
 							<staticText>
-								<reportElement uuid="30597fe7-1340-41f9-89dd-ea5cb1f66a32" style="table_TH" mode="Opaque" x="0" y="0" width="49" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="30597fe7-1340-41f9-89dd-ea5cb1f66a32" mode="Opaque" x="0" y="0" width="49" height="14" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement textAlignment="Center">
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Fecha Traspaso]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="33" rowSpan="1">
+						<jr:detailCell style="table 2" height="33" rowSpan="1">
 							<textField>
-								<reportElement uuid="fe773efc-53bf-4d3a-a5b4-03c244466819" x="3" y="0" width="28" height="17"/>
+								<reportElement uuid="fe773efc-53bf-4d3a-a5b4-03c244466819" mode="Opaque" x="3" y="0" width="28" height="17"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -242,18 +257,18 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="acd7bcc1-9772-48cc-8694-7ed3c9b974d6" width="108">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="14" rowSpan="1">
 							<staticText>
-								<reportElement uuid="0a6b92b2-7cef-44d9-afa9-5677dbf8c055" style="table_TH" mode="Opaque" x="0" y="0" width="108" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="0a6b92b2-7cef-44d9-afa9-5677dbf8c055" mode="Opaque" x="0" y="0" width="108" height="14" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Observación]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="33" rowSpan="1">
+						<jr:detailCell style="table 2" height="33" rowSpan="1">
 							<textField>
-								<reportElement uuid="b3eab295-7389-4968-a979-d0674b5eef62" x="2" y="0" width="106" height="33"/>
+								<reportElement uuid="b3eab295-7389-4968-a979-d0674b5eef62" mode="Opaque" x="2" y="0" width="106" height="33"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -262,18 +277,18 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="057e9134-1eed-4b1a-b5c3-adb0e7d56226" width="118">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="14" rowSpan="1">
 							<staticText>
-								<reportElement uuid="e9c6f0c8-7dd1-4879-9ed8-5230a5cbaf75" style="table_TH" mode="Opaque" x="0" y="0" width="118" height="30" forecolor="#000000" backcolor="#F0F8FF"/>
+								<reportElement uuid="e9c6f0c8-7dd1-4879-9ed8-5230a5cbaf75" mode="Transparent" x="0" y="0" width="118" height="14" forecolor="#000000" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Custodio]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="33" rowSpan="1">
+						<jr:detailCell style="table 2" height="33" rowSpan="1">
 							<textField>
-								<reportElement uuid="63ecb195-8dbd-4fec-9e28-cdc8e0233e1a" x="2" y="0" width="116" height="33"/>
+								<reportElement uuid="63ecb195-8dbd-4fec-9e28-cdc8e0233e1a" mode="Opaque" x="2" y="0" width="116" height="33"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -379,14 +394,7 @@
 				<text><![CDATA[Sistema de Bienes Informáticos (SIBI)]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yy">
-				<reportElement uuid="3633d323-7969-4774-907f-9e00094e1bed" x="19" y="1" width="46" height="19"/>
-				<textElement verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
-			<textField pattern="h.mm a">
-				<reportElement uuid="3a5344a8-1dc9-4ef5-8293-9e8fe1384ff0" x="65" y="0" width="66" height="19"/>
+				<reportElement uuid="3633d323-7969-4774-907f-9e00094e1bed" x="19" y="1" width="74" height="19"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
@@ -398,6 +406,13 @@
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA["PagIna "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField pattern="h.mm a">
+				<reportElement uuid="3a5344a8-1dc9-4ef5-8293-9e8fe1384ff0" x="93" y="1" width="81" height="19"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>

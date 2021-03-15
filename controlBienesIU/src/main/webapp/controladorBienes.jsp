@@ -40,6 +40,8 @@
                        try{
                             if(request.getParameter("rol").equals("supervisor"))   
                                 servNombreCargo = sCargo.listaCargoNombre("Supervisor");
+                            if(request.getParameter("rol").equals("administrador"))   
+                                servNombreCargo = sCargo.listaCargoNombre("Coordinador");
                        }catch(Exception e){       
                             servNombreCargo = sCargo.listaCargoNombre("Operario");
                        }
@@ -48,6 +50,8 @@
                            try{
                                 if(request.getParameter("rol").equals("supervisor")) 
                                     objCargo.setCarDescripcion("Supervisor");
+                                if(request.getParameter("rol").equals("administrador")) 
+                                    objCargo.setCarDescripcion("Coordinador");
                            }catch(Exception e){ 
                                objCargo.setCarDescripcion("Operario");
                            }
@@ -83,6 +87,8 @@
                     try{
                          if(request.getParameter("rol").equals("supervisor")) 
                              objPersona.setPerRol("supervisor");
+                         if(request.getParameter("rol").equals("administrador")) 
+                             objPersona.setPerRol("administrador");
                     }catch(Exception e){ 
                         objPersona.setPerRol("operativo");
                     }
@@ -139,11 +145,19 @@
             objfuncion.setIntorden(0);
 
             String resultadorol = "";
+            if(request.getParameter("rol").equals("administrador"))
+            {
+                resultadorol = sSeguridad.listarRol(51);
+            }
             if(request.getParameter("rol").equals("supervisor"))
             {
                 resultadorol = sSeguridad.listarRol(52);
-            }else 
+            }
+            if(request.getParameter("rol").equals("operario"))
+            {
                 resultadorol = sSeguridad.listarRol(53);
+            }
+            
             JSONObject objJSONrespuesta3 = new JSONObject(resultadorol);
             JSONArray arrayJSONrespuesta3 = objJSONrespuesta3.getJSONArray("objLista");
             Rol objrol = new Rol();
@@ -165,8 +179,29 @@
 
             objfuncion.setUsuId(objusuario);
             String strresultado = new Gson().toJson(objfuncion, Funcion.class);
-            sSeguridad.ServicioInsertarRol(strresultado);
+            String retornoRol = sSeguridad.ServicioInsertarRol(strresultado);
+            String m = "prueba";
+            
+                if (!retornoRol.isEmpty()) {
+                    String cdfn1, cdfn2, cdrol1, cdrol2;
+                    //Obtener codigo de la funcion
+                    String[] parts = retornoRol.split("\"},\"intid\":");
+                    cdfn1 = parts[1];
+                    String[] parts1 = cdfn1.split(",");
+                    cdfn2 = parts1[0];
+                    
+                    //Obtener rol
+                    String[] parts2 = cdfn1.split(",\"intid\":5");
+                    cdrol1 = parts2[1];
+                    String[] parts3 = cdrol1.split(",");
+                    cdrol2 = parts3[0];
+//                    //union de los codigos de funcion y rol
+                    String idRolFuncion = cdfn2 + "_" + cdrol2;
+                    
+                    //REGISTRO DE ROLES INGRESADOS
 
+                    fnAuditoria(UsuLinea, idRolFuncion, tsk, strOpc);
+                }
 
             String listPersonaPermiso = sPermisoPersona.listaPermisoPersonaPorCodPersona(objpersona.getPerId());
             if(listPersonaPermiso.isEmpty() || listPersonaPermiso.equals("[]")){
@@ -1892,6 +1927,21 @@
                 objAuditoria.setAudMetodo("INSERT_"+ opc.toUpperCase());
                 objAuditoria.setAudDetalle("Registro de una nueva Baja");
             }
+            if(opc.equals("Administrador")){
+                objAuditoria.setAudMetodo("INSERT_"+ opc.toUpperCase());
+                
+                String[] parts = codEntidadAuditoria.split("_");
+                if(parts[1].equals("1")){
+                    objAuditoria.setAudDetalle("Registro de un nuevo Administrador");
+                }
+                if(parts[1].equals("2")){
+                    objAuditoria.setAudDetalle("Registro de un nuevo Supervisor");
+                }
+                if(parts[1].equals("3")){
+                    objAuditoria.setAudDetalle("Registro de un nuevo Operario");
+                }
+                codEntidadAuditoria = parts[1];
+            }
         }
         
         if(mayustsk.indexOf("EDIT") != -1)
@@ -1921,9 +1971,11 @@
         objAuditoria.setAudIp(codEntidadAuditoria);
         objAuditoria.setAudDatosmod("");
         objAuditoria.setAudMac("");
+        objAuditoria.setAudDate(fecha + "T00:00:00-05:00");
        try{
         String jsonArmado = new Gson().toJson(objAuditoria, Auditoria.class);
         String retornoJSON = sAuditoria.InsertarAuditoria(jsonArmado);
+        String d;
         }  catch (Exception e) {
 //             out.println ( "Ocurrió una excepción:" + e.getMessage ());   
         }

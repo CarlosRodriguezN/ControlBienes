@@ -6,6 +6,7 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -34,7 +37,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Auditoria.findByAudFecha", query = "SELECT a FROM Auditoria a WHERE a.audFecha = :audFecha")
     , @NamedQuery(name = "Auditoria.findByAudIp", query = "SELECT a FROM Auditoria a WHERE a.audIp = :audIp")
     , @NamedQuery(name = "Auditoria.findByAudMac", query = "SELECT a FROM Auditoria a WHERE a.audMac = :audMac")
-    , @NamedQuery(name = "Auditoria.findByAudDatosmod", query = "SELECT a FROM Auditoria a WHERE a.audDatosmod = :audDatosmod")})
+    , @NamedQuery(name = "Auditoria.findByAudDatosmod", query = "SELECT a FROM Auditoria a WHERE a.audDatosmod = :audDatosmod")
+    , @NamedQuery(name = "Auditoria.findByAudDate", query = "SELECT a FROM Auditoria a WHERE a.audDate = :audDate")})
 public class Auditoria implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -64,6 +68,9 @@ public class Auditoria implements Serializable {
     @Size(max = 300)
     @Column(name = "aud_datosmod")
     private String audDatosmod;
+    @Column(name = "aud_date")
+    @Temporal(TemporalType.DATE)
+    private Date audDate;
 
     public Auditoria() {
     }
@@ -136,6 +143,14 @@ public class Auditoria implements Serializable {
         this.audDatosmod = audDatosmod;
     }
 
+    public Date getAudDate() {
+        return audDate;
+    }
+
+    public void setAudDate(Date audDate) {
+        this.audDate = audDate;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

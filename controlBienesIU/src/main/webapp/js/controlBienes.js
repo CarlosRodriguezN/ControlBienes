@@ -2035,6 +2035,26 @@ function estNivelMantenimiento(idDato, estado) {
     });
 }
 
+function AdminAdministradores() {
+    document.getElementById('contenidoDinamico').innerHTML = "";
+    document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
+    VentanaPorte();
+    $.ajax({
+        url: "AdminListarRoles.jsp",
+        type: "GET",
+        data: {tsk: 'administrador'},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            $("#contenidoDinamico").html("");
+            $("#contenidoDinamico").html(datos);
+        }
+        ,
+        error: function (error) {
+            location.reload();
+        }
+    });
+}
+
 function AdminSupervisores() {
     document.getElementById('contenidoDinamico').innerHTML = "";
     document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
@@ -2088,19 +2108,27 @@ function AddAdministrador(rol) {
         //contentType: "application/json ; charset=UTF-8",
         success: function (datos) {
             //clicSuperAdminUsuario();
-            if(rol === 'supervisor')
-                AdminSupervisores(); 
-            else
-                AdminOperarios(); 
+            if(rol === 'administrador')
+                AdminAdministradores(); 
+            else{
+                if(rol === 'supervisor')
+                    AdminSupervisores(); 
+                else
+                    AdminOperarios();
+            }    
             TerminaLoad();
             alertAdd();
         },
         error: function (error) {
             //clicSuperAdminUsuario();
-            if(rol === 'supervisor')
-                AdminSupervisores(); 
-            else
-                AdminOperarios(); 
+            if(rol === 'administrador')
+                AdminAdministradores(); 
+            else{
+                if(rol === 'supervisor')
+                    AdminSupervisores(); 
+                else
+                    AdminOperarios();
+            }  
             TerminaLoad();
             alertError();
         }
@@ -2136,18 +2164,26 @@ function EditRol(idFuncion,rol) {
         data: {opc: "Administrador", tsk:'EditAdministrador', idRef: idFuncion, rol: rol, datos: datos},
         contentType: "application/json ; charset=UTF-8",
         success: function (datos) {
-            if(rol === 'supervisor')
-                AdminSupervisores(); 
-            else
-                AdminOperarios();
+            if(rol === 'administrador')
+                AdminAdministradores(); 
+            else{
+                if(rol === 'supervisor')
+                    AdminSupervisores(); 
+                else
+                    AdminOperarios();
+            } 
               alertEdit();
         }
         ,
         error: function (error) {
-            if(rol === 'supervisor')
-                AdminSupervisores(); 
-            else
-                AdminOperarios();
+            if(rol === 'administrador')
+                AdminAdministradores(); 
+            else{
+                if(rol === 'supervisor')
+                    AdminSupervisores(); 
+                else
+                    AdminOperarios();
+            } 
         }
     });
 }
@@ -2431,6 +2467,45 @@ function verTodosReportesInvGeneral(bnCodigo, bnNombre, bnModelo, bnSerie, bnMar
     });
 }
 
+function verTodosReportesInvAudiSistema(fechai, fechaf) {
+    document.getElementById('contenidoDinamico').innerHTML = "";
+    document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
+    VentanaPorte();
+    $.ajax({
+        url: "ReporteInventarioAudiSistemaCsv.jsp",
+        type: "GET",
+        data: {fechai: fechai, fechaf: fechaf},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            $("#contenidoDinamico").html("");
+            $("#contenidoDinamico").html(datos);
+        }
+        ,
+        error: function (error) {
+            location.reload();
+        }
+    });
+}
+
+function verTodosReportesInvAudiTraspaso(fechai, fechaf) {
+    document.getElementById('contenidoDinamico').innerHTML = "";
+    document.getElementById('contenidoDinamico').innerHTML = "<div class='loader'>Cargando...</div>";
+    VentanaPorte();
+    $.ajax({
+        url: "ReporteInventarioAudiTraspasoCsv.jsp",
+        type: "GET",
+        data: {fechai: fechai, fechaf: fechaf},
+        contentType: "application/json ; charset=UTF-8",
+        success: function (datos) {
+            $("#contenidoDinamico").html("");
+            $("#contenidoDinamico").html(datos);
+        }
+        ,
+        error: function (error) {
+            location.reload();
+        }
+    });
+}
 
 function bnTraspasoPersona(traCodigo, bnCodigo) {
     document.getElementById('contenidoDinamico').innerHTML = "";

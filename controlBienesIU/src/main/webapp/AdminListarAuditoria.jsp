@@ -92,17 +92,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <%for (Auditoria oPet : listAuditoria) {
-                                                if(!oPet.getAudMetodo().equals("UPDATE_TRASPASO"))
+                                            <%
+                                              for (int i=listAuditoria.size()-1; i>=0 ;i--) {
+
+                                                if(!listAuditoria.get(i).getAudMetodo().equals("UPDATE_TRASPASO"))
                                                 {
                                                     out.println("<tr>");
-                                                        String cadPersonaId = sPersona.listaPersonaId(Integer.parseInt(oPet.getUsuId()));
-                                                        JSONObject jsonPersona = new JSONObject(cadPersonaId);
-                                                        objPersona = new Gson().fromJson(jsonPersona.toString(), Persona.class);
+                                                    String cadPersonaId = sPersona.listaPersonaId(Integer.parseInt(listAuditoria.get(i).getUsuId()));
+                                                    JSONObject jsonPersona = new JSONObject(cadPersonaId);
+                                                    objPersona = new Gson().fromJson(jsonPersona.toString(), Persona.class);
                                                     out.println("<td>" + objPersona.getPerNombres()+ " " + objPersona.getPerApellido1() + " " + objPersona.getPerApellido2() + "</td>");
                                                     out.println("<td>" + objPersona.getCarId().getCarDescripcion() + "</td>");
-                                                    out.println("<td>" + oPet.getAudDetalle() + "</td>");
-                                                        String[] parts = oPet.getAudFecha().split(" ");
+                                                    out.println("<td>" + listAuditoria.get(i).getAudDetalle() + "</td>");
+                                                        String[] parts = listAuditoria.get(i).getAudFecha().split(" ");
                                                     out.println("<td>" + parts[0] + "</td>");
                                                     out.println("<td>" + parts[1] + "</td>");   
                                                     out.println("</tr>");
@@ -136,25 +138,26 @@
                                              </tr>
                                         </thead>
                                         <tbody>
-                                             <%for (Auditoria oPet : listAuditoria) {
-                                                 
-                                                 if(oPet.getAudMetodo().equals("UPDATE_TRASPASO"))
+                                             <%
+                                               for (int i=listAuditoria.size()-1; i>=0 ;i--) { 
+                                                 if(listAuditoria.get(i).getAudMetodo().equals("UPDATE_TRASPASO"))
                                                  {
+                                            
                                                     out.println("<tr>");
-                                                       String cadPersonaId = sPersona.listaPersonaId(Integer.parseInt(oPet.getUsuId()));
+                                                       String cadPersonaId = sPersona.listaPersonaId(Integer.parseInt(listAuditoria.get(i).getUsuId()));
                                                        JSONObject jsonPersona = new JSONObject(cadPersonaId);
                                                        objPersona = new Gson().fromJson(jsonPersona.toString(), Persona.class);
                                                     out.println("<td>" + objPersona.getPerNombres()+ " " + objPersona.getPerApellido1() + " " + objPersona.getPerApellido2() + "</td>");
                                                     out.println("<td>" + objPersona.getCarId().getCarDescripcion() + "</td>");
 
                                                     /*TRASPASO*/
-                                                       String cadTraspasoId = sTraspaso.listaTraspasoId(Integer.parseInt(oPet.getAudIp()));
+                                                       String cadTraspasoId = sTraspaso.listaTraspasoId(Integer.parseInt(listAuditoria.get(i).getAudIp()));
                                                        JSONObject jsonTraspaso = new JSONObject(cadTraspasoId);
                                                        objTraspaso = new Gson().fromJson(jsonTraspaso.toString(), Traspaso.class);
 
                                                     out.println("<td>" + objTraspaso.getBnCodBien().getBnCodBien() + "</td>");
                                                     out.println("<td>" + objTraspaso.getBnCodBien().getBnNombre() + "</td>");
-                                                       String[] parts = oPet.getAudFecha().split(" ");
+                                                       String[] parts = listAuditoria.get(i).getAudFecha().split(" ");
                                                     out.println("<td>" + parts[0] + "</td>");
                                                     out.println("<td>" + parts[1] + "</td>");
                                                     out.println("</tr>");

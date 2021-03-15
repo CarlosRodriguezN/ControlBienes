@@ -174,9 +174,11 @@ Total_horas_perdidas_aqui = 0-->
         objAuditoria.setAudIp("");
         objAuditoria.setAudDatosmod("");
         objAuditoria.setAudMac("");
+        objAuditoria.setAudDate(fecha  + "T00:00:00-05:00");
        try{
         String jsonArmado = new Gson().toJson(objAuditoria, Auditoria.class);
         String retornoJSON = sAuditoria.InsertarAuditoria(jsonArmado);
+        String d;
         }  catch (Exception e) {
 //             out.println ( "Ocurrió una excepción:" + e.getMessage ());   
         }

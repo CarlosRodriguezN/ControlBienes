@@ -30,6 +30,9 @@
         String UsuLinea = session.getAttribute("codigoPersona").toString();
         String fechai = request.getParameter("fechai");
         String fechaf = request.getParameter("fechaf");
+        
+        session.setAttribute("fechai", fechai);
+        session.setAttribute("fechaf", fechaf);
 
         ArrayList<Traspaso> listTraspaso = new ArrayList<Traspaso>();
         if (UsuLinea != null) {
@@ -144,27 +147,28 @@
             <div class="row">
                 <%if(listTraspaso.size() > 20){%>
                     <div align="center">
+                        <button  type='button' class='btn btn-danger' onclick="ReportesBien()">Cancelar</button>
                         <input class='btn btn-primary' type="button" class="exportar" value="Exportar CSV" id="exportar">
                     </div>
                 <%}%>
                 <div class="widget widget-table">
                     <div class="widget-header">
-                        <h3><i class="fa fa-table"></i> Taspaso de Inventarios.</h3> 
+                        <h3><i class="fa fa-table"></i> Traspaso de Bienes.</h3> 
                     </div>
                     <div class="widget-content">
                         <div class="table-responsive">
                             <table id="tablacsv" class="table table-sorting table-hover table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Codigo Bien</th>
+                                        <th>Código Bien</th>
                                         <th>Nombre</th>
                                         <th>Serie</th>
                                         <th>Ubicación</th>
                                         <th>Dependencia</th>
                                         <th>Custodio</th>
-                                        <th>Cedula</th>
+                                        <th>Cédula</th>
                                         <th>Fecha Inicio</th>
-                                        <th>Obsevacion</th>
+                                        <th>Observación</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -188,6 +192,7 @@
                     </div>
                 </div>
                 <div align="center">
+                    <button  type='button' class='btn btn-danger' onclick="ReportesBien()">Cancelar</button>
                     <input class='btn btn-primary' type="button" class="exportar" value="Exportar CSV" id="exportar">
                 </div>
             </div>

@@ -30,4 +30,5 @@ public interface AuditoriaFacadeLocal {
 
     int count();
     
+    List<Auditoria> findInvAuditoriaFecha(String fechai, String fechaf);
 }

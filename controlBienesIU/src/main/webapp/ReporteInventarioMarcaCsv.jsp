@@ -31,6 +31,9 @@
         String fechai = request.getParameter("fechai");
         String fechaf = request.getParameter("fechaf");
         String marca = request.getParameter("marca");
+        
+        session.setAttribute("fechai", fechai);
+        session.setAttribute("fechaf", fechaf);
 
         ArrayList<Traspaso> listTraspaso = new ArrayList<Traspaso>();
         if (UsuLinea != null) {
@@ -132,6 +135,7 @@
             <div class="row">
                 <%if(listTraspaso.size() > 20){%>
                     <div align="center">
+                        <button  type='button' class='btn btn-danger' onclick="ReportesBien()">Cancelar</button>
                         <input class='btn btn-primary' type="button" class="exportar" value="Exportar CSV" id="exportar">
                     </div>
                 <%}%>
@@ -144,7 +148,7 @@
                             <table id="tablacsv" class="table table-sorting table-hover table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Codigo Bien</th>
+                                        <th>Código Bien</th>
                                         <th>Nombre</th>
                                         <th>Serie</th>
                                         <th>Modelo</th>
@@ -153,7 +157,7 @@
                                         <th>Precio</th>
                                         <th>Estado</th>
                                         <th>Fecha Compra</th>
-                                        <th>Fecha Garantia</th>
+                                        <th>Fecha Garantía</th>
                                         <th>Proveedor</th>
                                     </tr>
                                 </thead>
@@ -180,6 +184,7 @@
                     </div>
                 </div>
                 <div align="center">
+                    <button  type='button' class='btn btn-danger' onclick="ReportesBien()">Cancelar</button>
                     <input class='btn btn-primary' type="button" class="exportar" value="Exportar CSV" id="exportar">
                 </div>
             </div>

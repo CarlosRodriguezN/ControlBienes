@@ -30,23 +30,21 @@
         String UsuLinea = session.getAttribute("codigoPersona").toString();
         String fechai = request.getParameter("fechai");
         String fechaf = request.getParameter("fechaf");
-        String ubicacion = request.getParameter("ubicacion");
-        String dependencia = request.getParameter("dependencia");
         
         session.setAttribute("fechai", fechai);
         session.setAttribute("fechaf", fechaf);
 
-        ArrayList<Traspaso> listTraspaso = new ArrayList<Traspaso>();
+        ArrayList<Auditoria> listAuditoria = new ArrayList<Auditoria>();
         if (UsuLinea != null) {
             if (session.getAttribute("ingreso").toString().equals("true")) {
-                String serTraspaso = sTraspaso.listaTaspasoUbicDepPorFecha(ubicacion, dependencia, fechai, fechaf);
-                String resultadoTraspaso = "{\"respuesta\":" + serTraspaso + "}";
-                JSONObject objTraspaso = new JSONObject(resultadoTraspaso);
-                JSONArray arrayTraspaso = objTraspaso.getJSONArray("respuesta");
-                for (int i = 0; i < arrayTraspaso.length(); i++) {
-                    JSONObject childJSONObject = arrayTraspaso.getJSONObject(i);
-                    Traspaso objMenus = new Gson().fromJson(childJSONObject.toString(), Traspaso.class);
-                    listTraspaso.add(objMenus);
+                String serAuditoria = sAuditoria.listaAuditoriaPorFecha(fechai, fechaf);
+                String resultadoAuditoria = "{\"respuesta\":" + serAuditoria + "}";
+                JSONObject objAuditoria = new JSONObject(resultadoAuditoria);
+                JSONArray arrayAuditoria = objAuditoria.getJSONArray("respuesta");
+                for (int i = 0; i < arrayAuditoria.length(); i++) {
+                    JSONObject childJSONObject = arrayAuditoria.getJSONObject(i);
+                    Auditoria objMenus = new Gson().fromJson(childJSONObject.toString(), Auditoria.class);
+                    listAuditoria.add(objMenus);
                 }
             } else {
                 System.out.println("primero -----------------");
@@ -122,19 +120,19 @@
                 }
                 arreglo.push(afilas)
             }
-            resp = exportToCsv("ReporteInventarioUbicacionDependencia.csv", arreglo)
+            resp = exportToCsv("ReporteInventarioAudiSistema.csv", arreglo)
         }
 //Asignamos una manejador del evento click al botón html:
         document.getElementById('exportar').addEventListener('click', exportarACSV, false);
     </script>
     <div class="main-header">
-        <h2>Bienes</h2>
-        <em>Bienes registrados en el sistema.</em>
+        <h2>Auditorias</h2>
+        <em> Auditorias registrados en el sistema.</em>
     </div>
     <div class="main-content">
         <div class="tab-content">
             <div class="row">
-                <%if(listTraspaso.size() > 20){%>
+                <%if(listAuditoria.size() > 20){%>
                     <div align="center">
                         <button  type='button' class='btn btn-danger' onclick="ReportesBien()">Cancelar</button>
                         <input class='btn btn-primary' type="button" class="exportar" value="Exportar CSV" id="exportar">
@@ -142,43 +140,41 @@
                 <%}%>
                 <div class="widget widget-table">
                     <div class="widget-header">
-                        <h3><i class="fa fa-table"></i> Ubicación y Dependencia de Bienes.</h3> 
+                        <h3><i class="fa fa-table"></i> Auditorias del Sistemas.</h3> 
                     </div>
                     <div class="widget-content">
                         <div class="table-responsive">
                             <table id="tablacsv" class="table table-sorting table-hover table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Código Bien</th>
-                                        <th>Nombre</th>
-                                        <th>Serie</th>
-                                        <th>Modelo</th>
-                                        <th>Marca</th>
-                                        <th>Color</th>
-                                        <th>Precio</th>
-                                        <th>Estado</th>
-                                        <th>Fecha Compra</th>
-                                        <th>Fecha Garantía</th>
-                                        <th>Proveedor</th>
+                                        <th>Código Auditoria</th>
+                                        <th>Detalle</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Responsable</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%for (Traspaso oPet : listTraspaso) {
+                                    <%for (Auditoria oPet : listAuditoria) {
+//                                        if(!oPet.getAudMetodo().equals("UPDATE_TRASPASO"))
+//                                        {
                                             out.println("<tr>");
-                                            out.println("<td>" + oPet.getBnCodBien().getBnCodBien()+ "</td>");
-                                            out.println("<td>" + oPet.getBnCodBien().getBnNombre() + "</td>");
-                                            out.println("<td>" + oPet.getBnCodBien().getBnSerie() + "</td>");
-                                            out.println("<td>" + oPet.getBnCodBien().getBnModelo() + "</td>");
-                                            out.println("<td>" + oPet.getBnCodBien().getBnMarca() + "</td>");
-                                            out.println("<td>" + oPet.getBnCodBien().getBnColor() + "</td>");
-                                            out.println("<td>" + oPet.getBnCodBien().getBnPrecio() + "</td>");
-                                            out.println("<td>" + oPet.getBnCodBien().getBnEstadoBien() + "</td>");
-                                            out.println("<td>" + oPet.getBnCodBien().getBnFechaCompra() + "</td>");
-                                            out.println("<td>" + oPet.getBnCodBien().getBnFechaGarantia() + "</td>");
-                                            out.println("<td>" + oPet.getBnCodBien().getBnProveedor() + "</td>");
+                                            out.println("<td>" + oPet.getAudId()+ "</td>");
+                                            out.println("<td>" + oPet.getAudDetalle() + "</td>");
+                                                String[] parts = oPet.getAudFecha().split(" ");
+                                            
+                                            out.println("<td>" + parts[0] + "</td>");
+                                            out.println("<td>" + parts[1] + "</td>");
+                                            
+                                                
+                                                Persona objPersona = new Persona();
+                                                JSONObject reqPersona = new JSONObject(sPersona.listaPersonaId(Integer.parseInt(oPet.getUsuId())));
+                                                objPersona = new Gson().fromJson(reqPersona.toString(), Persona.class);
+                            
+                                            out.println("<td>" + objPersona.getPerNombres() + " " + objPersona.getPerApellido1() + " " + objPersona.getPerApellido2() + "</td>");
                                             out.println("</tr>");
-                                        }%>
-                                    <!--</tr>-->
+//                                        }    
+                                    }%>
                                 </tbody>
                             </table>
                         </div>

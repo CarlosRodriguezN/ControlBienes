@@ -27,6 +27,11 @@ Total_horas_perdidas_aqui = 0-->
                     <i id="ico1" class="toggle-icon fa fa-angle-left"></i></a>
                 <ul id="submenu0" class="sub-menu ">
                     <li style='cursor: pointer'>
+                        <a onclick="AdminAdministradores();">
+                            <i class="fa fa-filter"></i><span class="text">Administradores</span>
+                        </a>
+                    </li>
+                    <li style='cursor: pointer'>
                         <a onclick="AdminSupervisores();">
                             <i class="fa fa-filter"></i><span class="text">Supervisores</span>
                         </a>
@@ -37,6 +42,12 @@ Total_horas_perdidas_aqui = 0-->
                         </a>
                     </li>
                 </ul>
+            </li>
+            
+            <li style='cursor: pointer' title="Auditoria">
+                <a onclick="verAuditoria()" >
+                    <i class="fa fa-handshake-o"></i><span class="text">Auditoria</span>
+                </a>
             </li>
             
             <li id="menu1"><a href="#" class="js-sub-menu-toggle"><i class="fa fa-file-text-o"></i><span class="text">CSV</span>
@@ -140,11 +151,6 @@ Total_horas_perdidas_aqui = 0-->
                 </a>
             </li>
             
-            <li style='cursor: pointer' title="Auditoria">
-                <a onclick="verAuditoria()" >
-                    <i class="fa fa-handshake-o"></i><span class="text">Auditoria</span>
-                </a>
-            </li>
        <!------------ Fase 2 Cecilio ------------>
        
             <li id="menu3"><a href="#" class="js-sub-menu-toggle"><i class="fa fa-file-text-o"></i><span class="text">MANTENIMIENTO</span>

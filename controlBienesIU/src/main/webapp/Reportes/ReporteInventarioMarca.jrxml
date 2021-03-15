@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="db353e1e-6225-4646-835f-64d7c12d51c4">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="21"/>
-	<property name="ireport.y" value="90"/>
+	<property name="ireport.y" value="91"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -21,6 +21,21 @@
 	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="table 3" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="table 4" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="1.0" lineColor="#999999"/>
 		</box>
 	</style>
 	<subDataset name="DatasetMarca" uuid="69ad3a89-6787-4d79-8921-0f09a147a80f">
@@ -78,7 +93,7 @@
 			</staticText>
 			<staticText>
 				<reportElement uuid="eb9d60a6-761d-491b-af01-100919798a6b" x="350" y="54" width="118" height="20"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[BIENES POR MARCA]]></text>
 			</staticText>
 			<staticText>
@@ -106,7 +121,7 @@
 	<detail>
 		<band height="83" splitType="Stretch">
 			<componentElement>
-				<reportElement uuid="edef883b-5fdd-4457-a3b4-f74a8992f7a2" key="table" style="table" x="13" y="0" width="768" height="80"/>
+				<reportElement uuid="edef883b-5fdd-4457-a3b4-f74a8992f7a2" key="table" style="table 4" x="13" y="0" width="768" height="80"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="DatasetMarca" uuid="f07e1acd-76b7-4707-b4ba-40e815ba8813">
 						<datasetParameter name="marcad">
@@ -121,18 +136,18 @@
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
 					<jr:column uuid="dd2d6c2a-e33f-4004-ac4f-020c7c9ac142" width="49">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="4c57033f-dc93-4233-96c2-10682ef5e8ec" style="table_TH" mode="Opaque" x="0" y="0" width="49" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="4c57033f-dc93-4233-96c2-10682ef5e8ec" mode="Opaque" x="0" y="0" width="49" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Código]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 2" height="20" rowSpan="1">
 							<textField>
-								<reportElement uuid="b6539c92-2517-4ac8-a087-f9a7e1b56caf" x="2" y="0" width="47" height="20"/>
+								<reportElement uuid="b6539c92-2517-4ac8-a087-f9a7e1b56caf" mode="Opaque" x="2" y="0" width="47" height="20"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -141,18 +156,18 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="3f7fc2a8-22cf-4a15-a5be-c0d1a734d178" width="203">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="da86fa0e-0e00-4a99-8947-f8b7324fa5f7" style="table_TH" mode="Opaque" x="0" y="0" width="203" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="da86fa0e-0e00-4a99-8947-f8b7324fa5f7" mode="Opaque" x="0" y="0" width="203" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font size="10" isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Nombre]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 2" height="20" rowSpan="1">
 							<textField>
-								<reportElement uuid="f1de887f-264f-4672-8a99-6e7cd28d1dbb" x="3" y="0" width="200" height="20"/>
+								<reportElement uuid="f1de887f-264f-4672-8a99-6e7cd28d1dbb" mode="Opaque" x="3" y="0" width="200" height="20"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -161,18 +176,18 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="13be7e7d-73e9-4411-9b28-37a4a078024a" width="64">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="b7729ed9-c1e5-42c1-bd9b-7aaefe58a804" style="table_TH" mode="Opaque" x="0" y="0" width="64" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="b7729ed9-c1e5-42c1-bd9b-7aaefe58a804" mode="Opaque" x="0" y="0" width="64" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Serie]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 2" height="20" rowSpan="1">
 							<textField>
-								<reportElement uuid="f2c0774e-67c4-4bab-a6ca-c726cf944443" x="2" y="0" width="62" height="20"/>
+								<reportElement uuid="f2c0774e-67c4-4bab-a6ca-c726cf944443" mode="Opaque" x="2" y="0" width="62" height="20"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -181,18 +196,18 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="537434e5-bd31-47cf-989e-995359778c5b" width="75">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="7bc31648-197a-499b-ad1b-c94ffb7cd45d" style="table_TH" mode="Opaque" x="0" y="0" width="75" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="7bc31648-197a-499b-ad1b-c94ffb7cd45d" mode="Opaque" x="0" y="0" width="75" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Modelo]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 2" height="20" rowSpan="1">
 							<textField>
-								<reportElement uuid="7ed315df-5a1b-4f96-b8ac-27f221c2489b" x="2" y="0" width="73" height="20"/>
+								<reportElement uuid="7ed315df-5a1b-4f96-b8ac-27f221c2489b" mode="Opaque" x="2" y="0" width="73" height="20"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -201,18 +216,18 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="fdaab8cd-4538-4060-a6bb-29e1920369a5" width="49">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="6daa5932-3fa9-402d-b209-171e6056ec77" style="table_TH" mode="Opaque" x="0" y="0" width="49" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="6daa5932-3fa9-402d-b209-171e6056ec77" mode="Opaque" x="0" y="0" width="49" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Estado]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 2" height="20" rowSpan="1">
 							<textField>
-								<reportElement uuid="fee4c88e-5a93-4917-9a65-d100f4675981" x="2" y="0" width="47" height="20"/>
+								<reportElement uuid="fee4c88e-5a93-4917-9a65-d100f4675981" mode="Opaque" x="2" y="0" width="47" height="20"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -221,18 +236,18 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="0114a1b1-d843-4b76-9aac-ce732dd682db" width="142">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="aefea45c-9076-43d7-b05e-08845540bbbb" style="table_TH" mode="Opaque" x="0" y="0" width="142" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="aefea45c-9076-43d7-b05e-08845540bbbb" mode="Opaque" x="0" y="0" width="142" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Dependencia]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 2" height="20" rowSpan="1">
 							<textField>
-								<reportElement uuid="67aa1ba5-8191-4113-a10f-36bbd30de81b" x="4" y="0" width="138" height="20"/>
+								<reportElement uuid="67aa1ba5-8191-4113-a10f-36bbd30de81b" mode="Opaque" x="4" y="0" width="138" height="20"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -241,18 +256,18 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column uuid="984e6a78-48fc-401b-af39-203af3c929c7" width="182">
-						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+						<jr:columnHeader style="table 3" height="16" rowSpan="1">
 							<staticText>
-								<reportElement uuid="75bf606d-c4f9-4682-8bc0-d79029e4869d" style="table_TH" mode="Opaque" x="0" y="0" width="182" height="30" backcolor="#F0F8FF"/>
+								<reportElement uuid="75bf606d-c4f9-4682-8bc0-d79029e4869d" mode="Opaque" x="0" y="0" width="182" height="16" backcolor="#F0F8FF"/>
 								<textElement>
-									<font isBold="true"/>
+									<font size="8" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ Ubicación]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+						<jr:detailCell style="table 2" height="20" rowSpan="1">
 							<textField>
-								<reportElement uuid="361b4495-15f4-421c-a90b-4ae5a4758184" x="2" y="0" width="180" height="20"/>
+								<reportElement uuid="361b4495-15f4-421c-a90b-4ae5a4758184" mode="Opaque" x="2" y="0" width="180" height="20"/>
 								<textElement>
 									<font size="7"/>
 								</textElement>
@@ -351,14 +366,14 @@
 				<text><![CDATA[Sistema de Bienes Informáticos (SIBI)]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement uuid="7ce5fdca-09bd-4a62-9c8d-7361dd05ba0e" x="13" y="4" width="48" height="20"/>
+				<reportElement uuid="7ce5fdca-09bd-4a62-9c8d-7361dd05ba0e" x="13" y="4" width="75" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField pattern="h.mm a">
-				<reportElement uuid="46fcf7cb-b745-470d-a4e7-88272c11e2a7" x="61" y="4" width="43" height="20"/>
+				<reportElement uuid="46fcf7cb-b745-470d-a4e7-88272c11e2a7" x="88" y="4" width="99" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>

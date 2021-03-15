@@ -1,4 +1,4 @@
-<%@page import="java.text.SimpleDateFormat"%>
+    <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.util.Base64"%>
@@ -152,6 +152,7 @@
             <div class="row">
                 <%if(listTraspaso.size() > 20){%>
                     <div align="center">
+                        <button  type='button' class='btn btn-danger' onclick="ReportesBien()">Cancelar</button>
                         <input class='btn btn-primary' type="button" class="exportar" value="Exportar CSV" id="exportar">
                     </div>
                 <%}%>
@@ -197,7 +198,7 @@
                                         <%}if(bnNombreCatalogo!= null){%>
                                         <th>Catalodo</th>
                                         <%}if(prCedula!= null){%>
-                                        <th>Cedula</th>
+                                        <th>Cédula</th>
                                         <%}if(prNombre!= null){%>
                                         <th>Custodio</th>
                                         <%}if(prFechaTraspaso!= null){%>
@@ -205,7 +206,7 @@
                                         <%}if(prEmail!= null){%>
                                         <th>Email</th>
                                         <%}if(prTelefono!= null){%>
-                                        <th>Telefono</th>
+                                        <th>Teléfono</th>
                                         <%}if(prCargo!= null){%>
                                         <th>Cargo</th>
                                         <%}%>
@@ -261,13 +262,13 @@
                                             
                                             out.println("</tr>");
                                         }%>
-                                    <!--</tr>-->
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
                 <div align="center">
+                    <button  type='button' class='btn btn-danger' onclick="ReportesBien()">Cancelar</button>
                     <input class='btn btn-primary' type="button" class="exportar" value="Exportar CSV" id="exportar">
                 </div>
             </div>

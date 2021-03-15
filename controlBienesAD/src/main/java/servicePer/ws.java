@@ -87,6 +87,9 @@ public class ws {
     @EJB
     private CargoFacadeLocal listaCargosActivos;
 
+    @EJB
+    private AuditoriaFacadeLocal auditoria;
+    
     @GET
     @Path("personadadocedula/{cedula}")
     @Produces({"application/json; charset=utf-8"})
@@ -722,6 +725,23 @@ public class ws {
             return objBien;
         }
     } 
+    
+    @GET
+    @Path("invBienAuditoriafecha/{fechai}/{fechaf}")
+    @Produces({"application/json; charset=utf-8"})
+    @Consumes({"application/json; charset=utf-8"})
+    public List<Auditoria> listarInvAuditoriaFecha(@PathParam("fechai") String fechai, @PathParam("fechaf") String fechaf) {
+        List<Auditoria> objAuditoria = new ArrayList<Auditoria>();
+
+        try {
+            objAuditoria = auditoria.findInvAuditoriaFecha(fechai, fechaf);
+            return objAuditoria;
+        } catch (Exception e) {
+            e.getLocalizedMessage();
+            objAuditoria = null;
+            return objAuditoria;
+        }
+    }
     //consultar transpasos por una codigo del bien y codigo de persona
 //    @GET
 //    @Path("wstraspaso/{codBien}/{codPer}")
